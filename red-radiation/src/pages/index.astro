@@ -1,0 +1,253 @@
+---
+// index.astro - SGA Tech-Concierge Dashboard (LIVE EDITION)
+import '../styles/global.css';
+---
+
+<html lang="en">
+<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>SGA Audit | Hardware Intelligence</title>
+</head>
+<body class="text-slate-100 font-sans min-h-screen p-4 md:p-12">
+
+<div class="fixed inset-0 -z-10 overflow-hidden bg-[#020617]">
+	<div class="absolute -top-[10%] -left-[10%] w-[70%] h-[70%] bg-orange-500/20 blur-[120px] rounded-full animate-mesh"></div>
+	<div class="absolute -bottom-[10%] -right-[10%] w-[60%] h-[60%] bg-blue-500/20 blur-[120px] rounded-full animate-mesh" style="animation-delay: -5s;"></div>
+</div>
+
+<aside class="fixed left-6 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col gap-4 bg-slate-900/80 backdrop-blur-md border border-slate-800 p-3 rounded-2xl shadow-2xl shadow-orange-500/5">
+
+	<a href="#os-service" class="group relative flex items-center justify-center w-12 h-12 rounded-xl bg-slate-800 hover:bg-orange-500 text-slate-400 hover:text-black transition-all duration-300">
+		<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+		</svg>
+		<span class="absolute left-16 scale-0 group-hover:scale-100 transition-all origin-left bg-orange-500 text-black text-[10px] font-black px-2 py-1 rounded uppercase tracking-tighter">OS_Optimization</span>
+	</a>
+
+	<a href="#gpu-service" class="group relative flex items-center justify-center w-12 h-12 rounded-xl bg-slate-800 hover:bg-orange-500 text-slate-400 hover:text-black transition-all duration-300">
+		<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+		</svg>
+		<span class="absolute left-16 scale-0 group-hover:scale-100 transition-all origin-left bg-orange-500 text-black text-[10px] font-black px-2 py-1 rounded uppercase tracking-tighter">GPU_Overclock</span>
+	</a>
+
+	<a href="#net-service" class="group relative flex items-center justify-center w-12 h-12 rounded-xl bg-slate-800 hover:bg-orange-500 text-slate-400 hover:text-black transition-all duration-300">
+		<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071a9.05 9.05 0 0112.142 0M2.474 9.01a14.121 14.121 0 0119.052 0" />
+		</svg>
+		<span class="absolute left-16 scale-0 group-hover:scale-100 transition-all origin-left bg-orange-500 text-black text-[10px] font-black px-2 py-1 rounded uppercase tracking-tighter">Net_Latency</span>
+	</a>
+
+	<div class="h-px bg-slate-800 mx-2 my-1"></div>
+
+	<div class="flex justify-center">
+		<div class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse"></div>
+	</div>
+</aside>
+
+<div class="max-w-4xl mx-auto">
+	<header class="flex flex-col md:flex-row justify-between items-center mb-12 border-b border-slate-800 pb-8">
+		<div>
+			<h1 style="font-family: 'Cairo', sans-serif;" class="text-2xl tracking-tighter text-white font-black">
+				SUPERIOR <span class="text-white-500 font-normal">GAMING</span> AGENCY
+			</h1>
+			<p class="text-slate-500 text-sm font-mono uppercase tracking-widest">v1.0.4 | Budapest, Hungary</p>
+		</div>
+
+		<nav class="flex gap-1 bg-slate-900/50 p-1 rounded-lg border border-slate-800 mt-6 md:mt-0">
+			<a href="#dashboard" class="px-4 py-2 text-xs font-bold text-white bg-slate-800 rounded-md hover:bg-orange-500 hover:text-black transition-all duration-200">
+				DASHBOARD
+			</a>
+			<a href="#audit" class="px-4 py-2 text-xs font-bold text-slate-400 hover:text-white rounded-md transition-colors">
+				FULL AUDIT
+			</a>
+			<a href="#settings" class="px-4 py-2 text-xs font-bold text-slate-400 hover:text-white rounded-md transition-colors">
+				SETTINGS
+			</a>
+		</nav>
+	</header>
+
+	<div id="dashboard" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4 animate-in fade-in slide-in-from-bottom-4 duration-700">
+		<div class="md:col-span-2 mb-2">
+			<p class="text-[10px] font-black uppercase tracking-[0.4em]">
+				Your <span class="text-orange-500">RIG</span> Specifications:
+			</p>
+		</div>
+		<div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl relative overflow-hidden">
+			<div class="flex justify-between items-start">
+				<span class="text-orange-500 text-xs font-bold tracking-widest uppercase">OS</span>
+			</div>
+			<h2 id="os-description" class="text-xl font-bold mt-1 text-white">Scanning...</h2>
+			<p id="activation-status" class="text-[10px] font-mono mt-2 text-slate-500 capitalize tracking-tighter text-left">Activation Status:</p>
+			<p id="activation-expiry" class="text-[10px] font-mono mt-2 text-slate-500 capitalizecdcd tracking-tighter text-left">Activation Expiry:</p>
+		</div>
+		<div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl relative overflow-hidden">
+			<div class="flex justify-between items-start">
+				<span class="text-orange-500 text-xs font-bold tracking-widest uppercase">Processor</span>
+				<span id="live-indicator" class="hidden flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+             </span>
+			</div>
+			<h2 id="cpu-model" class="text-xl font-bold mt-1 text-white">Scanning...</h2>
+			<div class="mt-4 bg-slate-800 h-2 rounded-full overflow-hidden">
+				<div id="cpu-bar" class="bg-orange-500 h-full w-0 transition-all duration-500 ease-out"></div>
+			</div>
+			<p id="cpu-load-text" class="text-[10px] font-mono mt-2 text-slate-500 text-left uppercase tracking-tighter">Load: 0%</p>
+			<p id="cpu-temp-text" class="text-[10px] font-mono mt-2 text-slate-500 text-left uppercase tracking-tighter">Temp: 0</p>
+
+		</div>
+		<div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+			<span class="text-orange-500 text-xs font-bold tracking-widest uppercase">Integrated Graphics Unit</span>
+			<h2 id="integrated-gpu-model" class="text-xl font-bold mt-1 text-white">Scanning...</h2>
+			<p id="integrated-gpu-is-dedicated" class="text-xs text-slate-500 mt-2 italic font-mono"></p>
+			<p id="integrated-gpu-stats" class="text-xs text-slate-400 mt-2 font-mono italic">Initializing...</p>
+
+		</div>
+
+		<div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl relative overflow-hidden">
+			<div class="flex justify-between items-end mb-4">
+				<div>
+					<p class="text-orange-500 text-[10px] font-black uppercase tracking-[0.3em] mb-1">Memory</p>
+					<h2 class="text-2xl font-bold text-white tracking-tight">
+						<span id="ram-usage-text">0</span>%
+					</h2>
+				</div>
+			</div>
+
+			<div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
+				<div
+					id="ram-progress-bar"
+					class="h-full bg-orange-500 transition-all duration-700 ease-out"
+					style="width: 0%"
+				></div>
+			</div>
+			<p class="text-[10px] text-slate-500 mt-3 font-mono uppercase tracking-tighter" id="ram-total-text"> -- GB Total </p>
+			<p id="ram-status-msg" class="text-[10px] text-slate-500 mt-3 font-mono uppercase tracking-tighter">
+				Analyzing memory pressure...
+			</p>
+		</div>
+		<div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+			<span class="text-orange-500 text-xs font-bold tracking-widest uppercase">Dedicated Graphics Unit</span>
+			<h2 id="dedicated-gpu-model" class="text-xl font-bold mt-1 text-white">Scanning...</h2>
+			<p id="dedicated-gpu-stats" class="text-xs text-slate-400 mt-2 font-mono italic">Initializing...</p>
+		</div>
+
+		<div class="bg-orange-500/10 border border-orange-500/30 p-6 rounded-2xl md:col-span-2">
+			<span class="text-orange-400 text-xs font-bold tracking-widest uppercase">SGA Pro Analysis</span>
+			<p id="pro-advice" class="text-lg text-orange-100 mt-2 font-medium italic">Connect to backend to see optimization tips.</p>
+		</div>
+		<div class="md:col-span-2 flex justify-between items-center px-2 mt-4 border-t border-slate-800 pt-4">
+			<div class="flex items-center gap-2">
+				<div class="h-1.5 w-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.6)]"></div>
+				<p class="text-[10px] font-mono text-slate-500 uppercase tracking-widest">SGA Verified Data Stream</p>
+			</div>
+			<p id="last-updated" class="text-[10px] font-mono text-slate-500 italic">SYNCING...</p>
+		</div>
+
+	</div>
+</div>
+
+<script>
+	let sga_audit_data = null
+	const dashboard = document.getElementById('dashboard');
+	const liveIndicator = document.getElementById('live-indicator');
+	let livePulse = null;
+
+	// --- FUNCTION 1: INITIAL DATA (MODELS & NAMES) ---
+	async function initSGA() {
+		console.log("SGA Engine Initializing...");
+		try {
+			// Immediately show the dashboard frame so it doesn't "pop" in later
+			dashboard.classList.remove('hidden');
+
+			const res = await fetch('http://127.0.0.1:5050/scan');
+			const data = await res.json();
+			sga_audit_data = data;
+			console.log(data)
+
+			data.gpus.forEach(gp => {
+				if (!gp.is_dedicated) {
+					console.log('not-dedicated');
+					document.getElementById('integrated-gpu-model').innerText = gp.model;
+				} else {
+					console.log('dedicated');
+					document.getElementById('dedicated-gpu-model').innerText = gp.model;
+				}
+			});
+			document.getElementById('os-description').innerText = `${data.os.name} ${data.os.release} | Version: ${data.os.version} ${data.os.edition} Edition.`;
+			document.getElementById('activation-expiry').innerText = `Activation Expiry: ${data.os.activation.expiry_date}`;
+			document.getElementById('activation-status').innerText = `Activation Status: ${data.os.activation.status_text}`
+			document.getElementById('cpu-model').innerText = data.cpu.model;
+			document.getElementById('ram-total-text').innerText = `${data.ram.total_gb} GB TOTAL`;
+			document.getElementById('ram-status-msg').innerText = `${data.ram.usage_pct} %`;
+			document.getElementById('pro-advice').innerText = `"${data.pro_analysis.gpu_optimization}"`;
+			liveIndicator.classList.remove('hidden');
+		} catch (err) {
+			console.error(err);
+			console.error("Initial Audit failed. Is Python running?");
+			document.getElementById('pro-advice').innerText = "SGA Backend Offline. Please start the local service.";
+		}
+	}
+
+	// --- FUNCTION 2: CONTINUOUS PULSE ---
+	function startLiveUpdates() {
+		// Run once immediately so it's not empty for the first 2 seconds
+		updateMetrics();
+
+		livePulse = setInterval(updateMetrics, 2000);
+	}
+
+	async function updateMetrics() {
+		try {
+			const res = await fetch('http://127.0.0.1:5050/live-stats');
+			const live = await res.json();
+			const gpu_stats = live.gpu_metrics
+			console.log(live)
+			document.getElementById('cpu-bar').style.width = `${live.cpu_load}%`;
+			document.getElementById('cpu-load-text').innerText = `LOAD: ${live.cpu_load}%`;
+			document.getElementById('ram-usage-text').innerText = `${live.ram_pct}`;
+			document.getElementById('ram-progress-bar').style.width = `${live.ram_pct}%`
+			document.getElementById('ram-status-msg').innerText = live.ram_status
+			document.getElementById('cpu-temp-text').innerText = `Temperature: ${live.cpu_temp}`
+
+			// NEW: Update the Timestamp
+			const now = new Date();
+			const timeString = now.toLocaleTimeString('hu-HU', { hour12: false }); // Budapest style 24h
+			document.getElementById('last-updated').innerText = `LAST SYNC: ${timeString}`;
+
+		} catch (e) {
+			document.getElementById('last-updated').innerText = "CONNECTION LOST";
+			document.getElementById('last-updated').classList.add('text-red-500');
+		}
+	}
+	initSGA();
+	startLiveUpdates();
+</script>
+<style is:global>
+	@keyframes move-mesh {
+		0% {
+			transform: translate(0, 0) scale(1) translateZ(0);
+		}
+		50% {
+			/* Increased movement from 15%/10% to 25%/20% for more visible travel */
+			transform: translate(25%, 20%) scale(1.2) translateZ(0);
+		}
+		100% {
+			transform: translate(0, 0) scale(1) translateZ(0);
+		}
+	}
+
+	.animate-mesh {
+		/* Reduced from 25s to 8s for a much more noticeable drift */
+		animation: move-mesh 8s infinite alternate ease-in-out !important;
+		will-change: transform;
+		backface-visibility: hidden;
+	}
+</style>
+</body>
+</html>
