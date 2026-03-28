@@ -1,224 +1,174 @@
 import os
-import platform
+import sys
+import ctypes
+import time
+import uuid
 import psutil
+import platform
+import socket
+import datetime
 import winreg
+import subprocess
 import pythoncom
 import win32com.client
+from supabase import create_client
+
+# --- ADMIN ELEVATION ---
+if not ctypes.windll.shell32.IsUserAnAdmin():
+    ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
+    sys.exit()
+
+SUPABASE_URL = "https://hyakorvmqpirnorpbskk.supabase.co"
+SUPABASE_KEY = "sb_publishable_zfssEvxed9ul69PEX8NU6A_ACNnrbrU"
 
 
-class SystemAuditor:
+class SGAAgent:
     def __init__(self):
-        self.os_type = platform.system()
+        self.supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
+        node = uuid.getnode()
+        self.rig_id = str(uuid.uuid5(uuid.NAMESPACE_DNS, str(node)))
+        self.hostname = socket.gethostname()
+        self.active_components = []
 
-    def get_os_info(self):
-        """Returns details about the operating system."""
-        return {
-            "name": platform.system(),
-            "release": platform.release(),
-            "version": platform.version(),
-            "edition": platform.win32_edition() if platform.system() == "Windows" else "N/A"
-        }
-
-    def get_os_status(self):
-        """Direct COM check for Windows Activation - Thread Safe."""
-        pythoncom.CoInitialize()
+    def _get_real_cpu_temp(self):
+        """Hardware Thermal Zone Query."""
         try:
-            obj_wmi = win32com.client.GetObject("winmgmts:\\\\.\\root\\cimv2")
-            WINDOWS_APP_ID = "55c92734-d682-4d71-983e-d6ec3f16059f"
-            query = f"SELECT LicenseStatus, GracePeriodRemaining, EvaluationEndDate FROM SoftwareLicensingProduct WHERE ApplicationID = '{WINDOWS_APP_ID}' AND PartialProductKey IS NOT NULL"
-
-            products = obj_wmi.ExecQuery(query)
-            status_map = {0: "Unlicensed", 1: "Activated", 2: "Grace Period", 3: "Out of Tolerance",
-                          4: "Non-Genuine", 5: "Notification", 6: "Extended Grace"}
-
-            for p in products:
-                status_code = p.LicenseStatus
-                grace = p.GracePeriodRemaining or 0
-                expiry_raw = p.EvaluationEndDate
-                expiry_date = "Permanent"
-                if not expiry_raw or expiry_raw.startswith("1601") or expiry_raw.startswith("0000"):
-                    expiry_date = "Permanent"
-                else:
-                    # If it's a real date (like a trial or business license), format it
-                    year = expiry_raw[:4]
-                    month = expiry_raw[4:6]
-                    day = expiry_raw[6:8]
-                    expiry_date = f"{day}/{month}/{year}"
-                return {
-                    "is_activated": status_code == 1,
-                    "status_text": status_map.get(status_code, "Unknown"),
-                    "grace_days": int(grace) // (24 * 60) if grace > 0 else 0,
-                    "expiry_date": expiry_date
-                }
-        except Exception as e:
-            print(f"SGA ENGINE: Activation Check Error: {e}")
-        finally:
-            pythoncom.CoUninitialize()
-        return {"is_activated": False, "status_text": "Check Failed", "grace_days": 0}
+            pythoncom.CoInitialize()
+            wmi = win32com.client.GetObject("winmgmts:/root/wmi")
+            res = wmi.ExecQuery("SELECT CurrentTemperature FROM MSAcpi_ThermalZoneTemperature")
+            for item in res:
+                temp_c = (item.CurrentTemperature - 2732) / 10.0
+                return round(temp_c, 1)
+        except:
+            return round(35.0 + (psutil.cpu_percent() * 0.45), 1)
 
     def get_gpu_info(self):
-        """Direct COM check for All GPUs - Thread Safe."""
+        """COM Discovery for ALL GPUs (Intel/AMD/NVIDIA)."""
         pythoncom.CoInitialize()
         gpus = []
         try:
             obj_wmi = win32com.client.GetObject("winmgmts:\\\\.\\root\\cimv2")
             gpu_list = obj_wmi.ExecQuery("Select * from Win32_VideoController")
-
-            for controller in gpu_list:
+            for i, controller in enumerate(gpu_list):
                 name = str(controller.Name)
-                vendor = str(controller.AdapterCompatibility or "Internal")
                 raw_ram = controller.AdapterRAM
-
-                if raw_ram and int(raw_ram) > 0:
-                    vram_gb = f"{round(int(raw_ram) / (1024 ** 3), 2)} GB"
-                else:
-                    vram_gb = "Shared System Memory"
-
-                is_dedicated = any(brand in name.upper() for brand in ["NVIDIA", "GEFORCE", "RTX", "QUADRO", "RADEON"])
+                vram_gb = f"{round(int(raw_ram) / (1024 ** 3), 2)} GB" if raw_ram and int(raw_ram) > 0 else "Shared"
 
                 gpus.append({
                     "model": name,
-                    "vendor": vendor,
-                    "vram": vram_gb,
-                    "is_dedicated": is_dedicated,
-                    "driver_version": controller.DriverVersion or "Unknown",
-                    "status": controller.Status or "OK"
+                    "slot_index": i,
+                    "vram": vram_gb
                 })
         except Exception as e:
-            print(f"SGA ENGINE: GPU Scan Error: {e}")
+            print(f"⚠️ GPU Scan Error: {e}")
         finally:
             pythoncom.CoUninitialize()
-
-        print(f"SGA ENGINE: Found {len(gpus)} GPU(s)")
         return gpus
 
-    def get_cpu_info(self):
-        """Fetches Commercial CPU Brand and Cores."""
-        cpu_model = "Unknown Processor"
-        try:
-            reg_path = r"HARDWARE\DESCRIPTION\System\CentralProcessor\0"
-            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, reg_path) as key:
-                cpu_model, _ = winreg.QueryValueEx(key, "ProcessorNameString")
-                cpu_model = cpu_model.strip()
-        except:
-            cpu_model = os.environ.get('PROCESSOR_IDENTIFIER', platform.processor())
+    def initialize_rig(self):
+        """Part 1: The Hardware Map."""
+        print(f"🚀 SGA Agent: Mapping Hardware for {self.hostname}...")
 
-        return {
-            "model": cpu_model,
-            "physical_cores": psutil.cpu_count(logical=False),
-            "total_threads": psutil.cpu_count(logical=True),
-            "current_load": f"{psutil.cpu_percent(interval=None)}%"
-        }
+        # 1. Rig Identity
+        self.supabase.table("rigs").upsert({
+            "id": self.rig_id, "os_name": platform.system(), "is_active": True, "last_ping": "now()"
+        }).execute()
 
-    def get_ram_info(self):
-        """Fetches RAM Capacity and Health."""
-        vm = psutil.virtual_memory()
-        return {
-            "total_gb": round(vm.total / (1024 ** 3), 2),
-            "used_gb": round(vm.used / (1024 ** 3), 2),
-            "usage_pct": vm.percent,
-            "status": "Critical" if vm.percent > 85 else "Healthy"
-        }
+        manifest = []
 
-    def get_storage_info(self):
-        """Fetches all Fixed Hard Drives and SSDs."""
-        drives = []
-        for part in psutil.disk_partitions():
-            if 'fixed' in part.opts:
+        # 2. CPU (Registry Name)
+        reg_path = r"HARDWARE\DESCRIPTION\System\CentralProcessor\0"
+        with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, reg_path) as key:
+            cpu_model, _ = winreg.QueryValueEx(key, "ProcessorNameString")
+        manifest.append({"type": "CPU", "model_name": cpu_model.strip(), "slot_index": 0})
+
+        # 3. RAM
+        ram_gb = round(psutil.virtual_memory().total / (1024 ** 3))
+        manifest.append({"type": "RAM", "model_name": f"{ram_gb}GB System Memory", "slot_index": 0})
+
+        # 4. Storage
+        for i, p in enumerate(psutil.disk_partitions()):
+            if 'fixed' in p.opts:
                 try:
-                    usage = psutil.disk_usage(part.mountpoint)
-                    drives.append({
-                        "drive": part.device,
-                        "total_gb": round(usage.total / (1024 ** 3), 2),
-                        "usage_pct": usage.percent
-                    })
+                    total = round(psutil.disk_usage(p.mountpoint).total / (1024 ** 3))
+                    manifest.append({"type": "DISK", "model_name": f"Drive {p.mountpoint} ({total}GB)", "slot_index": i,
+                                     "mount_point": p.mountpoint})
                 except:
                     continue
-        return drives
 
-    def _get_thermal_label(self, temp):
-        """Helper to categorize heat levels for the Astro UI."""
-        if temp == "N/A":
-            return "Unknown"
+        # 5. ALL GPUs (Intel + NVIDIA)
+        found_gpus = self.get_gpu_info()
+        for g in found_gpus:
+            manifest.append({"type": "GPU", "model_name": f"{g['model']} ({g['vram']})", "slot_index": g['slot_index']})
 
-        # Make sure we are comparing a number, not a string
-        try:
-            val = float(temp)
-            if val < 45: return "Cool"
-            if val < 70: return "Optimal"
-            return "Hot"
-        except:
-            return "Unknown"
-
-    def get_live_metrics(self):
-        """SGA ENGINE: High-Frequency Live Metrics including Multi-GPU Support."""
-        pythoncom.CoInitialize()
-
-        # 1. Core CPU & RAM stats
-        cpu_usage = psutil.cpu_percent(interval=0.1)
-        vm = psutil.virtual_memory()
-
-        # 2. Get GPU Live Stats (Load & Temp)
-        gpu_live_data = []
-        try:
-            # We call our existing GPU info to get the names/models
-            base_gpus = self.get_gpu_info()
-
-            for gpu in base_gpus:
-                gpu_load = 0
-                gpu_temp = 0
-
-                # Check if it's NVIDIA to get real hardware data
-                if "NVIDIA" in gpu['model'].upper():
-                    try:
-                        # Query nvidia-smi (Fast console query)
-                        cmd = "nvidia-smi --query-gpu=utilization.gpu,temperature.gpu --format=csv,noheader,nounits"
-                        output = subprocess.check_output(cmd, shell=True).decode().strip()
-                        load, temp = output.split(',')
-                        gpu_load = float(load)
-                        gpu_temp = float(temp)
-                    except:
-                        # Fallback if nvidia-smi fails
-                        gpu_load = cpu_usage * 0.8
-                        gpu_temp = 40 + (cpu_usage * 0.3)
-                else:
-                    # AMD/Intel Fallback: Calculated Logic
-                    # Usually iGPU load correlates with CPU load
-                    gpu_load = cpu_usage * 0.7
-                    gpu_temp = 38 + (cpu_usage * 0.25)
-
-                gpu_live_data.append({
-                    "model": gpu['model'],
-                    "load": round(gpu_load, 1),
-                    "temp": round(gpu_temp, 1),
-                    "status": "Active" if gpu_load > 5 else "Idle"
+        # 6. Database Sync
+        self.active_components = []
+        for item in manifest:
+            m_point = item.pop("mount_point", None)
+            res = self.supabase.table("components").upsert({**item, "rig_id": self.rig_id}).execute()
+            if res.data:
+                self.active_components.append({
+                    "db_id": res.data[0]['id'], "type": item['type'], "index": item['slot_index'],
+                    "mount_point": m_point, "model": item['model_name']
                 })
-        except Exception as e:
-            print(f"SGA ENGINE: GPU Live Error: {e}")
 
-        # 3. CPU Thermal Logic (using your existing helper)
-        # We'll use the reactive model we built earlier
-        calculated_cpu_temp = round(35.0 + (cpu_usage * 0.45), 1)
+    def start_streaming(self):
+        """Part 2: Live Intel Streaming."""
+        print("🛰️ SGA Agent: Live Stream Active...")
+        psutil.cpu_percent(interval=None)
 
-        pythoncom.CoUninitialize()
+        while True:
+            payload = []
+            now = datetime.datetime.now(datetime.UTC).isoformat()
+            cpu_usage = psutil.cpu_percent(interval=0.1)
+            cpu_temp = self._get_real_cpu_temp()
 
-        return {
-            "cpu_load": cpu_usage,
-            "cpu_temp": calculated_cpu_temp,
-            "thermal_status": self._get_thermal_label(calculated_cpu_temp),
-            "ram_pct": vm.percent,
-            "ram_status": "Critical" if vm.percent > 85 else "Healthy",
-            "gpu_metrics": gpu_live_data  # <--- Array of all GPUs
-        }
-    def run_full_audit(self):
-        """Combines all hardware data for the main scan."""
-        return {
-            "os": {
-                **self.get_os_info(),
-                "activation": self.get_os_status()
-            },
-            "cpu": self.get_cpu_info(),
-            "ram": self.get_ram_info(),
-            "gpus": self.get_gpu_info(),
-            "storage": self.get_storage_info()
-        }
+            for comp in self.active_components:
+                load, temp = 0, 0
+
+                if comp['type'] == 'CPU':
+                    load, temp = cpu_usage, cpu_temp
+
+                elif comp['type'] == 'RAM':
+                    load = psutil.virtual_memory().percent
+
+                elif comp['type'] == 'DISK':
+                    try:
+                        load = psutil.disk_usage(comp['mount_point']).percent
+                    except:
+                        continue
+
+                elif comp['type'] == 'GPU':
+                    if "NVIDIA" in comp['model'].upper():
+                        try:
+                            cmd = f"nvidia-smi --query-gpu=utilization.gpu,temperature.gpu --format=csv,noheader,nounits --id={comp['index']}"
+                            out = subprocess.check_output(cmd, shell=True).decode().strip().split(',')
+                            load, temp = float(out[0]), float(out[1])
+                        except:
+                            pass
+                    else:
+                        # Intel / Integrated Logic: iGPUs share CPU thermal profile
+                        load = cpu_usage * 0.6
+                        temp = cpu_temp
+
+                # FORCE INTEGER ROUNDING (Fixes 22P02 Error)
+                payload.append({
+                    "component_id": comp['db_id'],
+                    "load_percent": int(round(load)),
+                    "temp_celsius": int(round(temp)),
+                    "recorded_at": now
+                })
+
+            try:
+                self.supabase.table("telemetry").insert(payload).execute()
+                print(f"📡 Synced | {datetime.datetime.now().strftime('%H:%M:%S')}")
+            except Exception as e:
+                print(f"❌ Sync Error: {e}")
+
+            time.sleep(2)
+
+
+if __name__ == "__main__":
+    agent = SGAAgent()
+    agent.initialize_rig()
+    agent.start_streaming()

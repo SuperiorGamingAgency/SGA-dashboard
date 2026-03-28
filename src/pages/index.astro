@@ -1,5 +1,5 @@
 ---
-// index.astro - SGA Tech-Concierge Dashboard (LIVE EDITION)
+// index.astro - SGA Tech-Concierge Dashboard (MASTER EDITION)
 import '../styles/global.css';
 ---
 
@@ -10,244 +10,304 @@ import '../styles/global.css';
 	<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
-	<title>SGA Audit | Hardware Intelligence</title>
+	<title>SGA Audit | Cloud Intelligence</title>
 </head>
-<body class="text-slate-100 font-sans min-h-screen p-4 md:p-12">
+<body class="text-slate-100 font-sans min-h-screen p-4 md:p-12 overflow-x-hidden">
 
 <div class="fixed inset-0 -z-10 overflow-hidden bg-[#020617]">
-	<div class="absolute -top-[10%] -left-[10%] w-[70%] h-[70%] bg-orange-500/20 blur-[120px] rounded-full animate-mesh"></div>
-	<div class="absolute -bottom-[10%] -right-[10%] w-[60%] h-[60%] bg-blue-500/20 blur-[120px] rounded-full animate-mesh" style="animation-delay: -5s;"></div>
+	<div class="absolute -top-[10%] -left-[10%] w-[70%] h-[70%] bg-orange-500/10 blur-[120px] rounded-full animate-mesh"></div>
+	<div class="absolute -bottom-[10%] -right-[10%] w-[60%] h-[60%] bg-blue-500/10 blur-[120px] rounded-full animate-mesh" style="animation-delay: -4s;"></div>
 </div>
 
-<aside class="fixed left-6 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col gap-4 bg-slate-900/80 backdrop-blur-md border border-slate-800 p-3 rounded-2xl shadow-2xl shadow-orange-500/5">
+<aside class="fixed left-6 top-1/2 -translate-y-1/2 z-[100] hidden lg:flex flex-col bg-slate-900/90 backdrop-blur-xl border border-slate-800 p-3 rounded-2xl shadow-[0_0_30px_rgba(0,0,0,0.5)]">
+	<div class="flex flex-col gap-5 max-h-[80vh] overflow-y-visible">
 
-	<a href="#os-service" class="group relative flex items-center justify-center w-12 h-12 rounded-xl bg-slate-800 hover:bg-orange-500 text-slate-400 hover:text-black transition-all duration-300">
-		<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-		</svg>
-		<span class="absolute left-16 scale-0 group-hover:scale-100 transition-all origin-left bg-orange-500 text-black text-[10px] font-black px-2 py-1 rounded uppercase tracking-tighter">OS_Optimization</span>
-	</a>
+		<a href="/" class="group relative flex items-center justify-center w-12 h-12 rounded-xl bg-orange-500 text-black shadow-[0_0_15px_rgba(249,115,22,0.3)] transition-all hover:scale-105">
+			<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+			<div class="absolute left-16 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-200 pointer-events-none text-black">
+				<div class="bg-orange-500 px-3 py-2 rounded-lg shadow-2xl border border-orange-400/50 whitespace-nowrap">
+					<p class="text-[10px] font-black uppercase tracking-widest">Tactical Stats</p>
+					<p class="text-[8px] font-bold opacity-70 uppercase leading-none mt-1">Live Telemetry</p>
+				</div>
+				<div class="absolute top-1/2 -left-1 -translate-y-1/2 w-2 h-2 bg-orange-500 rotate-45"></div>
+			</div>
+		</a>
 
-	<a href="#gpu-service" class="group relative flex items-center justify-center w-12 h-12 rounded-xl bg-slate-800 hover:bg-orange-500 text-slate-400 hover:text-black transition-all duration-300">
-		<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-		</svg>
-		<span class="absolute left-16 scale-0 group-hover:scale-100 transition-all origin-left bg-orange-500 text-black text-[10px] font-black px-2 py-1 rounded uppercase tracking-tighter">GPU_Overclock</span>
-	</a>
+		<a href="/rig-manifest" class="group relative flex items-center justify-center w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 hover:border-blue-400 text-slate-400 hover:text-blue-400 transition-all hover:scale-105">
+			<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" /></svg>
+			<div class="absolute left-16 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-200 pointer-events-none">
+				<div class="bg-slate-800 text-blue-400 px-3 py-2 rounded-lg shadow-2xl border border-blue-500/30 min-w-[120px] whitespace-nowrap">
+					<p class="text-[10px] font-black uppercase tracking-widest">Rig Manifest</p>
+					<p class="text-[8px] text-slate-400 font-bold uppercase mt-1">Identity & Specs</p>
+				</div>
+				<div class="absolute top-1/2 -left-1 -translate-y-1/2 w-2 h-2 bg-slate-800 rotate-45 border-l border-b border-blue-500/30"></div>
+			</div>
+		</a>
 
-	<a href="#net-service" class="group relative flex items-center justify-center w-12 h-12 rounded-xl bg-slate-800 hover:bg-orange-500 text-slate-400 hover:text-black transition-all duration-300">
-		<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071a9.05 9.05 0 0112.142 0M2.474 9.01a14.121 14.121 0 0119.052 0" />
-		</svg>
-		<span class="absolute left-16 scale-0 group-hover:scale-100 transition-all origin-left bg-orange-500 text-black text-[10px] font-black px-2 py-1 rounded uppercase tracking-tighter">Net_Latency</span>
-	</a>
+		<a href="/nexus" class="group relative flex items-center justify-center w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 hover:border-indigo-400 text-slate-400 hover:text-indigo-400 transition-all hover:scale-105">
+			<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" /></svg>
+			<div class="absolute left-16 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-200 pointer-events-none">
+				<div class="bg-slate-800 text-indigo-400 px-3 py-2 rounded-lg shadow-2xl border border-indigo-500/30 min-w-[120px] whitespace-nowrap">
+					<p class="text-[10px] font-black uppercase tracking-widest">Nexus Hub</p>
+					<p class="text-[8px] text-slate-400 font-bold uppercase mt-1">Community Feed</p>
+				</div>
+				<div class="absolute top-1/2 -left-1 -translate-y-1/2 w-2 h-2 bg-slate-800 rotate-45 border-l border-b border-indigo-500/30"></div>
+			</div>
+		</a>
 
-	<div class="h-px bg-slate-800 mx-2 my-1"></div>
+		<hr class="border-slate-800/50 mx-2" />
 
-	<div class="flex justify-center">
-		<div class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse"></div>
+		<a href="/forge" class="group relative flex items-center justify-center w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 hover:border-emerald-400 text-slate-400 hover:text-emerald-400 transition-all hover:scale-105">
+			<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 00-1 1v1a2 2 0 11-4 0v-1a1 1 0 00-1-1H7a1 1 0 01-1-1v-3a1 1 0 011-1h1a2 2 0 100-4H7a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" /></svg>
+			<div class="absolute left-16 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-200 pointer-events-none">
+				<div class="bg-slate-800 text-emerald-400 px-3 py-2 rounded-lg shadow-2xl border border-emerald-500/30 min-w-[120px] whitespace-nowrap">
+					<p class="text-[10px] font-black uppercase tracking-widest">SGA Forge</p>
+					<p class="text-[8px] text-slate-400 font-bold uppercase mt-1">Custom Builds</p>
+				</div>
+				<div class="absolute top-1/2 -left-1 -translate-y-1/2 w-2 h-2 bg-slate-800 rotate-45 border-l border-b border-emerald-500/30"></div>
+			</div>
+		</a>
+
+		<a href="/store" class="group relative flex items-center justify-center w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 hover:border-slate-100 text-slate-400 hover:text-slate-100 transition-all hover:scale-105">
+			<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
+			<div class="absolute left-16 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-200 pointer-events-none">
+				<div class="bg-slate-800 text-slate-100 px-3 py-2 rounded-lg shadow-2xl border border-slate-100/20 min-w-[120px] whitespace-nowrap">
+					<p class="text-[10px] font-black uppercase tracking-widest">Provisions</p>
+					<p class="text-[8px] text-slate-400 font-bold uppercase mt-1">Inventory Store</p>
+				</div>
+				<div class="absolute top-1/2 -left-1 -translate-y-1/2 w-2 h-2 bg-slate-800 rotate-45 border-l border-b border-slate-100/20"></div>
+			</div>
+		</a>
+
+		<a href="/booking" class="group relative flex items-center justify-center w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 hover:border-purple-400 text-slate-400 hover:text-purple-400 transition-all hover:scale-105">
+			<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+			<div class="absolute left-16 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-200 pointer-events-none">
+				<div class="bg-slate-800 text-purple-400 px-3 py-2 rounded-lg shadow-2xl border border-purple-500/30 min-w-[120px] whitespace-nowrap">
+					<p class="text-[10px] font-black uppercase tracking-widest">Concierge</p>
+					<p class="text-[8px] text-slate-400 font-bold uppercase mt-1">SGA Maintenance</p>
+				</div>
+				<div class="absolute top-1/2 -left-1 -translate-y-1/2 w-2 h-2 bg-slate-800 rotate-45 border-l border-b border-purple-500/30"></div>
+			</div>
+		</a>
 	</div>
 </aside>
 
 <div class="max-w-4xl mx-auto">
 	<header class="flex flex-col md:flex-row justify-between items-center mb-12 border-b border-slate-800 pb-8">
 		<div>
-			<h1 style="font-family: 'Cairo', sans-serif;" class="text-2xl tracking-tighter text-white font-black">
-				SUPERIOR <span class="text-white-500 font-normal">GAMING</span> AGENCY
+			<h1 style="font-family: 'Cairo', sans-serif;" class="text-2xl tracking-tighter text-white font-black uppercase">
+				SUPERIOR <span class="font-light opacity-70">GAMING</span> AGENCY
 			</h1>
-			<p class="text-slate-500 text-sm font-mono uppercase tracking-widest">v1.0.4 | Budapest, Hungary</p>
+			<p class="text-slate-500 text-sm font-mono uppercase tracking-widest" id="rig-id-display">v1.1.0 | CLOUD SYNC ACTIVE</p>
 		</div>
 
-		<nav class="flex gap-1 bg-slate-900/50 p-1 rounded-lg border border-slate-800 mt-6 md:mt-0">
-			<a href="#dashboard" class="px-4 py-2 text-xs font-bold text-white bg-slate-800 rounded-md hover:bg-orange-500 hover:text-black transition-all duration-200">
-				DASHBOARD
-			</a>
-			<a href="#audit" class="px-4 py-2 text-xs font-bold text-slate-400 hover:text-white rounded-md transition-colors">
-				FULL AUDIT
-			</a>
-			<a href="#settings" class="px-4 py-2 text-xs font-bold text-slate-400 hover:text-white rounded-md transition-colors">
-				SETTINGS
-			</a>
+		<nav class="flex items-center gap-1 bg-slate-900/50 p-1 rounded-xl border border-slate-800 mt-6 md:mt-0">
+			<div class="flex items-center px-2 border-r border-slate-800/50 mr-1 gap-1">
+				<a href="https://wa.me/yournumber" target="_blank" title="WhatsApp" class="p-2 text-slate-500 hover:text-emerald-500 hover:bg-emerald-500/10 rounded-lg transition-all">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.06 3.978l-1.127 4.117 4.212-1.105a7.86 7.86 0 0 0 3.79.975h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
+				</a>
+				<a href="https://instagram.com/yourprofile" target="_blank" title="Instagram" class="p-2 text-slate-500 hover:text-pink-500 hover:bg-pink-500/10 rounded-lg transition-all">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/></svg>
+				</a>
+				<a href="https://t.me/yourid" target="_blank" title="Telegram" class="p-2 text-slate-500 hover:text-sky-500 hover:bg-sky-500/10 rounded-lg transition-all">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM12.191 5.273c-.097-.311-.41-.43-.706-.33L4.627 7.774c-.285.12-.43.43-.33.706l.66 2.09c.097.311.41.43.706.33l2.09-.66c.285-.12.43-.43.33-.706L7.427 7.444l4.764-2.17z"/></svg>
+				</a>
+				<a href="mailto:support@sgatech.com" title="Email Support" class="p-2 text-slate-500 hover:text-orange-500 hover:bg-orange-500/10 rounded-lg transition-all">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+				</a>
+			</div>
+
+			<div id="status-badge" class="px-4 py-2 text-[10px] font-black text-red-500 flex items-center gap-2 tracking-tighter uppercase">
+				<span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span> Agent_Offline
+			</div>
 		</nav>
 	</header>
 
+	<div id="lock-screen" class="flex flex-col items-center justify-center py-10 text-center animate-in fade-in duration-1000">
+		<div class="relative mb-8">
+			<div class="absolute inset-0 rounded-full bg-orange-500/10 animate-ping opacity-20"></div>
+			<div class="relative w-24 h-24 bg-slate-900 border border-slate-800 rounded-3xl flex items-center justify-center shadow-2xl">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+					<g transform="translate(5.4, 5.4) scale(0.55)">
+						<path d="M1 1l22 22M16.72 11.06a10.94 10.94 0 012.28 1.49M5 12.55a10.94 10.94 0 015.17-2.39M10.71 5.05A16 16 0 0122.58 9M1.42 9a15.91 15.91 0 014.7-2.88M8.53 16.11a6 6 0 016.95 0M12 20h.01" />
+					</g>
+				</svg>
+			</div>
+		</div>
+
+		<h2 class="text-3xl font-black text-white mb-2 italic uppercase tracking-tighter">Waiting for <span class="text-orange-500">Handshake</span></h2>
+		<p class="text-slate-500 font-mono text-[10px] uppercase tracking-[0.3em] mb-12">System ID: Searching_Protocol_v1.1</p>
+
+		<div class="bg-slate-900/60 border border-slate-800 p-8 rounded-3xl backdrop-blur-xl max-w-sm w-full shadow-2xl border-t-orange-500/30">
+			<p class="text-[11px] text-slate-400 mb-6 leading-relaxed uppercase font-bold tracking-tight">
+				To initialize telemetry, deploy the <span class="text-white">SGA Agent</span> on your primary rig.
+			</p>
+			<a href="/downloads/SGA_Agent.exe" download class="group relative flex items-center justify-center w-full py-4 bg-orange-500 text-black font-black rounded-xl transition-all hover:scale-[1.02] active:scale-95 shadow-[0_15px_30px_rgba(249,115,22,0.2)]">
+               <span class="flex items-center gap-3 uppercase text-[10px] tracking-widest">
+                   <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" /></svg>
+                   Deploy_Agent_v1.1
+               </span>
+			</a>
+			<p class="mt-4 text-[9px] font-mono text-slate-600 uppercase tracking-widest">Windows 10/11 x64 | 4.2MB</p>
+		</div>
+	</div>
+
 	<div id="dashboard" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4 animate-in fade-in slide-in-from-bottom-4 duration-700">
-		<div class="md:col-span-2 mb-2">
-			<p class="text-[10px] font-black uppercase tracking-[0.4em]">
-				Your <span class="text-orange-500">RIG</span> Specifications:
-			</p>
-		</div>
-		<div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl relative overflow-hidden">
-			<div class="flex justify-between items-start">
-				<span class="text-orange-500 text-xs font-bold tracking-widest uppercase">OS</span>
-			</div>
-			<h2 id="os-description" class="text-xl font-bold mt-1 text-white">Scanning...</h2>
-			<p id="activation-status" class="text-[10px] font-mono mt-2 text-slate-500 capitalize tracking-tighter text-left">Activation Status:</p>
-			<p id="activation-expiry" class="text-[10px] font-mono mt-2 text-slate-500 capitalizecdcd tracking-tighter text-left">Activation Expiry:</p>
-		</div>
-		<div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl relative overflow-hidden">
-			<div class="flex justify-between items-start">
-				<span class="text-orange-500 text-xs font-bold tracking-widest uppercase">Processor</span>
-				<span id="live-indicator" class="hidden flex h-2 w-2">
-                <span class="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-emerald-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-             </span>
-			</div>
-			<h2 id="cpu-model" class="text-xl font-bold mt-1 text-white">Scanning...</h2>
-			<div class="mt-4 bg-slate-800 h-2 rounded-full overflow-hidden">
-				<div id="cpu-bar" class="bg-orange-500 h-full w-0 transition-all duration-500 ease-out"></div>
-			</div>
-			<p id="cpu-load-text" class="text-[10px] font-mono mt-2 text-slate-500 text-left uppercase tracking-tighter">Load: 0%</p>
-			<p id="cpu-temp-text" class="text-[10px] font-mono mt-2 text-slate-500 text-left uppercase tracking-tighter">Temp: 0</p>
-
-		</div>
-		<div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
-			<span class="text-orange-500 text-xs font-bold tracking-widest uppercase">Integrated Graphics Unit</span>
-			<h2 id="integrated-gpu-model" class="text-xl font-bold mt-1 text-white">Scanning...</h2>
-			<p id="integrated-gpu-is-dedicated" class="text-xs text-slate-500 mt-2 italic font-mono"></p>
-			<p id="integrated-gpu-stats" class="text-xs text-slate-400 mt-2 font-mono italic">Initializing...</p>
-
+		<div class="bg-slate-900/50 border border-slate-800 p-6 rounded-2xl">
+			<span class="text-orange-500 text-[10px] font-black tracking-widest uppercase italic">System Environment</span>
+			<h2 id="os-description" class="text-xl font-bold mt-1 text-white uppercase italic">Detecting OS...</h2>
+			<p id="os-details" class="text-[10px] font-mono mt-2 text-slate-500 uppercase tracking-tighter">Initializing Identity...</p>
 		</div>
 
-		<div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl relative overflow-hidden">
-			<div class="flex justify-between items-end mb-4">
-				<div>
-					<p class="text-orange-500 text-[10px] font-black uppercase tracking-[0.3em] mb-1">Memory</p>
-					<h2 class="text-2xl font-bold text-white tracking-tight">
-						<span id="ram-usage-text">0</span>%
-					</h2>
-				</div>
-			</div>
+		<div id="stats-grid" class="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4"></div>
 
-			<div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
-				<div
-					id="ram-progress-bar"
-					class="h-full bg-orange-500 transition-all duration-700 ease-out"
-					style="width: 0%"
-				></div>
-			</div>
-			<p class="text-[10px] text-slate-500 mt-3 font-mono uppercase tracking-tighter" id="ram-total-text"> -- GB Total </p>
-			<p id="ram-status-msg" class="text-[10px] text-slate-500 mt-3 font-mono uppercase tracking-tighter">
-				Analyzing memory pressure...
-			</p>
-		</div>
-		<div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
-			<span class="text-orange-500 text-xs font-bold tracking-widest uppercase">Dedicated Graphics Unit</span>
-			<h2 id="dedicated-gpu-model" class="text-xl font-bold mt-1 text-white">Scanning...</h2>
-			<p id="dedicated-gpu-stats" class="text-xs text-slate-400 mt-2 font-mono italic">Initializing...</p>
+		<div class="bg-orange-500/5 border border-orange-500/20 p-6 rounded-2xl md:col-span-2">
+			<span class="text-orange-400 text-[10px] font-black tracking-widest uppercase">SGA Intelligence</span>
+			<p id="pro-advice" class="text-lg text-orange-100 mt-2 font-medium italic leading-tight">Handshake confirmed. Analyzing hardware for bottlenecks...</p>
 		</div>
 
-		<div class="bg-orange-500/10 border border-orange-500/30 p-6 rounded-2xl md:col-span-2">
-			<span class="text-orange-400 text-xs font-bold tracking-widest uppercase">SGA Pro Analysis</span>
-			<p id="pro-advice" class="text-lg text-orange-100 mt-2 font-medium italic">Connect to backend to see optimization tips.</p>
-		</div>
 		<div class="md:col-span-2 flex justify-between items-center px-2 mt-4 border-t border-slate-800 pt-4">
-			<div class="flex items-center gap-2">
-				<div class="h-1.5 w-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.6)]"></div>
-				<p class="text-[10px] font-mono text-slate-500 uppercase tracking-widest">SGA Verified Data Stream</p>
-			</div>
-			<p id="last-updated" class="text-[10px] font-mono text-slate-500 italic">SYNCING...</p>
+			<p class="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Verified SGA Data Stream</p>
+			<p id="last-updated" class="text-[10px] font-mono text-slate-500 italic uppercase">SYNCING...</p>
 		</div>
-
 	</div>
 </div>
 
 <script>
-	let sga_audit_data = null
-	const dashboard = document.getElementById('dashboard');
-	const liveIndicator = document.getElementById('live-indicator');
-	let livePulse = null;
+	import { supabase } from '../lib/supabase';
 
-	// --- FUNCTION 1: INITIAL DATA (MODELS & NAMES) ---
-	async function initSGA() {
-		console.log("SGA Engine Initializing...");
-		try {
-			// Immediately show the dashboard frame so it doesn't "pop" in later
-			dashboard.classList.remove('hidden');
+	document.addEventListener('DOMContentLoaded', () => {
+		const lockScreen = document.getElementById('lock-screen');
+		const dashboard = document.getElementById('dashboard');
+		const statsGrid = document.getElementById('stats-grid');
+		const osDesc = document.getElementById('os-description');
+		const osDetails = document.getElementById('os-details');
+		const statusBadge = document.getElementById('status-badge');
+		const rigDisplay = document.getElementById('rig-id-display');
+		const lastUpdated = document.getElementById('last-updated');
 
-			const res = await fetch('http://127.0.0.1:5050/scan');
-			const data = await res.json();
-			sga_audit_data = data;
-			console.log(data)
+		const componentCards = {};
+		let lastPacketTime = Date.now();
 
-			data.gpus.forEach(gp => {
-				if (!gp.is_dedicated) {
-					console.log('not-dedicated');
-					document.getElementById('integrated-gpu-model').innerText = gp.model;
-				} else {
-					console.log('dedicated');
-					document.getElementById('dedicated-gpu-model').innerText = gp.model;
+		// --- CORE UI FUNCTIONS ---
+		const goOffline = () => {
+			if (lockScreen && lockScreen.style.display === 'none') {
+				lockScreen.style.display = 'flex';
+				dashboard.classList.add('hidden');
+				if (statusBadge) {
+					statusBadge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span> Agent_Offline`;
+					statusBadge.classList.replace('text-emerald-500', 'text-red-500');
 				}
-			});
-			document.getElementById('os-description').innerText = `${data.os.name} ${data.os.release} | Version: ${data.os.version} ${data.os.edition} Edition.`;
-			document.getElementById('activation-expiry').innerText = `Activation Expiry: ${data.os.activation.expiry_date}`;
-			document.getElementById('activation-status').innerText = `Activation Status: ${data.os.activation.status_text}`
-			document.getElementById('cpu-model').innerText = data.cpu.model;
-			document.getElementById('ram-total-text').innerText = `${data.ram.total_gb} GB TOTAL`;
-			document.getElementById('ram-status-msg').innerText = `${data.ram.usage_pct} %`;
-			document.getElementById('pro-advice').innerText = `"${data.pro_analysis.gpu_optimization}"`;
-			liveIndicator.classList.remove('hidden');
-		} catch (err) {
-			console.error(err);
-			console.error("Initial Audit failed. Is Python running?");
-			document.getElementById('pro-advice').innerText = "SGA Backend Offline. Please start the local service.";
+			}
+		};
+
+		const goOnline = () => {
+			lastPacketTime = Date.now();
+			if (lockScreen && lockScreen.style.display !== 'none') {
+				lockScreen.style.display = 'none';
+				dashboard.classList.remove('hidden');
+				if (statusBadge) {
+					statusBadge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Agent_Online`;
+					statusBadge.classList.replace('text-red-500', 'text-emerald-500');
+				}
+			}
+		};
+
+		// --- 1. THE WATCHDOG (Checks for Silence/Crashes) ---
+		setInterval(() => {
+			const silenceDuration = Date.now() - lastPacketTime;
+			if (silenceDuration > 15000 && lockScreen.style.display === 'none') {
+				console.log("🕵️ Watchdog: No data detected. Going offline.");
+				goOffline();
+			}
+		}, 5000);
+
+		// --- 2. LISTEN TO RIG STATUS (Graceful Goodbye) ---
+		supabase.channel('sga-status')
+			.on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'rigs' }, (payload) => {
+				if (payload.new.is_active === false) {
+					console.log("🚫 Agent sent goodbye signal.");
+					goOffline();
+				} else if (payload.new.is_active === true) {
+					goOnline();
+				}
+			})
+			.subscribe();
+
+		// --- 3. LISTEN TO LIVE DATA ---
+		supabase.channel('sga-live')
+			.on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'telemetry' }, (payload) => {
+				const telemetry = payload.new;
+				goOnline();
+
+				updateLiveCard(telemetry);
+				if (lastUpdated) {
+					lastUpdated.innerText = `LAST SYNC: ${new Date().toLocaleTimeString('hu-HU')}`;
+				}
+			})
+			.subscribe();
+
+		// --- 4. DATA RENDERING ---
+		async function updateLiveCard(data) {
+			const id = data.component_id;
+			if (!componentCards[id]) {
+				const card = document.createElement('div');
+				card.className = "bg-slate-900 border border-slate-800 p-6 rounded-2xl relative overflow-hidden group hover:border-orange-500/50 transition-all";
+				card.innerHTML = `
+                <div class="flex justify-between items-start mb-4">
+                    <span id="type-${id}" class="text-orange-500 text-[10px] font-black tracking-widest uppercase italic">SCANNING...</span>
+                    <span class="flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                </div>
+                <h2 id="name-${id}" class="text-lg font-bold text-white leading-tight italic uppercase">Initializing...</h2>
+                <div class="mt-6 bg-slate-800 h-1 rounded-full overflow-hidden">
+                    <div id="bar-${id}" class="bg-orange-500 h-full w-0 transition-all duration-1000 shadow-[0_0_10px_#f97316]"></div>
+                </div>
+                <div class="flex justify-between mt-3 font-mono text-[9px] text-slate-500 uppercase">
+                    <span>Load: <b class="text-white" id="load-${id}">0%</b></span>
+                    <span id="temp-cont-${id}">Temp: <b class="text-white" id="temp-${id}">--</b></span>
+                </div>
+             `;
+				statsGrid.appendChild(card);
+				componentCards[id] = card;
+
+				const { data: info } = await supabase.from('components').select('*').eq('id', id).single();
+				if (info) {
+					const nameEl = document.getElementById(`name-${id}`);
+					const typeEl = document.getElementById(`type-${id}`);
+					if (nameEl) nameEl.innerText = info.model_name;
+					if (typeEl) typeEl.innerText = info.type;
+
+					const { data: rig } = await supabase.from('rigs').select('*').eq('id', info.rig_id).single();
+					if (rig) {
+						if (osDesc) osDesc.innerText = rig.os_name;
+						if (osDetails) osDetails.innerText = `HANDSHAKE: ${rig.id}`;
+						if (rigDisplay) rigDisplay.innerText = `v1.1.0 | RIG: ${rig.id.substring(0,8)}... | CLOUD SYNCED`;
+					}
+				}
+			}
+
+			const bar = document.getElementById(`bar-${id}`);
+			const loadText = document.getElementById(`load-${id}`);
+			const tempText = document.getElementById(`temp-${id}`);
+
+			if (bar) bar.style.width = `${data.load_percent}%`;
+			if (loadText) loadText.innerText = `${Math.round(data.load_percent)}%`;
+			if (tempText) tempText.innerText = data.temp_celsius > 0 ? `${data.temp_celsius}°C` : 'N/A';
 		}
-	}
-
-	// --- FUNCTION 2: CONTINUOUS PULSE ---
-	function startLiveUpdates() {
-		// Run once immediately so it's not empty for the first 2 seconds
-		updateMetrics();
-
-		livePulse = setInterval(updateMetrics, 2000);
-	}
-
-	async function updateMetrics() {
-		try {
-			const res = await fetch('http://127.0.0.1:5050/live-stats');
-			const live = await res.json();
-			const gpu_stats = live.gpu_metrics
-			console.log(live)
-			document.getElementById('cpu-bar').style.width = `${live.cpu_load}%`;
-			document.getElementById('cpu-load-text').innerText = `LOAD: ${live.cpu_load}%`;
-			document.getElementById('ram-usage-text').innerText = `${live.ram_pct}`;
-			document.getElementById('ram-progress-bar').style.width = `${live.ram_pct}%`
-			document.getElementById('ram-status-msg').innerText = live.ram_status
-			document.getElementById('cpu-temp-text').innerText = `Temperature: ${live.cpu_temp}`
-
-			// NEW: Update the Timestamp
-			const now = new Date();
-			const timeString = now.toLocaleTimeString('hu-HU', { hour12: false }); // Budapest style 24h
-			document.getElementById('last-updated').innerText = `LAST SYNC: ${timeString}`;
-
-		} catch (e) {
-			document.getElementById('last-updated').innerText = "CONNECTION LOST";
-			document.getElementById('last-updated').classList.add('text-red-500');
-		}
-	}
-	initSGA();
-	startLiveUpdates();
+	});
 </script>
+
 <style is:global>
 	@keyframes move-mesh {
-		0% {
-			transform: translate(0, 0) scale(1) translateZ(0);
-		}
-		50% {
-			/* Increased movement from 15%/10% to 25%/20% for more visible travel */
-			transform: translate(25%, 20%) scale(1.2) translateZ(0);
-		}
-		100% {
-			transform: translate(0, 0) scale(1) translateZ(0);
-		}
+		0% { transform: translate(0, 0) scale(1); }
+		50% { transform: translate(15%, 10%) scale(1.1); }
+		100% { transform: translate(0, 0) scale(1); }
 	}
-
-	.animate-mesh {
-		/* Reduced from 25s to 8s for a much more noticeable drift */
-		animation: move-mesh 8s infinite alternate ease-in-out !important;
-		will-change: transform;
-		backface-visibility: hidden;
-	}
+	.animate-mesh { animation: move-mesh 12s infinite alternate ease-in-out; }
+	::-webkit-scrollbar { width: 0px; }
 </style>
 </body>
 </html>
