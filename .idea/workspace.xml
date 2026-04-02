@@ -6,7 +6,25 @@
   <component name="ChangeListManager">
     <list default="true" id="9d288e24-bfc5-4fea-9a63-f1d88f52aee0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/downloads/SGAagent.exe" beforeDir="false" afterPath="$PROJECT_DIR$/downloads/SGA_Agent.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGA_Agent.spec" beforeDir="false" afterPath="$PROJECT_DIR$/SGA_Agent.spec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/SGA_Agent/Analysis-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/SGA_Agent/Analysis-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/SGA_Agent/EXE-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/SGA_Agent/EXE-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/SGA_Agent/PKG-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/SGA_Agent/PKG-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/SGA_Agent/PYZ-00.pyz" beforeDir="false" afterPath="$PROJECT_DIR$/build/SGA_Agent/PYZ-00.pyz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/SGA_Agent/PYZ-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/SGA_Agent/PYZ-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/SGA_Agent/SGA_Agent.pkg" beforeDir="false" afterPath="$PROJECT_DIR$/build/SGA_Agent/SGA_Agent.pkg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/SGA_Agent/base_library.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/SGA_Agent/base_library.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/SGA_Agent/warn-SGA_Agent.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/SGA_Agent/warn-SGA_Agent.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/SGA_Agent/xref-SGA_Agent.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/SGA_Agent/xref-SGA_Agent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/SGAagent/Analysis-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/SGAagent/Analysis-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/SGAagent/EXE-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/SGAagent/EXE-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/SGAagent/PKG-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/SGAagent/PKG-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/SGAagent/SGAagent.pkg" beforeDir="false" afterPath="$PROJECT_DIR$/build/SGAagent/SGAagent.pkg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/SGAagent/base_library.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/SGAagent/base_library.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/SGAagent/warn-SGAagent.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/SGAagent/warn-SGAagent.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/SGAagent/xref-SGAagent.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/SGAagent/xref-SGAagent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/downloads/SGA_Agent.exe" beforeDir="false" afterPath="$PROJECT_DIR$/downloads/SGA_Agent.exe" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +132,7 @@
       <workItem from="1774643605600" duration="1253000" />
       <workItem from="1774647485488" duration="1807000" />
       <workItem from="1774692762884" duration="5271000" />
-      <workItem from="1775123886631" duration="8869000" />
+      <workItem from="1775123886631" duration="9870000" />
     </task>
     <servers />
   </component>
@@ -122,7 +140,7 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SuperiorGamingAgency$agent.coverage" NAME="agent Coverage Results" MODIFIED="1775131039068" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SuperiorGamingAgency$agent.coverage" NAME="agent Coverage Results" MODIFIED="1775133110869" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SuperiorGamingAgency$auditor.coverage" NAME="auditor Coverage Results" MODIFIED="1774643970591" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SuperiorGamingAgency$main.coverage" NAME="main Coverage Results" MODIFIED="1774463369781" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

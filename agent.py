@@ -6,7 +6,6 @@ import time
 import uuid
 import psutil
 import platform
-import socket
 import datetime
 import winreg
 import subprocess
@@ -18,27 +17,53 @@ import pystray
 from supabase import create_client
 from plyer import notification
 
-# --- CONFIG ---
+
+# --- WINDOW HIDER LOGIC ---
+def hide_console():
+    """Hides the console window from the taskbar and desktop."""
+    # Get the handle of the current console window
+    hwnd = ctypes.windll.kernel32.GetConsoleWindow()
+    if hwnd != 0:
+        # SW_HIDE = 0
+        ctypes.windll.user32.ShowWindow(hwnd, 0)
+
+
+# --- SETTINGS ---
 SUPABASE_URL = "https://hyakorvmqpirnorpbskk.supabase.co"
 SUPABASE_KEY = "sb_publishable_zfssEvxed9ul69PEX8NU6A_ACNnrbrU"
 SESSION_PATH = os.path.join(os.environ.get('APPDATA', '.'), "sga_agent_session.json")
 
 
-def get_hardware_rig_id():
-    node = uuid.getnode()
-    return str(uuid.uuid5(uuid.NAMESPACE_DNS, str(node)))
+def print_header():
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print("=" * 60)
+    print("        SUPERIOR GAMING AGENCY | SECURE UPLINK AGENT")
+    print("=" * 60)
+    print("\n [!] LOGIN REQUIRED TO ESTABLISH SECURE HANDSHAKE.")
+    print(" [!] AFTER LOGIN, THIS WINDOW WILL VANISH TO THE BACKGROUND.")
+    print("\n" + "-" * 60 + "\n")
+
+
+def status(msg):
+    print(f" [+] {msg}...")
+
+
+# --- ADMIN ELEVATION ---
+if not ctypes.windll.shell32.IsUserAnAdmin():
+    ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
+    sys.exit()
 
 
 class SGAAgent:
     def __init__(self):
         self.supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
-        self.rig_id = get_hardware_rig_id()
+        node = uuid.getnode()
+        self.rig_id = str(uuid.uuid5(uuid.NAMESPACE_DNS, str(node)))
         self.user_id = None
         self.active_components = []
 
     def _get_real_cpu_temp(self):
         try:
-            # Explicitly initialize COM for the temperature thread
             pythoncom.CoInitialize()
             wmi = win32com.client.GetObject("winmgmts:/root/wmi")
             res = wmi.ExecQuery("SELECT CurrentTemperature FROM MSAcpi_ThermalZoneTemperature")
@@ -50,15 +75,14 @@ class SGAAgent:
         return round(35.0 + (psutil.cpu_percent() * 0.45), 1)
 
     def get_gpu_manifest(self):
-        """Universal GPU Discovery without blocking the console."""
         gpus = []
         try:
             pythoncom.CoInitialize()
-            # Absolute safest WMI path
             wmi = win32com.client.Dispatch("WbemScripting.SWbemLocator").ConnectServer(".", "root\\cimv2")
             gpu_list = wmi.ExecQuery("Select * from Win32_VideoController")
             for i, controller in enumerate(gpu_list):
                 name = str(controller.Name).strip()
+                if "Microsoft Basic" in name: continue
                 vram_gb = "Shared"
                 if "NVIDIA" in name.upper():
                     try:
@@ -67,7 +91,6 @@ class SGAAgent:
                         if out: vram_gb = f"{round(int(out) / 1024, 1)}GB"
                     except:
                         pass
-
                 if vram_gb == "Shared":
                     try:
                         ram = int(controller.AdapterRAM)
@@ -75,46 +98,40 @@ class SGAAgent:
                         vram_gb = f"{round(ram / (1024 ** 3), 2)}GB"
                     except:
                         pass
-
                 gpus.append({"type": "GPU", "model_name": f"{name} ({vram_gb})", "slot_index": i, "raw_name": name})
         except:
             pass
         return gpus
 
     def secure_login(self):
-        """Unified Login: Fixed the 'GetPass' hang by using clear prompts."""
         if os.path.exists(SESSION_PATH):
             try:
                 with open(SESSION_PATH, "r") as f:
                     sess = json.load(f)
                 res = self.supabase.auth.set_session(sess['access_token'], sess['refresh_token'])
                 self.user_id = res.user.id
-                print("🔒 Session restored.")
+                status("Session restored from local vault")
                 return True
             except:
                 pass
 
-        print("\n" + "=" * 45 + "\n SGA | SECURE UPLINK \n" + "=" * 45)
-
+        print_header()
         while not self.user_id:
-            # Using input() instead of getpass() to avoid the Windows Console hang
-            email = input("📧 Email: ").strip()
-            if not email: continue
-            password = input("🔑 Password: ").strip()
-            if not password: continue
-
+            email = input(" 📧 Email: ").strip()
+            password = input(" 🔑 Password: ").strip()
             try:
                 res = self.supabase.auth.sign_in_with_password({"email": email, "password": password})
                 self.user_id = res.user.id
                 with open(SESSION_PATH, "w") as f:
                     json.dump({"access_token": res.session.access_token, "refresh_token": res.session.refresh_token}, f)
-                print("✅ Handshake successful.")
+                status("Handshake successful")
                 return True
             except:
-                print("❌ Invalid Credentials. Try again.")
+                print(" [!] Login Failed. Check credentials.")
         return False
 
-    def sync_rig_and_components(self):
+    def sync_hardware(self):
+        status("Syncing hardware manifest")
         self.supabase.table("rigs").upsert({
             "id": self.rig_id, "user_id": self.user_id,
             "os_name": f"{platform.system()} {platform.release()}",
@@ -122,15 +139,15 @@ class SGAAgent:
         }).execute()
 
         manifest = []
-        # CPU & RAM
+        # CPU
         reg_path = r"HARDWARE\DESCRIPTION\System\CentralProcessor\0"
         with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, reg_path) as key:
             cpu_model, _ = winreg.QueryValueEx(key, "ProcessorNameString")
         manifest.append({"type": "CPU", "model_name": cpu_model.strip(), "slot_index": 0})
+        # RAM
         manifest.append({"type": "RAM", "model_name": f"{round(psutil.virtual_memory().total / (1024 ** 3))}GB RAM",
                          "slot_index": 0})
-
-        # DISKS
+        # DISK
         for i, p in enumerate(psutil.disk_partitions()):
             if 'fixed' in p.opts or 'rw' in p.opts:
                 try:
@@ -139,8 +156,7 @@ class SGAAgent:
                                      "mount_point": p.mountpoint})
                 except:
                     continue
-
-        # GPUs
+        # GPU
         manifest.extend(self.get_gpu_manifest())
 
         self.active_components = []
@@ -152,9 +168,9 @@ class SGAAgent:
             if res.data:
                 self.active_components.append({**res.data[0], "mount_point": m_point, "raw_name": raw_n})
 
-    def run_telemetry_loop(self):
-        """This runs in the background thread."""
-        notification.notify(title="SGA | LIVE", message="Telemetry streaming...", timeout=5)
+        status("Uplink active")
+
+    def telemetry_stream(self):
         while True:
             now = datetime.datetime.now(datetime.UTC).isoformat()
             payload = []
@@ -202,7 +218,7 @@ class SGAAgent:
 def on_quit(icon, item):
     try:
         sb = create_client(SUPABASE_URL, SUPABASE_KEY)
-        rid = get_hardware_rig_id()
+        rid = str(uuid.uuid5(uuid.NAMESPACE_DNS, str(uuid.getnode())))
         sb.table("rigs").update({"is_active": False}).eq("id", rid).execute()
     except:
         pass
@@ -211,30 +227,39 @@ def on_quit(icon, item):
 
 
 if __name__ == "__main__":
-    # Ensure admin
-    if not ctypes.windll.shell32.IsUserAnAdmin():
-        ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
-        sys.exit()
-
     agent = SGAAgent()
 
-    # 1. LOGIN (In Main Thread - No getpass hang)
+    # 1. LOGIN (Console is visible here)
     if agent.secure_login():
-        # 2. SYNC (In Main Thread)
-        agent.sync_rig_and_components()
+        agent.sync_hardware()
 
-        # 3. BACKGROUND THREAD (For data)
-        threading.Thread(target=agent.run_telemetry_loop, daemon=True).start()
+        # 2. THE DISAPPEARING ACT
+        # Everything is ready, so we hide the console window entirely
+        print(" [+] Handshake complete. Relocating to background...")
+        time.sleep(1.5)  # Give the user a moment to see the success
+        hide_console()
 
-        # 4. TRAY (In Main Thread)
+        # 3. NOTIFY USER
+        notification.notify(
+            title="SGA UPLINK LIVE",
+            message="Secure background streaming active.",
+            timeout=5
+        )
+
+        # 4. START TELEMETRY
+        threading.Thread(target=agent.telemetry_stream, daemon=True).start()
+
+        # 5. START TRAY (Only way to see the app now)
         try:
             img = Image.open("SGA_LOGO.ico")
         except:
             img = Image.new('RGB', (64, 64), (249, 115, 22))
 
-        menu = pystray.Menu(pystray.MenuItem(f"Rig: {agent.rig_id[:8]}", lambda: None, enabled=False),
-                            pystray.MenuItem("Exit", on_quit))
-        icon = pystray.Icon("SGA_Agent", img, "SGA Agent", menu)
+        menu = pystray.Menu(
+            pystray.MenuItem(f"Rig ID: {agent.rig_id[:8]}", lambda: None, enabled=False),
+            pystray.MenuItem("Exit SGA Agent", on_quit)
+        )
+        icon = pystray.Icon("SGA_Agent", img, "SGA Uplink Agent", menu)
         icon.run()
     else:
         sys.exit()
