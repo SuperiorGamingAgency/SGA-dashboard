@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d288e24-bfc5-4fea-9a63-f1d88f52aee0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/agent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/downloads/SGAagent.exe" beforeDir="false" afterPath="$PROJECT_DIR$/downloads/SGA_Agent.exe" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,8 +73,8 @@
       <recent name="D:\Documents\SuperiorGamingAgency" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Documents\SuperiorGamingAgency\public\downloads" />
       <recent name="D:\Documents\SuperiorGamingAgency\downloads" />
+      <recent name="D:\Documents\SuperiorGamingAgency\public\downloads" />
       <recent name="D:\Documents\SuperiorGamingAgency\public\assets" />
     </key>
   </component>
@@ -116,7 +114,7 @@
       <workItem from="1774643605600" duration="1253000" />
       <workItem from="1774647485488" duration="1807000" />
       <workItem from="1774692762884" duration="5271000" />
-      <workItem from="1775123886631" duration="8482000" />
+      <workItem from="1775123886631" duration="8869000" />
     </task>
     <servers />
   </component>
