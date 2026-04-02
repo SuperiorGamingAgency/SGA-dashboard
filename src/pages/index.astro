@@ -1,5 +1,5 @@
 ---
-// index.astro - SGA Tech-Concierge Dashboard (MASTER EDITION)
+// index.astro - SGA Tech-Concierge Dashboard (MASTER EDITION v1.2)
 import '../styles/global.css';
 ---
 
@@ -15,8 +15,10 @@ import '../styles/global.css';
 <body class="text-slate-100 font-sans min-h-screen p-4 md:p-12 overflow-x-hidden">
 
 <div class="fixed inset-0 -z-10 overflow-hidden bg-[#020617]">
-	<div class="absolute -top-[10%] -left-[10%] w-[70%] h-[70%] bg-orange-500/10 blur-[120px] rounded-full animate-mesh"></div>
-	<div class="absolute -bottom-[10%] -right-[10%] w-[60%] h-[60%] bg-blue-500/10 blur-[120px] rounded-full animate-mesh" style="animation-delay: -4s;"></div>
+	<div class="absolute -top-[20%] -left-[20%] w-[120%] h-[120%] bg-orange-500/10 blur-[120px] rounded-full animate-mesh-fast"></div>
+	<div class="absolute -bottom-[20%] -right-[20%] w-[110%] h-[110%] bg-blue-500/10 blur-[120px] rounded-full animate-mesh-fast" style="animation-delay: -2s;"></div>
+
+	<div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#ffffff 0.5px, transparent 0.5px); background-size: 40px 40px;"></div>
 </div>
 
 <aside class="fixed left-6 top-1/2 -translate-y-1/2 z-[100] hidden lg:flex flex-col bg-slate-900/90 backdrop-blur-xl border border-slate-800 p-3 rounded-2xl shadow-[0_0_30px_rgba(0,0,0,0.5)]">
@@ -176,7 +178,7 @@ import '../styles/global.css';
 <script>
 	import { supabase } from '../lib/supabase';
 
-	document.addEventListener('DOMContentLoaded', () => {
+	document.addEventListener('DOMContentLoaded', async () => {
 		const lockScreen = document.getElementById('lock-screen');
 		const dashboard = document.getElementById('dashboard');
 		const statsGrid = document.getElementById('stats-grid');
@@ -188,6 +190,19 @@ import '../styles/global.css';
 
 		const componentCards = {};
 		let lastPacketTime = Date.now();
+
+		// --- AUTH GUARD: CHECK SESSION ---
+		const { data: { session }, error } = await supabase.auth.getSession();
+
+		if (!session || error) {
+			// If not logged in, redirect to sign-in page
+			// (Make sure you create signin.astro next!)
+			window.location.href = '/signin';
+			return;
+		}
+
+		const currentUser = session.user.id;
+		console.log("🔐 Authenticated as:", session.user.email);
 
 		// --- CORE UI FUNCTIONS ---
 		const goOffline = () => {
@@ -213,7 +228,7 @@ import '../styles/global.css';
 			}
 		};
 
-		// --- 1. THE WATCHDOG (Checks for Silence/Crashes) ---
+		// --- 1. THE WATCHDOG ---
 		setInterval(() => {
 			const silenceDuration = Date.now() - lastPacketTime;
 			if (silenceDuration > 15000 && lockScreen.style.display === 'none') {
@@ -222,11 +237,15 @@ import '../styles/global.css';
 			}
 		}, 5000);
 
-		// --- 2. LISTEN TO RIG STATUS (Graceful Goodbye) ---
+		// --- 2. LISTEN TO RIG STATUS (Private Channel) ---
 		supabase.channel('sga-status')
-			.on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'rigs' }, (payload) => {
+			.on('postgres_changes', {
+				event: 'UPDATE',
+				schema: 'public',
+				table: 'rigs',
+				filter: `user_id=eq.${currentUser}` // ONLY your rigs
+			}, (payload) => {
 				if (payload.new.is_active === false) {
-					console.log("🚫 Agent sent goodbye signal.");
 					goOffline();
 				} else if (payload.new.is_active === true) {
 					goOnline();
@@ -234,9 +253,14 @@ import '../styles/global.css';
 			})
 			.subscribe();
 
-		// --- 3. LISTEN TO LIVE DATA ---
+		// --- 3. LISTEN TO LIVE DATA (Private Channel) ---
 		supabase.channel('sga-live')
-			.on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'telemetry' }, (payload) => {
+			.on('postgres_changes', {
+				event: 'INSERT',
+				schema: 'public',
+				table: 'telemetry',
+				filter: `user_id=eq.${currentUser}` // ONLY your data
+			}, (payload) => {
 				const telemetry = payload.new;
 				goOnline();
 
@@ -273,6 +297,7 @@ import '../styles/global.css';
 				statsGrid.appendChild(card);
 				componentCards[id] = card;
 
+				// These queries are now protected by RLS
 				const { data: info } = await supabase.from('components').select('*').eq('id', id).single();
 				if (info) {
 					const nameEl = document.getElementById(`name-${id}`);
@@ -283,8 +308,8 @@ import '../styles/global.css';
 					const { data: rig } = await supabase.from('rigs').select('*').eq('id', info.rig_id).single();
 					if (rig) {
 						if (osDesc) osDesc.innerText = rig.os_name;
-						if (osDetails) osDetails.innerText = `HANDSHAKE: ${rig.id}`;
-						if (rigDisplay) rigDisplay.innerText = `v1.1.0 | RIG: ${rig.id.substring(0,8)}... | CLOUD SYNCED`;
+						if (osDetails) osDetails.innerText = `UPLINK_OWNER: ${session.user.email}`;
+						if (rigDisplay) rigDisplay.innerText = `v1.2.0 | RIG: ${rig.id.substring(0,8)} | SECURED_SESSION`;
 					}
 				}
 			}
