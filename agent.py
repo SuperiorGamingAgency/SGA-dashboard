@@ -20,11 +20,8 @@ from plyer import notification
 
 # --- WINDOW HIDER LOGIC ---
 def hide_console():
-    """Hides the console window from the taskbar and desktop."""
-    # Get the handle of the current console window
     hwnd = ctypes.windll.kernel32.GetConsoleWindow()
     if hwnd != 0:
-        # SW_HIDE = 0
         ctypes.windll.user32.ShowWindow(hwnd, 0)
 
 
@@ -48,10 +45,14 @@ def status(msg):
     print(f" [+] {msg}...")
 
 
-# --- ADMIN ELEVATION ---
-if not ctypes.windll.shell32.IsUserAnAdmin():
-    ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
-    sys.exit()
+# --- ADMIN ELEVATION (REPAIRED) ---
+def check_admin():
+    if ctypes.windll.shell32.IsUserAnAdmin():
+        return True
+    else:
+        # Re-run the program with admin rights
+        ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
+        return False
 
 
 class SGAAgent:
@@ -91,6 +92,7 @@ class SGAAgent:
                         if out: vram_gb = f"{round(int(out) / 1024, 1)}GB"
                     except:
                         pass
+
                 if vram_gb == "Shared":
                     try:
                         ram = int(controller.AdapterRAM)
@@ -139,15 +141,13 @@ class SGAAgent:
         }).execute()
 
         manifest = []
-        # CPU
         reg_path = r"HARDWARE\DESCRIPTION\System\CentralProcessor\0"
         with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, reg_path) as key:
             cpu_model, _ = winreg.QueryValueEx(key, "ProcessorNameString")
         manifest.append({"type": "CPU", "model_name": cpu_model.strip(), "slot_index": 0})
-        # RAM
         manifest.append({"type": "RAM", "model_name": f"{round(psutil.virtual_memory().total / (1024 ** 3))}GB RAM",
                          "slot_index": 0})
-        # DISK
+
         for i, p in enumerate(psutil.disk_partitions()):
             if 'fixed' in p.opts or 'rw' in p.opts:
                 try:
@@ -156,7 +156,7 @@ class SGAAgent:
                                      "mount_point": p.mountpoint})
                 except:
                     continue
-        # GPU
+
         manifest.extend(self.get_gpu_manifest())
 
         self.active_components = []
@@ -167,7 +167,6 @@ class SGAAgent:
                                                            on_conflict="rig_id,model_name,slot_index").execute()
             if res.data:
                 self.active_components.append({**res.data[0], "mount_point": m_point, "raw_name": raw_n})
-
         status("Uplink active")
 
     def telemetry_stream(self):
@@ -201,8 +200,10 @@ class SGAAgent:
                         load, temp = cpu_usage * 0.8, cpu_temp
 
                 payload.append({
-                    "component_id": comp['id'], "user_id": self.user_id,
-                    "load_percent": int(round(load)), "temp_celsius": int(round(temp)),
+                    "component_id": comp['id'],
+                    "user_id": self.user_id,
+                    "load_percent": int(round(load)),
+                    "temp_celsius": int(round(temp)),
                     "recorded_at": now
                 })
             try:
@@ -227,29 +228,22 @@ def on_quit(icon, item):
 
 
 if __name__ == "__main__":
+    # Fix: Ensure the current process stops if it's not admin
+    if not check_admin():
+        sys.exit(0)
+
     agent = SGAAgent()
 
-    # 1. LOGIN (Console is visible here)
     if agent.secure_login():
         agent.sync_hardware()
 
-        # 2. THE DISAPPEARING ACT
-        # Everything is ready, so we hide the console window entirely
         print(" [+] Handshake complete. Relocating to background...")
-        time.sleep(1.5)  # Give the user a moment to see the success
+        time.sleep(1.5)
         hide_console()
 
-        # 3. NOTIFY USER
-        notification.notify(
-            title="SGA UPLINK LIVE",
-            message="Secure background streaming active.",
-            timeout=5
-        )
-
-        # 4. START TELEMETRY
+        notification.notify(title="SGA UPLINK LIVE", message="Secure background streaming active.", timeout=5)
         threading.Thread(target=agent.telemetry_stream, daemon=True).start()
 
-        # 5. START TRAY (Only way to see the app now)
         try:
             img = Image.open("SGA_LOGO.ico")
         except:
