@@ -18,11 +18,18 @@ from supabase import create_client
 from plyer import notification
 
 
-# --- WINDOW HIDER LOGIC ---
+# --- WINDOW CONTROL LOGIC ---
 def hide_console():
     hwnd = ctypes.windll.kernel32.GetConsoleWindow()
     if hwnd != 0:
         ctypes.windll.user32.ShowWindow(hwnd, 0)
+
+
+def show_console():
+    hwnd = ctypes.windll.kernel32.GetConsoleWindow()
+    if hwnd != 0:
+        ctypes.windll.user32.ShowWindow(hwnd, 5)
+        ctypes.windll.user32.SetForegroundWindow(hwnd)
 
 
 # --- SETTINGS ---
@@ -45,12 +52,10 @@ def status(msg):
     print(f" [+] {msg}...")
 
 
-# --- ADMIN ELEVATION (REPAIRED) ---
 def check_admin():
     if ctypes.windll.shell32.IsUserAnAdmin():
         return True
     else:
-        # Re-run the program with admin rights
         ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
         return False
 
@@ -62,6 +67,7 @@ class SGAAgent:
         self.rig_id = str(uuid.uuid5(uuid.NAMESPACE_DNS, str(node)))
         self.user_id = None
         self.active_components = []
+        self.stop_event = threading.Event()
 
     def _get_real_cpu_temp(self):
         try:
@@ -92,7 +98,6 @@ class SGAAgent:
                         if out: vram_gb = f"{round(int(out) / 1024, 1)}GB"
                     except:
                         pass
-
                 if vram_gb == "Shared":
                     try:
                         ram = int(controller.AdapterRAM)
@@ -158,7 +163,6 @@ class SGAAgent:
                     continue
 
         manifest.extend(self.get_gpu_manifest())
-
         self.active_components = []
         for item in manifest:
             m_point = item.pop("mount_point", None)
@@ -170,7 +174,7 @@ class SGAAgent:
         status("Uplink active")
 
     def telemetry_stream(self):
-        while True:
+        while not self.stop_event.is_set():
             now = datetime.datetime.now(datetime.UTC).isoformat()
             payload = []
             cpu_usage = psutil.cpu_percent(interval=1)
@@ -200,10 +204,8 @@ class SGAAgent:
                         load, temp = cpu_usage * 0.8, cpu_temp
 
                 payload.append({
-                    "component_id": comp['id'],
-                    "user_id": self.user_id,
-                    "load_percent": int(round(load)),
-                    "temp_celsius": int(round(temp)),
+                    "component_id": comp['id'], "user_id": self.user_id,
+                    "load_percent": int(round(load)), "temp_celsius": int(round(temp)),
                     "recorded_at": now
                 })
             try:
@@ -215,8 +217,14 @@ class SGAAgent:
             time.sleep(5)
 
 
-# --- EXECUTION ---
+# --- GLOBAL APP STATE ---
+global_agent = None
+
+
 def on_quit(icon, item):
+    global global_agent
+    if global_agent:
+        global_agent.stop_event.set()
     try:
         sb = create_client(SUPABASE_URL, SUPABASE_KEY)
         rid = str(uuid.uuid5(uuid.NAMESPACE_DNS, str(uuid.getnode())))
@@ -227,32 +235,40 @@ def on_quit(icon, item):
     os._exit(0)
 
 
+def on_show_console(icon, item):
+    show_console()
+
+
 if __name__ == "__main__":
-    # Fix: Ensure the current process stops if it's not admin
     if not check_admin():
         sys.exit(0)
 
-    agent = SGAAgent()
+    global_agent = SGAAgent()
 
-    if agent.secure_login():
-        agent.sync_hardware()
+    if global_agent.secure_login():
+        global_agent.sync_hardware()
 
         print(" [+] Handshake complete. Relocating to background...")
-        time.sleep(1.5)
+        time.sleep(2)
         hide_console()
 
         notification.notify(title="SGA UPLINK LIVE", message="Secure background streaming active.", timeout=5)
-        threading.Thread(target=agent.telemetry_stream, daemon=True).start()
+
+        t = threading.Thread(target=global_agent.telemetry_stream, daemon=True)
+        t.start()
 
         try:
             img = Image.open("SGA_LOGO.ico")
         except:
             img = Image.new('RGB', (64, 64), (249, 115, 22))
 
+        # --- REPAIRED MENU (NO SEPARATOR) ---
         menu = pystray.Menu(
-            pystray.MenuItem(f"Rig ID: {agent.rig_id[:8]}", lambda: None, enabled=False),
+            pystray.MenuItem(f"Rig Online: {global_agent.rig_id[:8]}", lambda: None, enabled=False),
+            pystray.MenuItem("Show Console", on_show_console, default=True),
             pystray.MenuItem("Exit SGA Agent", on_quit)
         )
+
         icon = pystray.Icon("SGA_Agent", img, "SGA Uplink Agent", menu)
         icon.run()
     else:
