@@ -1,1 +1,41 @@
+/* main.css or globals.css */
 @import "tailwindcss";
+
+/* SGA NEXUS HUB COMPONENTS
+   Manual CSS properties used to ensure 100% build stability
+   and avoid "Unknown utility class" errors.
+*/
+
+.brainstormingCard {
+    /* Manual replacement for 'rounded-lg' */
+    border-radius: 8px;
+
+    /* Manual replacements for slate-900, slate-700, and spacing-6 */
+    background-color: #0f172a;
+    border: 1px solid #334155;
+    padding: 24px;
+
+    /* Layout & Interaction */
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: all 0.2s ease-in-out;
+    color: #f8fafc;
+}
+
+.brainstormingCard:hover {
+    /* Manual replacement for blue-500 */
+    border-color: #3b82f6;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.matrixLabel {
+    /* Manual replacements for text-sm, font-bold, and blue-400 */
+    font-size: 14px;
+    font-weight: 700;
+    color: #60a5fa;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+}

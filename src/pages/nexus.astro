@@ -1,0 +1,208 @@
+---
+// src/pages/nexus.astro - SGA Strategic Intelligence Hub (Consulting Deck v2.0 - Justified Edition)
+import '../styles/global.css';
+---
+
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Nexus Audit | Brainstorming Methodology</title>
+</head>
+<body class="text-slate-100 font-sans min-h-screen p-4 md:p-12 overflow-x-hidden">
+
+<div class="fixed inset-0 -z-10 overflow-hidden bg-[#020617]">
+    <div class="absolute -top-[20%] -left-[20%] w-[120%] h-[120%] bg-indigo-500/10 blur-[120px] rounded-full animate-mesh-slow"></div>
+    <div class="absolute -bottom-[20%] -right-[20%] w-[110%] h-[110%] bg-blue-600/10 blur-[120px] rounded-full animate-mesh-slow" style="animation-delay: -3s;"></div>
+    <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#ffffff 0.5px, transparent 0.5px); background-size: 40px 40px;"></div>
+</div>
+
+<aside class="fixed left-6 top-1/2 -translate-y-1/2 z-[100] hidden lg:flex flex-col bg-slate-900/90 backdrop-blur-xl border border-slate-800 p-3 rounded-2xl shadow-[0_0_30px_rgba(0,0,0,0.5)]">
+    <div class="flex flex-col gap-5 max-h-[80vh]">
+        <a href="/" class="group relative flex items-center justify-center w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 hover:border-orange-400 text-slate-400 hover:text-orange-400 transition-all hover:scale-105">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+        </a>
+        <a href="/rig-manifest" class="group relative flex items-center justify-center w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 hover:border-blue-400 text-slate-400 hover:text-blue-400 transition-all hover:scale-105">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" /></svg>
+        </a>
+        <a href="/nexus" class="group relative flex items-center justify-center w-12 h-12 rounded-xl bg-indigo-600 text-white shadow-[0_0_20px_rgba(79,70,229,0.4)] border border-indigo-400/50 scale-110 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" /></svg>
+        </a>
+        <hr class="border-slate-800/50 mx-2" />
+        <a href="/forge" class="group relative flex items-center justify-center w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 hover:border-emerald-400 text-slate-400 hover:text-emerald-400 transition-all hover:scale-105"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 00-1 1v1a2 2 0 11-4 0v-1a1 1 0 00-1-1H7a1 1 0 01-1-1v-3a1 1 0 011-1h1a2 2 0 100-4H7a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" /></svg></a>
+        <a href="/store" class="group relative flex items-center justify-center w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 hover:border-slate-100 text-slate-400 hover:text-slate-100 transition-all hover:scale-105"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg></a>
+        <a href="/booking" class="group relative flex items-center justify-center w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 hover:border-purple-400 text-slate-400 hover:text-purple-400 transition-all hover:scale-105"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg></a>
+    </div>
+</aside>
+
+<div class="max-w-5xl mx-auto lg:pl-20">
+    <header class="flex flex-col md:flex-row justify-between items-center mb-16 border-b border-slate-800 pb-8">
+        <div>
+            <h1 style="font-family: 'Cairo', sans-serif;" class="text-3xl tracking-tighter text-white font-black uppercase italic leading-none">
+                Nexus <span class="font-light opacity-50 text-indigo-400 font-sans">Intelligence</span>
+            </h1>
+            <p class="text-slate-500 text-[10px] font-mono uppercase tracking-[0.4em] mt-3" id="uplink-status">Secure Handshake in Progress...</p>
+        </div>
+        <div id="user-badge" class="hidden md:flex items-center gap-4 bg-slate-900/50 border border-slate-800 p-2 pr-4 rounded-2xl backdrop-blur-md">
+            <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center font-black text-white italic">NX</div>
+            <div class="text-left"><p id="user-email" class="text-[10px] font-bold text-white uppercase leading-none mb-1">Authenticated</p><p class="text-[8px] font-mono text-indigo-400 uppercase tracking-widest">Active_Uplink</p></div>
+        </div>
+    </header>
+
+    <section class="mb-24 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+        <h2 class="text-4xl md:text-7xl font-black tracking-tighter uppercase leading-[0.9] text-white mb-10 text-justify">
+            Unstructured Collaboration <br/> <span class="text-indigo-500 underline decoration-indigo-500/20 underline-offset-[12px]">Actively Limits</span> <br/> Throughput.
+        </h2>
+        <div class="grid md:grid-cols-2 gap-10">
+            <div class="bg-slate-900/60 p-8 rounded-[2rem] border border-slate-800 shadow-xl">
+                <h4 class="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-4">Internal Audit: Process Loss</h4>
+                <p class="text-slate-300 text-lg font-light leading-relaxed mb-6 italic text-justify">
+                    The phenomenon of **Process Loss** occurs when the interaction between group members inhibits performance, resulting in a collective output that is inferior to the sum of individual efforts.
+                </p>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3 text-xs text-slate-400 uppercase tracking-tight">
+                        <span class="text-indigo-500 font-bold">[01]</span> <strong>Production Blocking:</strong> Sequential speech prevents parallel cognitive execution.
+                    </li>
+                    <li class="flex items-start gap-3 text-xs text-slate-400 uppercase tracking-tight">
+                        <span class="text-indigo-500 font-bold">[02]</span> <strong>Evaluation Apprehension:</strong> Peer-judgment triggers immediate self-censorship.
+                    </li>
+                </ul>
+            </div>
+            <div class="flex flex-col justify-center">
+                <div class="bg-indigo-950/20 border border-indigo-500/20 p-8 rounded-[2rem] relative">
+                    <div class="mb-4 flex justify-between items-end">
+                        <span class="text-[10px] font-bold text-slate-500 uppercase">Ideation Efficiency</span>
+                        <span class="text-2xl font-black text-indigo-400">42%</span>
+                    </div>
+                    <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden mb-6">
+                        <div class="bg-indigo-500 h-full w-[42%] shadow-[0_0_15px_rgba(99,102,241,0.5)]"></div>
+                    </div>
+                    <p class="text-[11px] text-slate-500 leading-relaxed font-mono uppercase tracking-tighter text-justify">
+                        *Traditional brainstorming groups under-perform nominal groups by approx. 58% due to social interference.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-24 p-10 bg-slate-900/30 rounded-[3rem] border border-white/5 backdrop-blur-md">
+        <h2 class="text-4xl md:text-6xl font-black tracking-tighter uppercase leading-[0.95] text-white mb-12 text-justify">
+            Systematic <span class="text-indigo-400">Divergence</span> <br/> is the Primary Catalyst.
+        </h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="p-6 bg-slate-900 border border-slate-800 rounded-2xl">
+                <span class="text-xs font-black text-indigo-500 mb-2 block uppercase tracking-[0.2em]">Rule 01</span>
+                <p class="text-white font-bold text-lg mb-2 uppercase">Defer Judgment</p>
+                <p class="text-slate-500 text-xs text-justify">Abolish criticism during the generation phase to eliminate the fear barrier.</p>
+            </div>
+            <div class="p-6 bg-slate-900 border border-slate-800 rounded-2xl">
+                <span class="text-xs font-black text-indigo-500 mb-2 block uppercase tracking-[0.2em]">Rule 02</span>
+                <p class="text-white font-bold text-lg mb-2 uppercase">Prioritize Volume</p>
+                <p class="text-slate-500 text-xs text-justify">Quantity acts as a statistical catalyst for the discovery of outlier quality.</p>
+            </div>
+            <div class="p-6 bg-slate-900 border border-slate-800 rounded-2xl">
+                <span class="text-xs font-black text-indigo-500 mb-2 block uppercase tracking-[0.2em]">Rule 03</span>
+                <p class="text-white font-bold text-lg mb-2 uppercase">Build & Pivot</p>
+                <p class="text-slate-500 text-xs text-justify">Treat existing data points as seeds for recursive conceptual growth.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-24 grid md:grid-cols-2 gap-12">
+        <div class="flex flex-col justify-center">
+            <h2 class="text-3xl md:text-5xl font-black tracking-tighter uppercase leading-[0.7] text-white mb-6 italic flex flex-col w-full gap-2">
+                <span class="flex justify-between w-full">
+                    <span>The</span>
+                    <span class="text-indigo-500 font-black">6-3-5 Protocol</span>
+                </span>
+
+                <span class="flex justify-between w-full">
+                    <span>E</span><span>N</span><span>F</span><span>O</span><span>R</span><span>C</span><span>E</span><span>S</span>
+                </span>
+
+                <span class="flex justify-between w-full text-indigo-400">
+                    <span>S</span><span>Y</span><span>N</span><span>C</span><span>H</span><span>R</span><span>O</span><span>N</span><span>I</span><span>C</span><span>I</span><span>T</span><span>Y</span><span>.</span>
+                </span>
+            </h2>
+            <p class="text-slate-400 text-lg leading-relaxed font-light mb-8 italic text-justify">
+                By formalizing the "Handshake" between participants, Nexus ensures every brain is activated simultaneously. Silence is not downtime; it is a **parallel processing state**.
+            </p>
+            <a href="/nexus/sync" class="inline-flex items-center gap-4 bg-indigo-600 px-8 py-4 rounded-xl text-white font-black uppercase tracking-tighter hover:bg-indigo-500 transition-all shadow-[0_15px_30px_rgba(79,70,229,0.2)]">
+                Initialize Sync Sequence
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+            </a>
+        </div>
+        <div class="bg-slate-950 border border-slate-800 p-8 rounded-[3rem] shadow-2xl relative overflow-hidden">
+            <h4 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-6">Comparative Throughput Analysis</h4>
+            <table class="w-full text-left text-[10px] font-mono uppercase tracking-tighter">
+                <tr class="border-b border-slate-800 text-slate-600">
+                    <th class="py-3">Methodology</th>
+                    <th class="py-3 text-right">Ideas / 30m</th>
+                </tr>
+                <tr class="border-b border-slate-900">
+                    <td class="py-4 text-slate-400 italic">Group Discussion</td>
+                    <td class="py-4 text-right text-white">~12 - 18</td>
+                </tr>
+                <tr class="border-b border-slate-900">
+                    <td class="py-4 text-slate-400 italic">Post-It Sessions</td>
+                    <td class="py-4 text-right text-white">~25 - 40</td>
+                </tr>
+                <tr class="bg-indigo-500/5">
+                    <td class="py-4 text-indigo-400 font-bold">SGA Nexus (6-3-5)</td>
+                    <td class="py-4 text-right text-indigo-400 font-bold italic">108 (Fixed)</td>
+                </tr>
+            </table>
+            <div class="absolute -bottom-6 -right-6 opacity-5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-32 w-32" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+            </div>
+        </div>
+    </section>
+
+    <section class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-24">
+        <div class="md:col-span-3 bg-indigo-600 p-12 rounded-[3rem] text-white">
+            <h2 class="text-4xl font-black uppercase tracking-tighter mb-4 text-justify">Structured Ideation is a <br/> Tactical Requirement.</h2>
+            <p class="text-indigo-100 text-lg italic font-light opacity-90 max-w-2xl leading-relaxed text-justify">
+                In a high-stakes environment, ideas cannot be left to chance. By implementing an architected solution like Nexus, we convert group intuition into a repeatable, high-output industrial process.
+            </p>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 rounded-[3rem] p-12 flex items-center justify-center text-center">
+            <p class="text-[9px] font-black uppercase tracking-[0.5em] text-slate-600 rotate-90 whitespace-nowrap">SGA Protocol Verified</p>
+        </div>
+    </section>
+
+    <footer class="pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-4 text-[9px] font-mono text-slate-600 uppercase tracking-[0.5em]">
+        <p>Superior Gaming Agency // Intelligence Group &copy; 2026</p>
+        <p class="italic text-justify">Methodology: Brainwriting (6-3-5) // Synchronous Diversification</p>
+    </footer>
+</div>
+
+<script>
+    import { supabase } from '../lib/supabase';
+    document.addEventListener('DOMContentLoaded', async () => {
+        const { data: { session }, error } = await supabase.auth.getSession();
+        if (!session || error) { window.location.href = '/signin'; return; }
+        const uplinkStatus = document.getElementById('uplink-status');
+        const userBadge = document.getElementById('user-badge');
+        const userEmailDisplay = document.getElementById('user-email');
+        if (uplinkStatus) uplinkStatus.innerText = `v2.1.0-ALFA | UPLINK: ${session.user.id.substring(0,8)} | SYNC: OPERATIONAL`;
+        if (userBadge) userBadge.classList.remove('hidden');
+        if (userEmailDisplay) userEmailDisplay.innerText = session.user.email;
+    });
+</script>
+
+<style is:global>
+    @keyframes mesh-slow { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(10%, 5%) scale(1.05); } 100% { transform: translate(0, 0) scale(1); } }
+    .animate-mesh-slow { animation: mesh-slow 20s infinite alternate ease-in-out; }
+    ::-webkit-scrollbar { width: 0px; }
+
+    /* Ensure justified text looks clean with hyphens */
+    .text-justify {
+        text-justify: inter-word;
+        hyphens: auto;
+    }
+</style>
+</body>
+</html>
