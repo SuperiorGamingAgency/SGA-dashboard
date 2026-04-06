@@ -21,12 +21,12 @@ import '../styles/global.css';
 	<div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#ffffff 0.5px, transparent 0.5px); background-size: 40px 40px;"></div>
 </div>
 
-<aside class="fixed left-6 top-1/2 -translate-y-1/2 z-[100] hidden lg:flex flex-col bg-slate-900/90 backdrop-blur-xl border border-slate-800 p-3 rounded-2xl shadow-[0_0_30px_rgba(0,0,0,0.5)]">
-	<div class="flex flex-col gap-5 max-h-[80vh] overflow-y-visible">
+<aside class="fixed bottom-0 left-0 w-full lg:w-auto lg:left-6 lg:top-1/2 lg:-translate-y-1/2 z-[100] bg-slate-900/90 backdrop-blur-xl border-t lg:border border-slate-800 p-3 lg:rounded-2xl shadow-[0_-10px_30px_rgba(0,0,0,0.5)] lg:shadow-[0_0_30px_rgba(0,0,0,0.5)]">
+	<div class="flex flex-row lg:flex-col gap-4 md:gap-5 w-full justify-around lg:justify-start items-center overflow-x-auto lg:overflow-visible no-scrollbar px-2 lg:px-0">
 
-		<a href="/" class="group relative flex items-center justify-center w-12 h-12 rounded-xl bg-orange-500 text-black shadow-[0_0_15px_rgba(249,115,22,0.3)] transition-all hover:scale-105">
+		<a href="/" class="group relative flex flex-shrink-0 items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-xl bg-orange-500 text-black shadow-[0_0_15px_rgba(249,115,22,0.3)] transition-all hover:scale-105">
 			<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-			<div class="absolute left-16 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-200 pointer-events-none text-black">
+			<div class="hidden lg:block absolute left-16 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-200 pointer-events-none text-black z-[200]">
 				<div class="bg-orange-500 px-3 py-2 rounded-lg shadow-2xl border border-orange-400/50 whitespace-nowrap">
 					<p class="text-[10px] font-black uppercase tracking-widest">Tactical Stats</p>
 					<p class="text-[8px] font-bold opacity-70 uppercase leading-none mt-1">Live Telemetry</p>
@@ -35,9 +35,9 @@ import '../styles/global.css';
 			</div>
 		</a>
 
-		<a href="/rig-manifest" class="group relative flex items-center justify-center w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 hover:border-blue-400 text-slate-400 hover:text-blue-400 transition-all hover:scale-105">
+		<a href="/rig-manifest" class="group relative flex flex-shrink-0 items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-xl bg-slate-800 border border-slate-700 hover:border-blue-400 text-slate-400 hover:text-blue-400 transition-all hover:scale-105">
 			<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" /></svg>
-			<div class="absolute left-16 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-200 pointer-events-none">
+			<div class="hidden lg:block absolute left-16 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-200 pointer-events-none">
 				<div class="bg-slate-800 text-blue-400 px-3 py-2 rounded-lg shadow-2xl border border-blue-500/30 min-w-[120px] whitespace-nowrap">
 					<p class="text-[10px] font-black uppercase tracking-widest">Rig Manifest</p>
 					<p class="text-[8px] text-slate-400 font-bold uppercase mt-1">Identity & Specs</p>
@@ -46,9 +46,9 @@ import '../styles/global.css';
 			</div>
 		</a>
 
-		<a href="/nexus" class="group relative flex items-center justify-center w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 hover:border-indigo-400 text-slate-400 hover:text-indigo-400 transition-all hover:scale-105">
+		<a href="/nexus" class="group relative flex flex-shrink-0 items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-xl bg-slate-800 border border-slate-700 hover:border-indigo-400 text-slate-400 hover:text-indigo-400 transition-all hover:scale-105">
 			<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" /></svg>
-			<div class="absolute left-16 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-200 pointer-events-none">
+			<div class="hidden lg:block absolute left-16 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-200 pointer-events-none">
 				<div class="bg-slate-800 text-indigo-400 px-3 py-2 rounded-lg shadow-2xl border border-indigo-500/30 min-w-[120px] whitespace-nowrap">
 					<p class="text-[10px] font-black uppercase tracking-widest">Nexus Hub</p>
 					<p class="text-[8px] text-slate-400 font-bold uppercase mt-1">Community Feed</p>
@@ -57,39 +57,18 @@ import '../styles/global.css';
 			</div>
 		</a>
 
-		<hr class="border-slate-800/50 mx-2" />
+		<div class="w-[1px] h-8 lg:w-8 lg:h-[1px] bg-slate-800/50 mx-1 lg:mx-0"></div>
 
-		<a href="/forge" class="group relative flex items-center justify-center w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 hover:border-emerald-400 text-slate-400 hover:text-emerald-400 transition-all hover:scale-105">
+		<a href="/forge" class="group relative flex flex-shrink-0 items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-xl bg-slate-800 border border-slate-700 hover:border-emerald-400 text-slate-400 hover:text-emerald-400 transition-all hover:scale-105">
 			<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 00-1 1v1a2 2 0 11-4 0v-1a1 1 0 00-1-1H7a1 1 0 01-1-1v-3a1 1 0 011-1h1a2 2 0 100-4H7a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" /></svg>
-			<div class="absolute left-16 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-200 pointer-events-none">
-				<div class="bg-slate-800 text-emerald-400 px-3 py-2 rounded-lg shadow-2xl border border-emerald-500/30 min-w-[120px] whitespace-nowrap">
-					<p class="text-[10px] font-black uppercase tracking-widest">SGA Forge</p>
-					<p class="text-[8px] text-slate-400 font-bold uppercase mt-1">Custom Builds</p>
-				</div>
-				<div class="absolute top-1/2 -left-1 -translate-y-1/2 w-2 h-2 bg-slate-800 rotate-45 border-l border-b border-emerald-500/30"></div>
-			</div>
 		</a>
 
-		<a href="/store" class="group relative flex items-center justify-center w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 hover:border-slate-100 text-slate-400 hover:text-slate-100 transition-all hover:scale-105">
+		<a href="/store" class="group relative flex flex-shrink-0 items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-xl bg-slate-800 border border-slate-700 hover:border-slate-100 text-slate-400 hover:text-slate-100 transition-all hover:scale-105">
 			<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
-			<div class="absolute left-16 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-200 pointer-events-none">
-				<div class="bg-slate-800 text-slate-100 px-3 py-2 rounded-lg shadow-2xl border border-slate-100/20 min-w-[120px] whitespace-nowrap">
-					<p class="text-[10px] font-black uppercase tracking-widest">Provisions</p>
-					<p class="text-[8px] text-slate-400 font-bold uppercase mt-1">Inventory Store</p>
-				</div>
-				<div class="absolute top-1/2 -left-1 -translate-y-1/2 w-2 h-2 bg-slate-800 rotate-45 border-l border-b border-slate-100/20"></div>
-			</div>
 		</a>
 
-		<a href="/booking" class="group relative flex items-center justify-center w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 hover:border-purple-400 text-slate-400 hover:text-purple-400 transition-all hover:scale-105">
+		<a href="/booking" class="group relative flex flex-shrink-0 items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-xl bg-slate-800 border border-slate-700 hover:border-purple-400 text-slate-400 hover:text-purple-400 transition-all hover:scale-105">
 			<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-			<div class="absolute left-16 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-200 pointer-events-none">
-				<div class="bg-slate-800 text-purple-400 px-3 py-2 rounded-lg shadow-2xl border border-purple-500/30 min-w-[120px] whitespace-nowrap">
-					<p class="text-[10px] font-black uppercase tracking-widest">Concierge</p>
-					<p class="text-[8px] text-slate-400 font-bold uppercase mt-1">SGA Maintenance</p>
-				</div>
-				<div class="absolute top-1/2 -left-1 -translate-y-1/2 w-2 h-2 bg-slate-800 rotate-45 border-l border-b border-purple-500/30"></div>
-			</div>
 		</a>
 	</div>
 </aside>
@@ -333,6 +312,8 @@ import '../styles/global.css';
 	}
 	.animate-mesh { animation: move-mesh 12s infinite alternate ease-in-out; }
 	::-webkit-scrollbar { width: 0px; }
+	.no-scrollbar::-webkit-scrollbar { display: none; }
+	.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 </style>
 </body>
 </html>
