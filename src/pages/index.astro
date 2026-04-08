@@ -163,8 +163,6 @@ import '../styles/global.css';
 		const statsGrid = document.getElementById('stats-grid');
 		const osDesc = document.getElementById('os-description');
 		const osDetails = document.getElementById('os-details');
-		const statusBadge = document.getElementById('status-badge');
-		const rigDisplay = document.getElementById('rig-id-display');
 		const lastUpdated = document.getElementById('last-updated');
 		const loginBtn = document.getElementById('login-btn');
 		const userProfile = document.getElementById('user-profile');
@@ -174,48 +172,62 @@ import '../styles/global.css';
 		const componentCards = {};
 		let lastPacketTime = Date.now();
 
-		// Check session for optional login
+		// Check session
 		const { data: { session } } = await supabase.auth.getSession();
 
 		if (session) {
-			// If logged in, update UI
 			loginBtn.classList.add('hidden');
 			userProfile.classList.remove('hidden');
 			userProfile.classList.add('flex');
-			userEmailDisplay.innerText = session.user.email.substring(0, 1).toUpperCase(); // Just initial for tactical look
+			userEmailDisplay.innerText = session.user.email.substring(0, 1).toUpperCase();
 
 			const currentUser = session.user.id;
+
+			// 1. FETCH STATIC RIG DATA (OS name is a property of the Rig, not telemetry)
+			const { data: rigInfo } = await supabase
+				.from('rigs')
+				.select('os_name')
+				.eq('user_id', currentUser)
+				.single();
+
+			if (rigInfo && rigInfo.os_name) {
+				osDesc.innerText = rigInfo.os_name;
+				osDetails.innerText = "Kernel Verified | System Stable";
+			}
 
 			// WATCHDOG TIMER
 			setInterval(() => {
 				const silenceDuration = Date.now() - lastPacketTime;
-				if (silenceDuration > 15000 && lockScreen.style.display === 'none') {
-					lockScreen.style.display = 'flex';
+				if (silenceDuration > 15000 && !dashboard.classList.contains('hidden')) {
+					lockScreen.classList.remove('hidden');
+					lockScreen.classList.add('flex');
 					dashboard.classList.add('hidden');
 				}
 			}, 5000);
 
-			// LISTEN TO LIVE DATA
+			// LISTEN TO LIVE HARDWARE DATA
 			supabase.channel('sga-live')
 				.on('postgres_changes', {
-					event: 'INSERT',
+					event: '*',
 					schema: 'public',
 					table: 'telemetry',
 					filter: `user_id=eq.${currentUser}`
 				}, (payload) => {
 					const telemetry = payload.new;
 					lastPacketTime = Date.now();
-					if (lockScreen.style.display !== 'none') {
-						lockScreen.style.display = 'none';
+
+					if (dashboard.classList.contains('hidden')) {
+						lockScreen.classList.add('hidden');
+						lockScreen.classList.remove('flex');
 						dashboard.classList.remove('hidden');
 					}
+
 					updateLiveCard(telemetry);
 					if (lastUpdated) lastUpdated.innerText = `LAST SYNC: ${new Date().toLocaleTimeString('hu-HU')}`;
 				})
 				.subscribe();
 		}
 
-		// Logout Logic
 		logoutBtn?.addEventListener('click', async () => {
 			await supabase.auth.signOut();
 			window.location.reload();
@@ -223,14 +235,28 @@ import '../styles/global.css';
 
 		async function updateLiveCard(data) {
 			const id = data.component_id;
+
 			if (!componentCards[id]) {
+				// Fetch metadata to verify component type
+				const { data: info } = await supabase.from('components').select('*').eq('id', id).single();
+
+				if (!info) return;
+
+				// Logic: Hardware agents shouldn't send OS as telemetry.
+				// If it exists in telemetry, we ignore it here to keep the grid clean.
+				if (info.type === 'OS') {
+					componentCards[id] = "IGNORE";
+					return;
+				}
+
+				// Create tactical card for actual hardware
 				const card = document.createElement('div');
 				card.className = "bg-slate-900 border border-slate-800 p-6 rounded-2xl relative overflow-hidden group hover:border-orange-500/50 transition-all";
 				card.innerHTML = `
                 <div class="flex justify-between items-start mb-4">
-                    <span id="type-${id}" class="text-orange-500 text-[10px] font-black tracking-widest uppercase italic">SCANNING...</span>
+                    <span id="type-${id}" class="text-orange-500 text-[10px] font-black tracking-widest uppercase italic">${info.type}</span>
                 </div>
-                <h2 id="name-${id}" class="text-lg font-bold text-white leading-tight italic uppercase">Initializing...</h2>
+                <h2 id="name-${id}" class="text-lg font-bold text-white leading-tight italic uppercase">${info.model_name}</h2>
                 <div class="mt-6 bg-slate-800 h-1 rounded-full overflow-hidden">
                     <div id="bar-${id}" class="bg-orange-500 h-full w-0 transition-all duration-1000 shadow-[0_0_10px_#f97316]"></div>
                 </div>
@@ -241,16 +267,18 @@ import '../styles/global.css';
              `;
 				statsGrid.appendChild(card);
 				componentCards[id] = card;
-
-				const { data: info } = await supabase.from('components').select('*').eq('id', id).single();
-				if (info) {
-					document.getElementById(`name-${id}`).innerText = info.model_name;
-					document.getElementById(`type-${id}`).innerText = info.type;
-				}
 			}
-			document.getElementById(`bar-${id}`).style.width = `${data.load_percent}%`;
-			document.getElementById(`load-${id}`).innerText = `${Math.round(data.load_percent)}%`;
-			document.getElementById(`temp-${id}`).innerText = data.temp_celsius > 0 ? `${data.temp_celsius}°C` : 'N/A';
+
+			// Update real-time values for hardware cards
+			if (componentCards[id] && componentCards[id] !== "IGNORE") {
+				const bar = document.getElementById(`bar-${id}`);
+				const loadLabel = document.getElementById(`load-${id}`);
+				const tempLabel = document.getElementById(`temp-${id}`);
+
+				if (bar) bar.style.width = `${data.load_percent}%`;
+				if (loadLabel) loadLabel.innerText = `${Math.round(data.load_percent)}%`;
+				if (tempLabel) tempLabel.innerText = data.temp_celsius > 0 ? `${data.temp_celsius}°C` : 'N/A';
+			}
 		}
 	});
 </script>

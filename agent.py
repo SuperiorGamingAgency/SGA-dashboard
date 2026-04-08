@@ -138,12 +138,19 @@ class SGAAgent:
         return False
 
     def sync_hardware(self):
-        status("Syncing hardware manifest")
         self.supabase.table("rigs").upsert({
-            "id": self.rig_id, "user_id": self.user_id,
+            "id": self.rig_id,
+            "user_id": self.user_id,
             "os_name": f"{platform.system()} {platform.release()}",
-            "is_active": True, "last_ping": datetime.datetime.now(datetime.UTC).isoformat()
+            "is_active": True,
+            "last_ping": datetime.datetime.now(datetime.UTC).isoformat()
         }).execute()
+
+        # 2. Immediately fetch it back to confirm the Handshake to the Dashboard
+        rig_sync = self.supabase.table("rigs").select("*").eq("id", self.rig_id).execute()
+
+        if rig_sync.data:
+            status(f"Identity Verified: {rig_sync.data[0]['os_name']}")
 
         manifest = []
         reg_path = r"HARDWARE\DESCRIPTION\System\CentralProcessor\0"
