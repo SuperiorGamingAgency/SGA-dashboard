@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d288e24-bfc5-4fea-9a63-f1d88f52aee0" name="Changes" comment="" />
+    <list default="true" id="9d288e24-bfc5-4fea-9a63-f1d88f52aee0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/about.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/about.astro" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -120,7 +123,7 @@
       <workItem from="1775648804240" duration="27000" />
       <workItem from="1775648840282" duration="654000" />
       <workItem from="1775649537019" duration="3771000" />
-      <workItem from="1775758692212" duration="932000" />
+      <workItem from="1775758692212" duration="1833000" />
     </task>
     <servers />
   </component>
