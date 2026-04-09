@@ -1,4 +1,5 @@
 ---
+// src/pages/about.astro - SGA Bilateral Dossier v2.1
 import '../styles/global.css';
 ---
 
@@ -6,7 +7,7 @@ import '../styles/global.css';
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>About | SGA Nexus Intelligence</title>
@@ -21,7 +22,7 @@ import '../styles/global.css';
 <div class="max-w-4xl mx-auto">
     <header class="mb-16 border-b border-slate-800 pb-8">
         <a href="/" class="text-orange-500 text-[10px] font-black uppercase tracking-[0.3em] hover:text-white transition-colors">← Return to Dashboard</a>
-        <h1 style="font-family: 'Cairo', sans-serif;" class="text-5xl tracking-tighter text-white font-black uppercase mt-4">
+        <h1 style="font-family: 'Cairo', sans-serif;" class="text-5xl tracking-tighter text-white font-black uppercase mt-4 leading-none">
             THE <span class="text-orange-500">SGA</span> DOSSIER
         </h1>
         <p class="text-slate-500 text-sm font-mono uppercase tracking-widest mt-2">Bilateral Tech-Consultancy & Digital Ecosystem</p>
@@ -36,9 +37,6 @@ import '../styles/global.css';
                 <p>
                     <b class="text-white">SGA</b> is an international technology-concierge organization dedicated to high-end digital solutions. We operate as a bridge between specialized hardware needs and advanced software management, ensuring that users maintain peak operational efficiency through tactical precision.
                 </p>
-                <p>
-                    Beyond pure tech, SGA acts as a strategic hub for bilateral innovation, leveraging international partnerships to redefine how users interact with their hardware and their own creative output.
-                </p>
             </div>
         </section>
 
@@ -47,7 +45,7 @@ import '../styles/global.css';
             <h2 class="text-2xl font-bold text-white uppercase italic mt-1">The Nexus Protocol</h2>
             <div class="mt-4 text-slate-400 leading-relaxed">
                 <p>
-                    <b class="text-white">Nexus</b> is our advanced communication and brainstorming environment. It replaces unstructured group discussion with a high-throughput **Brainwriting (6-3-5)** methodology. By enforcing synchronized ideation, Nexus eliminates "Process Loss" and production blocking, ensuring that the team’s collective output is exponentially greater than the sum of individual ideas.
+                    <b class="text-white">Nexus</b> is our specialized environment for **synchronous communication and brainstorming**. Moving beyond unstructured discussion, Nexus utilizes a high-throughput **6-3-5 Brainwriting** methodology to eliminate social interference and production blocking. It is the core platform where team ideas are converted into industrial-grade output.
                 </p>
             </div>
         </section>
@@ -60,10 +58,7 @@ import '../styles/global.css';
             <h2 class="text-2xl font-bold text-white uppercase italic mt-1">Next-Gen Advisory</h2>
             <div class="mt-4 text-slate-400 leading-relaxed">
                 <p>
-                    Our consulting wing is anchored by the <b class="text-white">SGA Agent</b>. While serving as a telemetry bridge, the next evolution of the Agent incorporates <b class="text-orange-500">Autonomous Technical Consulting</b>.
-                </p>
-                <p class="mt-2 text-justify">
-                    The Agent analyzes your system’s unique hardware signature to provide bespoke advice—recommending optimizations and detecting bottlenecks before they occur.
+                    Our hardware management is anchored by the <b class="text-white">SGA Agent</b>. The Agent analyzes unique hardware signatures to provide bespoke advice—recommending specific optimizations and detecting bottlenecks before they impact performance.
                 </p>
             </div>
         </section>
@@ -77,38 +72,70 @@ import '../styles/global.css';
                         SGA is a testament to international cooperation. Driven by <b class="text-white">two prominent Iranian investors</b> and guided by my own <b class="text-orange-500">Persian roots</b>, the project is built on a foundation of cross-border capital and cultural vision.
                     </p>
                     <p class="mt-4 text-slate-400 leading-relaxed text-sm">
-                        Operating from Hungary, I act as the technical and cultural conduit between Tehran's strategic core and our European operations. By establishing this bridge, we leverage a massive, untapped reservoir of Persian engineering ingenuity.
+                        Operating from Hungary, I act as the technical and cultural conduit between Tehran's strategic core and our European operations.
                     </p>
                     <p class="mt-4 text-slate-400 leading-relaxed text-sm italic border-l-2 border-orange-500 pl-4">
-                        This corridor allows for the seamless exchange of ideas, where Hungarian engineering traditions meet the rapid, adaptive problem-solving inherent in my heritage. SGA doesn't just hire talent; we unify two distinct worlds of innovation to create the Nexus ecosystem.
+                        This corridor allows for the seamless exchange of ideas, where Hungarian engineering traditions meet the rapid, adaptive problem-solving inherent in my heritage.
                     </p>
                 </div>
+
                 <div class="space-y-4">
-                    <div class="bg-slate-900/80 border border-slate-800 p-8 rounded-2xl flex justify-around items-center h-40 shadow-2xl">
+                    <div class="bg-slate-900/80 border border-slate-800 p-8 rounded-2xl flex justify-around items-center h-56 shadow-2xl relative">
+
                         <div class="text-center group">
-                            <div class="text-3xl font-bold transition-transform group-hover:scale-110">🇮🇷</div>
-                            <div class="text-[10px] text-white font-black mt-2 uppercase tracking-tighter">Heritage</div>
+                            <div class="w-24 h-auto mb-3 overflow-hidden rounded shadow-lg border border-white/10">
+                                <svg id="Flag_of_Iran_1964" viewBox="0 0 1050 600" xmlns="http://www.w3.org/2000/svg">
+                                    <defs><style> .cls-1 { fill: #fff; } .cls-2 { fill: #ffbb26; } .cls-3 { fill: #da0000; } .cls-4 { fill: #239f40; } </style></defs>
+                                    <rect class="cls-4" width="1050" height="600" style="fill:#319b42;fill-opacity:1;stroke-width:0.999987" x="0" y="0" />
+                                    <rect class="cls-1" y="200" width="1050" height="400" style="stroke-width:0.999995" x="0" />
+                                    <rect class="cls-3" y="400" width="1050" height="200" style="fill:#da291c;fill-opacity:1;stroke-width:0.999995" x="0" />
+                                    <g fill="#ffbb26" stroke="#000000" stroke-width="1.7" transform="matrix(1.027893,0,0,1.0279177,380.95341,173.9772)" style="fill:none;fill-opacity:1;stroke:none;stroke-width:1.70249;stroke-dasharray:none">
+                                        <g fill="#ffbb26" stroke="#000000" stroke-width="1.7" transform="translate(-82.691896,-2.9184796)" style="fill:none;fill-opacity:1;stroke:none;stroke-width:1.70249;stroke-dasharray:none">
+                                            <path d="M 29.110101,219.03289 H 251.1651 V 206.62634 H 29.110101 Z" style="fill:#ffb81c;fill-opacity:1;stroke:#000000;stroke-width:1.70249;stroke-dasharray:none;stroke-opacity:1" transform="translate(82.691896,2.9184796)" />
+                                            <g fill="#ffbb26" stroke="#000000" stroke-width="1.7" style="fill:none;fill-opacity:1;stroke:none;stroke-width:1.70249;stroke-dasharray:none">
+                                                <path fill="#000000" stroke="none" d="m 33.925146,206.62537 c 0.392351,2.31761 0.842139,5.73461 4.12017,6.20471 -0.841754,-0.96341 -1.58044,-3.91629 -1.839961,-6.20471 z m 6.724151,0 c 0.392352,2.31761 0.84214,5.73461 4.120171,6.20471 -0.841754,-0.96341 -1.580365,-3.91629 -1.839962,-6.20471 z m 6.724151,0 c 0.392288,2.31761 0.844114,5.73461 4.122146,6.20471 -0.841755,-0.96341 -1.58234,-3.91629 -1.841936,-6.20471 z m 6.726127,0 c 0.392287,2.31761 0.842138,5.73461 4.120169,6.20471 -0.841754,-0.96341 -1.582337,-3.91629 -1.841935,-6.20471 z m 6.72415,0 c 0.392289,2.31761 0.842238,5.73461 4.120172,6.20471 -0.841658,-0.96341 -1.58234,-3.91629 -1.841936,-6.20471 z m 6.724151,0 c 0.392369,2.31761 0.842238,5.73461 4.120173,6.20471 -0.841659,-0.96341 -1.58234,-3.91629 -1.841937,-6.20471 z m 6.724153,0 c 0.392367,2.31761 0.842236,5.73461 4.120171,6.20471 -0.841658,-0.96341 -1.580365,-3.91629 -1.839963,-6.20471 z m 6.724151,0 c 0.392367,2.31761 0.842237,5.73461 4.120171,6.20471 -0.841658,-0.96341 -1.580365,-3.91629 -1.839962,-6.20471 z m 6.72415,0 c 0.392354,2.31761 0.84214,5.73461 4.120173,6.20471 -0.841659,-0.96341 -1.580428,-3.91629 -1.839959,-6.20471 z m 6.724151,0 c 0.392349,2.31761 0.842142,5.73461 4.120172,6.20471 -0.841667,-0.96341 -1.580424,-3.91629 -1.839962,-6.20471 z m 6.726129,0 c 0.39235,2.31761 0.84214,5.73461 4.12018,6.20471 -0.84167,-0.96341 -1.58242,-3.91629 -1.84195,-6.20471 z m 6.72415,0 c 0.39234,2.31761 0.84214,5.73461 4.12017,6.20471 -0.84175,-0.96341 -1.58233,-3.91629 -1.84194,-6.20471 z m 6.72415,0 c 0.39236,2.31761 0.84214,5.73461 4.12018,6.20471 -0.84176,-0.96341 -1.58234,-3.91629 -1.84194,-6.20471 z m 6.72415,0 c 0.39229,2.31761 0.84215,5.73461 4.12017,6.20471 -0.84176,-0.96341 -1.58233,-3.91629 -1.84192,-6.20471 z m 6.72415,0 c 0.39229,2.31761 0.84215,5.73461 4.12018,6.20471 -0.84174,-0.96341 -1.58036,-3.91629 -1.83997,-6.20471 z m 6.72416,0 c 0.39228,2.31761 0.84213,5.73461 4.12017,6.20471 -0.84176,-0.96341 -1.58036,-3.91629 -1.83995,-6.20471 z m 6.72414,0 c 0.3923,2.31761 0.84215,5.73461 4.12018,6.20471 -0.84175,-0.96341 -1.58037,-3.91629 -1.83996,-6.20471 z m 6.72417,0 c 0.39234,2.31761 0.84214,5.73461 4.12016,6.20471 -0.84166,-0.96341 -1.58036,-3.91629 -1.83996,-6.20471 z m 6.72612,0 c 0.39236,2.31761 0.84224,5.73461 4.12017,6.20471 -0.84166,-0.96341 -1.58234,-3.91629 -1.84194,-6.20471 z m 6.72416,0 c 0.39233,2.31761 0.84212,5.73461 4.12016,6.20471 -0.84166,-0.96341 -1.58239,-3.91629 -1.84194,-6.20471 z m 6.72414,0 c 0.39235,2.31761 0.84214,5.73461 4.12017,6.20471 -0.84166,-0.96341 -1.5824,-3.91629 -1.84193,-6.20471 z m 6.72415,0 c 0.39236,2.31761 0.84213,5.73461 4.12017,6.20471 -0.84176,-0.96341 -1.58233,-3.91629 -1.84193,-6.20471 z m 6.72416,0 c 0.39235,2.31761 0.84214,5.73461 4.12016,6.20471 -0.84175,-0.96341 -1.58036,-3.91629 -1.83996,-6.20471 z m 6.72415,0 c 0.39228,2.31761 0.84213,5.73461 4.12016,6.20471 -0.84175,-0.96341 -1.58035,-3.91629 -1.83995,-6.20471 z m 6.72414,0 c 0.3923,2.31761 0.84214,5.73461 4.12018,6.20471 -0.84176,-0.96341 -1.58037,-3.91629 -1.83997,-6.20471 z m 6.72416,0 c 0.39228,2.31761 0.84411,5.73461 4.12213,6.20471 -0.84175,-0.96341 -1.58232,-3.91629 -1.84192,-6.20471 z m 6.72613,0 c 0.39228,2.31761 0.84213,5.73461 4.12017,6.20471 -0.84176,-0.96341 -1.58236,-3.91629 -1.84195,-6.20471 z m 6.72415,0 c 0.39228,2.31761 0.84213,5.73461 4.12016,6.20471 -0.84175,-0.96341 -1.58233,-3.91629 -1.84193,-6.20471 z m 6.72414,0 c 0.39236,2.31761 0.84204,5.73461 4.12017,6.20471 -0.84175,-0.96341 -1.58233,-3.91629 -1.84193,-6.20471 z m 6.72416,0 c 0.39236,2.31761 0.84214,5.73461 4.12016,6.20471 -0.84166,-0.96341 -1.58036,-3.91629 -1.83995,-6.20471 z m 6.72415,0 c 0.39235,2.31761 0.84213,5.73461 4.12017,6.20471 -0.84166,-0.96341 -1.58036,-3.91629 -1.83997,-6.20471 z m 6.72415,0 c 0.39236,2.31761 0.84213,5.73461 4.12018,6.20471 -0.84176,-0.96341 -1.58039,-3.91629 -1.83998,-6.20471 z" style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.70249;stroke-dasharray:none" transform="translate(82.691896,2.9184796)" /></g></g>
+                                        <g fill="#ffbb26" stroke="#000000" stroke-width="1.7" transform="translate(-82.691896,-2.9184796)" style="fill:none;fill-opacity:1;stroke:none;stroke-width:1.70249;stroke-dasharray:none"><path d="m 161.07119,117.31343 1.58064,-86.247538 -7.64012,-0.0299 1.47133,86.277388 z" style="fill:#ffb81c;fill-opacity:1;stroke:#000000;stroke-width:1.70249;stroke-dasharray:none;stroke-opacity:1" transform="translate(82.691896,2.9184796)" /><path d="m 168.96801,51.483322 -12.4375,65.363288 4.49219,0.93359 14.79101,-65.103518 z" style="fill:#ffb81c;fill-opacity:1;stroke:#000000;stroke-width:1.70249;stroke-dasharray:none;stroke-opacity:1" transform="translate(82.691896,2.9184796)" /><path d="m 160.88092,118.22819 35.84067,-78.463898 -6.99455,-3.07387 -33.05373,79.708248 z" style="fill:#ffb81c;fill-opacity:1;stroke:#000000;stroke-width:1.70249;stroke-dasharray:none;stroke-opacity:1" transform="translate(82.691896,2.9184796)" /><path d="m 158.73183,84.465842 c -19.75592,0 -36.01168,14.5997 -36.01168,32.804528 0,18.20485 16.24074,32.89065 36.01168,32.89065 19.77084,0 36.10225,-14.67088 36.10225,-32.89065 0,-18.219778 -16.34644,-32.804528 -36.10225,-32.804528 z" style="fill:#ffb81c;fill-opacity:1;stroke:#000000;stroke-width:1.70249;stroke-dasharray:none;stroke-opacity:1" transform="translate(82.691896,2.9184796)" /></g>
+                                        <g fill="#ffbb26" stroke="#000000" stroke-width="1.7" transform="translate(-82.691896,-2.9184796)" style="fill:none;fill-opacity:1;stroke:none;stroke-width:1.70249;stroke-dasharray:none"><path d="M 27.075629,114.49219 27.061,144.007 H 40.9 l -8.3e-5,-29.51481 C 39.957274,86.354592 45.101834,74.447442 49.610141,66.720468 63.625887,42.698305 91.338082,36.173328 108.70899,35.263672 91.645726,26.687202 55.386276,29.102931 36.730609,62.059781 c -9.624376,15.850251 -9.7059,34.456791 -9.65498,52.432409 z" style="fill:#ffb81c;fill-opacity:1;stroke:#000000;stroke-width:1.70249;stroke-dasharray:none;stroke-opacity:1" transform="translate(82.691896,2.9184796)" /><path d="m 14.668501,111.52396 h 9.21656 l 10.102712,-2.86003 9.842667,2.86003 h 9.216825 l 4.355387,2.96787 -4.355387,2.96787 H 43.83044 l -9.842667,2.86003 -10.102447,-2.86003 h -9.216825 l -4.355666,-2.96787 z" style="fill:#ffb81c;fill-opacity:1;stroke:#000000;stroke-width:1.70249;stroke-dasharray:none;stroke-opacity:1" transform="translate(82.691896,2.9184796)" /></g>
+                                        <g fill="#ffbb26" stroke="#000000" stroke-width="1.7" transform="translate(-82.691896,-2.9184796)" style="fill:none;fill-opacity:1;stroke:none;stroke-width:1.70249;stroke-dasharray:none"><path d="m 30.556278,143.68829 c 9.865186,6.63648 13.339988,7.25321 25.813537,3.49824 8.906233,12.46995 17.927702,11.49844 25.894133,21.95026 l 3.332796,-37.88678 c 0,0 -22.584658,-2.04529 -33.280271,-5.24736 -3.474431,-1.04018 -6.232241,-2.8356 -9.813421,-3.49823 -8.373187,-1.54929 -17.861044,-0.56043 -17.861044,4.31764 0,1.66591 1.066163,3.21805 4.420923,3.62477 z" style="fill:#ffb81c;fill-opacity:1;stroke:#000000;stroke-width:1.70249;stroke-dasharray:none;stroke-opacity:1" transform="translate(82.691896,2.9184796)" /></g>
+                                        <g fill="#ffbb26" stroke="#000000" stroke-width="1.7" transform="translate(-82.691896,-2.9184796)" style="fill:none;fill-opacity:1;stroke:none;stroke-width:1.70249;stroke-dasharray:none"><path d="m 167.84027,174.82438 c -4.2949,7.16015 1.66439,13.55824 -1.57379,19.03462 -10.45177,-2.37014 -20.85295,-3.42458 -27.47427,6.244 -3.24923,4.74459 0.69257,9.2845 6.34141,6.916 5.05165,4.64537 11.00266,1.67148 18.2917,-0.87 2.85948,-0.99705 7.63105,1.87253 11.40131,0.416 4.29684,-1.65995 7.2076,-6.55234 9.93173,-14.40159 l 4.23343,1.7759 c 0.0454,-3.35625 -1.44763,-5.91528 -3.39841,-8.23693 l 5.05208,1.69887 c 0.0311,-3.33852 -1.67741,-5.70863 -3.26524,-7.62426 l 4.86368,1.79654 c -0.97359,-4.3696 -0.0328,-8.06502 -0.46459,-9.53036 -0.93459,-3.17126 -1.42201,-1.59577 -2.65431,-7.49521 -14.63949,-6.41396 -11.48358,-21.52627 -8.796,-27.92442 l -27.87392,19.222 c -5.63175,3.66706 2.1027,16.85215 15.38519,18.97884 z" style="fill:#ffb81c;fill-opacity:1;stroke:#000000;stroke-width:1.70249;stroke-dasharray:none;stroke-opacity:1" transform="translate(82.691896,2.9184796)" /></g>
+                                        <g fill="#ffbb26" stroke="#000000" stroke-width="1.7" transform="translate(-82.691896,-2.9184796)" style="fill:none;fill-opacity:1;stroke:none;stroke-width:1.70249;stroke-dasharray:none"><path d="m 74.110418,133.20099 -0.539746,7.16299 c -0.938348,3.92941 -2.096515,13.52976 0.619833,16.46742 2.136299,0.3027 4.589161,-1.34613 6.182285,-3.22079 -0.0099,1.94865 0.56483,5.72231 2.953118,8.39247 2.583316,-0.68069 5.100691,-3.34316 6.094427,-5.13004 0.862861,2.27771 1.93622,4.96931 4.302259,6.84629 2.703605,-1.57855 4.257724,-4.09331 5.385903,-6.59186 1.221373,2.35241 2.706303,4.82567 5.438223,6.07321 2.5296,-2.1587 3.28363,-3.77544 4.19784,-6.66641 1.78302,2.60358 3.75931,4.04939 6.45999,4.48442 2.12334,-2.2212 2.41855,-4.7832 2.77991,-7.75141 1.92626,2.51212 4.46202,3.71716 7.40182,3.97048 1.36428,-2.75581 1.07716,-5.66962 0.90366,-8.2031 2.01734,1.67666 4.84299,3.04671 7.60012,3.05225 1.21119,-3.54498 0.34885,-6.83743 -0.48381,-9.14144 2.28317,1.4725 5.13234,1.56655 7.16858,1.24056 1.07413,-3.61473 -1.75639,-13.7258 -9.06035,-19.11057 z" style="fill:#ffb81c;fill-opacity:1;stroke:#000000;stroke-width:1.70249;stroke-dasharray:none;stroke-opacity:1" transform="translate(82.691896,2.9184796)" /></g>
+                                    </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="text-3xl mb-2 filter drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]">
+                                🦁☀️
+                            </div>
+                            <div class="text-[10px] text-white font-black uppercase tracking-tighter leading-none mt-1">Iran</div>
                             <div class="text-[8px] text-slate-500 font-mono mt-1 uppercase">Strategic Source</div>
                         </div>
-                        <div class="relative h-16 w-16 flex items-center justify-center">
-                            <div class="absolute inset-0 bg-orange-500/20 blur-xl rounded-full animate-pulse"></div>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
+
+                        <div class="relative h-12 w-12 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
                         </div>
+
                         <div class="text-center group">
-                            <div class="text-3xl font-bold transition-transform group-hover:scale-110">🇭🇺</div>
-                            <div class="text-[10px] text-white font-black mt-2 uppercase tracking-tighter">Implementation</div>
+                            <div class="w-24 h-auto mb-3 overflow-hidden rounded shadow-lg border border-white/10">
+                                <svg viewBox="0 0 1050 600" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="1050" height="200" fill="#CE2939"/>
+                                    <rect y="200" width="1050" height="200" fill="#FFFFFF"/>
+                                    <rect y="400" width="1050" height="200" fill="#477050"/>
+                                </svg>
+                            </div>
+                            <div class="text-3xl mb-2">
+                                🇭🇺
+                            </div>
+                            <div class="text-[10px] text-white font-black uppercase tracking-tighter leading-none mt-1">Hungary</div>
                             <div class="text-[8px] text-slate-500 font-mono mt-1 uppercase">Operations Hub</div>
                         </div>
-                    </div>
-                    <div class="bg-orange-500/5 border border-orange-500/10 p-4 rounded-xl text-center">
-                        <p class="text-[9px] font-mono text-orange-400 uppercase tracking-[0.2em] leading-relaxed">
-                            Lineage Authentication: Active // Bilateral Sync: Stable // Nexus Node: Online
-                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <footer class="pt-12 border-t border-slate-900 flex justify-center text-[9px] font-mono text-slate-600 uppercase tracking-[0.5em] mb-12">
+            SGA // Bilateral Operations &copy; 2026
+        </footer>
     </div>
 </div>
 
@@ -119,7 +146,6 @@ import '../styles/global.css';
         100% { transform: translate(0, 0) scale(1); }
     }
     .animate-mesh-fast { animation: move-mesh 15s infinite alternate ease-in-out; }
-    .text-justify { text-justify: inter-word; hyphens: auto; }
 </style>
 </body>
 </html>
