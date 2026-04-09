@@ -79,7 +79,9 @@ import '../styles/global.css';
 				</a>
 
 				<a href="https://t.me/yourid" target="_blank" title="Telegram" class="p-2 text-slate-500 hover:text-sky-500 transition-all">
-					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM12.191 5.273c-.097-.311-.41-.43-.706-.33L4.627 7.774c-.285.12-.43.43-.33.706l.66 2.09c.097.311.41.43.706.33l2.09-.66c.285-.12.43-.43.33-.706L7.427 7.444l4.764-2.17z"/></svg>
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+						<path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-1.93 9.1c-.14.64-.52.79-1.06.49l-2.95-2.17-1.42 1.37c-.16.16-.29.29-.6.29l.2-3 5.46-4.93c.24-.22-.05-.34-.37-.13l-6.74 4.25-2.9-.91c-.63-.2-1.1-.52-.13-.88l11.31-4.36c.53-.2 1-.12.86.87z"/>
+					</svg>
 				</a>
 
 				<a href="https://github.com/yourusername" target="_blank" title="GitHub" class="p-2 text-slate-500 hover:text-white transition-all">
@@ -90,7 +92,13 @@ import '../styles/global.css';
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
 				</a>
 
-				<div id="auth-container" class="flex items-center">
+				<div id="auth-container" class="flex items-center border-l border-slate-800 ml-1 pl-1">
+					<a href="/about" title="About SGA" class="p-2 text-slate-500 hover:text-orange-500 transition-all group relative">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+						</svg>
+					</a>
+
 					<a href="/signin" id="login-btn" class="p-2 text-slate-500 hover:text-orange-500 transition-all">
 						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
 							<path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -176,14 +184,14 @@ import '../styles/global.css';
 		const { data: { session } } = await supabase.auth.getSession();
 
 		if (session) {
-			loginBtn.classList.add('hidden');
-			userProfile.classList.remove('hidden');
-			userProfile.classList.add('flex');
+			loginBtn?.classList.add('hidden');
+			userProfile?.classList.remove('hidden');
+			userProfile?.classList.add('flex');
 			userEmailDisplay.innerText = session.user.email.substring(0, 1).toUpperCase();
 
 			const currentUser = session.user.id;
 
-			// 1. FETCH STATIC RIG DATA (OS name is a property of the Rig, not telemetry)
+			// 1. FETCH STATIC RIG DATA
 			const { data: rigInfo } = await supabase
 				.from('rigs')
 				.select('os_name')
@@ -237,19 +245,14 @@ import '../styles/global.css';
 			const id = data.component_id;
 
 			if (!componentCards[id]) {
-				// Fetch metadata to verify component type
 				const { data: info } = await supabase.from('components').select('*').eq('id', id).single();
-
 				if (!info) return;
 
-				// Logic: Hardware agents shouldn't send OS as telemetry.
-				// If it exists in telemetry, we ignore it here to keep the grid clean.
 				if (info.type === 'OS') {
 					componentCards[id] = "IGNORE";
 					return;
 				}
 
-				// Create tactical card for actual hardware
 				const card = document.createElement('div');
 				card.className = "bg-slate-900 border border-slate-800 p-6 rounded-2xl relative overflow-hidden group hover:border-orange-500/50 transition-all";
 				card.innerHTML = `
@@ -269,7 +272,6 @@ import '../styles/global.css';
 				componentCards[id] = card;
 			}
 
-			// Update real-time values for hardware cards
 			if (componentCards[id] && componentCards[id] !== "IGNORE") {
 				const bar = document.getElementById(`bar-${id}`);
 				const loadLabel = document.getElementById(`load-${id}`);
