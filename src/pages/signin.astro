@@ -15,11 +15,8 @@ import '../styles/global.css';
 <body class="text-slate-100 font-sans min-h-screen flex items-center justify-center p-4 overflow-hidden">
 
 <div class="fixed inset-0 -z-10 overflow-hidden bg-[#020617]">
-
     <div class="absolute -top-[20%] -left-[20%] w-[120%] h-[120%] bg-orange-500/10 blur-[120px] rounded-full animate-mesh-fast"></div>
-
     <div class="absolute -bottom-[20%] -right-[20%] w-[110%] h-[110%] bg-blue-500/10 blur-[120px] rounded-full animate-mesh-fast" style="animation-delay: -2s;"></div>
-
     <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#ffffff 0.5px, transparent 0.5px); background-size: 40px 40px;"></div>
 </div>
 
@@ -96,12 +93,13 @@ import '../styles/global.css';
 
     let isLogin = true;
 
+    // --- WATERFALL LOGIC: CAPTURE RETURN URL ---
+    const urlParams = new URLSearchParams(window.location.search);
+    const returnTo = urlParams.get('returnTo') || '/';
+
     const setMode = (toLogin) => {
         isLogin = toLogin;
         statusMsg.classList.add('hidden');
-
-        // Match the taller py-4.5 height in JS toggle
-        // OVERCLOCK: Updated active class to use orange-400 and brighter shadow
         const activeClass = "flex-1 py-4.5 text-[11px] font-black uppercase rounded-xl bg-orange-400 text-black transition-all shadow-[0_0_25px_rgba(251,146,60,0.5)]";
         const inactiveClass = "flex-1 py-4.5 text-[11px] font-black uppercase rounded-xl text-slate-500 hover:text-white transition-all";
 
@@ -139,21 +137,20 @@ import '../styles/global.css';
             statusMsg.innerText = `ERR: ${result.error.message}`;
             statusMsg.className = "mt-4 text-center text-[9px] font-mono uppercase p-3 rounded-xl bg-red-500/5 text-red-500 border border-red-500/20 block w-full";
             submitBtn.disabled = false;
-            submitBtn.innerText = isLogin ? "Initialize_Uplink" : "Register_Identity";
+            submitBtn.innerText = isLogin ? "Initialize Uplink" : "Register Identity";
         } else {
             if (!isLogin) {
                 statusMsg.innerText = "ID Sent. Verify via Email link.";
-                // OVERCLOCK: Update success message to use bright orange/emerald if preferred, here kept functional
                 statusMsg.className = "mt-4 text-center text-[9px] font-mono uppercase p-3 rounded-xl bg-emerald-500/5 text-emerald-500 border border-emerald-500/20 block w-full";
             } else {
-                window.location.href = '/';
+                // --- WATERFALL LOGIC: REDIRECT TO CAPTURED URL ---
+                window.location.href = returnTo;
             }
         }
     });
 </script>
 
 <style is:global>
-    /* FAST MESH ANIMATION (Cycles quickly, keeps high-distance movement) */
     @keyframes move-mesh-fast {
         0% { transform: translate(0, 0) scale(1); }
         50% { transform: translate(30%, 15%) scale(1.15); }
@@ -162,8 +159,6 @@ import '../styles/global.css';
     .animate-mesh-fast {
         animation: move-mesh-fast 6s infinite alternate ease-in-out;
     }
-
-    /* Custom Height Utility */
     .py-4\.5 {
         padding-top: 1.125rem;
         padding-bottom: 1.125rem;
