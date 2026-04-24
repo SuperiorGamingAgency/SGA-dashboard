@@ -1,5 +1,5 @@
 ---
-// rig-manifest.astro - SGA Rig Intelligence (MASTER COMMAND v1.8.9)
+// rig-manifest.astro - SGA Rig Intelligence (MASTER COMMAND v1.8.9.1)
 import '../styles/global.css';
 ---
 
@@ -198,13 +198,13 @@ import '../styles/global.css';
         </div>
 
         <div class="grid grid-cols-1 gap-6">
-            <div class="bg-slate-900/40 border border-slate-800 p-6 rounded-3xl backdrop-blur-md relative">
+            <div class="bg-slate-900/40 border border-slate-800 p-6 rounded-3xl backdrop-blur-md relative h-[350px]">
                 <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4">Thermal Timeline (°C)</p>
-                <div class="h-[300px] cursor-crosshair"><canvas id="tempChart"></canvas></div>
+                <div class="h-[280px] cursor-crosshair"><canvas id="tempChart"></canvas></div>
             </div>
-            <div class="bg-slate-900/40 border border-slate-800 p-6 rounded-3xl backdrop-blur-md relative">
+            <div class="bg-slate-900/40 border border-slate-800 p-6 rounded-3xl backdrop-blur-md relative h-[350px]">
                 <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4">Workload Distribution (%)</p>
-                <div class="h-[300px] cursor-crosshair"><canvas id="loadChart"></canvas></div>
+                <div class="h-[280px] cursor-crosshair"><canvas id="loadChart"></canvas></div>
             </div>
         </div>
     </section>
@@ -259,16 +259,32 @@ import '../styles/global.css';
             const { data: components } = await supabase.from('components').select('*').eq('rig_id', rig.id);
             if (components) {
                 const selector = document.getElementById('hw-selector');
+
+                // Track the first one to select it
+                let firstId = null;
+
                 components.forEach((comp) => {
                     if (comp.type === 'OS') return;
                     componentMap[comp.id] = { type: comp.type };
                     createHardwareCard(comp);
 
                     if (comp.type !== 'DISK') {
+                        if (!firstId) firstId = comp.id;
+
                         const btn = document.createElement('button');
                         const shortName = comp.model_name.replace('NVIDIA GeForce ', '').replace('Intel(R) Core(TM) ', '').split(' @')[0];
-                        btn.className = `hw-select-btn px-4 py-2 text-[9px] font-black uppercase rounded-lg transition-all flex items-center gap-2 ${(!selectedComponentId) ? 'bg-blue-600 text-white' : 'text-slate-500 hover:bg-slate-800'}`;
+
+                        // We check if this is the one we should mark as active
+                        const shouldBeActive = (!selectedComponentId && comp.id === firstId) || (selectedComponentId === comp.id);
+
+                        if (shouldBeActive) {
+                            selectedComponentId = comp.id;
+                            document.getElementById('hardware-label').innerText = comp.model_name;
+                        }
+
+                        btn.className = `hw-select-btn px-4 py-2 text-[9px] font-black uppercase rounded-lg transition-all flex items-center gap-2 ${shouldBeActive ? 'bg-blue-600 text-white' : 'text-slate-500 hover:bg-slate-800'}`;
                         btn.innerHTML = `<span class="opacity-40 text-[7px]">${comp.type}</span><span>${shortName}</span>`;
+
                         btn.onclick = () => {
                             selectedComponentId = comp.id;
                             document.querySelectorAll('.hw-select-btn').forEach(b => {
@@ -281,13 +297,13 @@ import '../styles/global.css';
                             loadHistoricalData(userId);
                         };
                         selector.appendChild(btn);
-                        if (!selectedComponentId) {
-                            selectedComponentId = comp.id;
-                            document.getElementById('hardware-label').innerText = comp.model_name;
-                        }
                     }
                 });
-                loadHistoricalData(userId);
+
+                // TRIGGER HISTORY FETCH NOW THAT ID IS SET
+                if (selectedComponentId) {
+                    loadHistoricalData(userId);
+                }
             }
         }
 
@@ -307,7 +323,7 @@ import '../styles/global.css';
                     const time = new Date(data.recorded_at);
                     tempChart.data.datasets[0].data.push({ x: time, y: data.temp_celsius });
                     loadChart.data.datasets[0].data.push({ x: time, y: data.load_percent });
-                    if (selectedHours <= 24 && tempChart.data.datasets[0].data.length > 100) {
+                    if (selectedHours <= 24 && tempChart.data.datasets[0].data.length > 200) {
                         tempChart.data.datasets[0].data.shift();
                         loadChart.data.datasets[0].data.shift();
                     }
