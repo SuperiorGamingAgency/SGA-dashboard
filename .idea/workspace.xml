@@ -4,7 +4,267 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d288e24-bfc5-4fea-9a63-f1d88f52aee0" name="Changes" comment="" />
+    <list default="true" id="9d288e24-bfc5-4fea-9a63-f1d88f52aee0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.astro/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.astro/types.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/SuperiorGamingAgency.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SuperiorGamingAgency.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.vite/deps/_metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/astro-IQQQXCO3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/astro-IQQQXCO3.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/astro_runtime_client_dev-toolbar_entrypoint__js.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.vite/deps/astro_runtime_client_dev-toolbar_entrypoint__js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/audit-ZNXLMFSS.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/audit-ZNXLMFSS.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/toolbar-2H5PSQQU.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/toolbar-2H5PSQQU.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/xray-XH6VIXDC.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/xray-XH6VIXDC.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@astrojs/markdown-remark/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@astrojs/markdown-remark/dist/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@astrojs/markdown-remark/dist/types.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@astrojs/markdown-remark/dist/types.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@astrojs/markdown-remark/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@astrojs/markdown-remark/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@astrojs/telemetry/dist/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@astrojs/telemetry/dist/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@astrojs/telemetry/dist/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@astrojs/telemetry/dist/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@astrojs/telemetry/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@astrojs/telemetry/dist/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@astrojs/telemetry/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@astrojs/telemetry/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/client.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/client.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/actions/integration.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/actions/integration.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/assets/build/generate.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/assets/build/generate.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/assets/build/generate.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/assets/build/generate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/assets/build/remote.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/assets/build/remote.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/assets/build/remote.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/assets/build/remote.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/assets/consts.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/assets/consts.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/assets/consts.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/assets/consts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/assets/endpoint/shared.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/assets/endpoint/shared.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/assets/fonts/core/compute-font-families-assets.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/assets/fonts/core/compute-font-families-assets.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/assets/fonts/core/get-or-create-font-family-assets.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/assets/fonts/core/get-or-create-font-family-assets.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/assets/fonts/infra/dev-font-file-id-generator.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/assets/fonts/infra/dev-font-file-id-generator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/assets/fonts/vite-plugin-fonts.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/assets/fonts/vite-plugin-fonts.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/assets/fonts/vite-plugin-fonts.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/assets/fonts/vite-plugin-fonts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/assets/internal.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/assets/internal.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/assets/internal.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/assets/internal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/assets/services/sharp.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/assets/services/sharp.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/assets/services/sharp.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/assets/services/sharp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/assets/utils/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/assets/utils/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/assets/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/assets/utils/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/assets/utils/vendor/image-size/utils/bit-reader.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/assets/utils/vendor/image-size/utils/bit-reader.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/assets/utils/vendor/image-size/utils/bit-reader.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/assets/utils/vendor/image-size/utils/bit-reader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/assets/vite-plugin-assets.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/assets/vite-plugin-assets.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/assets/vite-plugin-assets.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/assets/vite-plugin-assets.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/cli/add/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/cli/add/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/cli/create-key/core/create-key.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/cli/create-key/core/create-key.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/cli/docs/core/open-docs.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/cli/docs/core/open-docs.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/cli/flags.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/cli/flags.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/cli/flags.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/cli/flags.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/cli/info/core/info.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/cli/info/core/info.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/cli/info/infra/tinyclip-clipboard.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/cli/info/infra/tinyclip-clipboard.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/cli/infra/build-time-astro-version-provider.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/cli/infra/build-time-astro-version-provider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/cli/infra/logger-help-display.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/cli/infra/logger-help-display.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/cli/install-package.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/cli/install-package.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/cli/preferences/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/cli/preferences/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/container/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/container/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/content/content-layer.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/content/content-layer.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/content/content-layer.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/content/content-layer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/content/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/content/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/content/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/content/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/content/instance.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/content/instance.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/content/loaders/errors.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/content/loaders/errors.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/content/loaders/errors.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/content/loaders/errors.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/content/loaders/glob.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/content/loaders/glob.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/content/mutable-data-store.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/content/mutable-data-store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/content/runtime.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/content/runtime.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/content/runtime.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/content/runtime.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/content/server-listeners.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/content/server-listeners.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/content/types-generator.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/content/types-generator.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/content/types-generator.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/content/types-generator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/content/utils.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/content/utils.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/content/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/content/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/content/vite-plugin-content-imports.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/content/vite-plugin-content-imports.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/app/base.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/app/base.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/app/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/app/base.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/app/dev/app.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/app/dev/app.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/app/dev/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/app/dev/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/app/dev/pipeline.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/app/dev/pipeline.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/app/entrypoints/virtual/dev.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/app/entrypoints/virtual/dev.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/app/logging.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/app/logging.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/app/logging.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/app/logging.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/app/node.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/app/node.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/app/types.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/app/types.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/app/validate-headers.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/app/validate-headers.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/app/validate-headers.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/app/validate-headers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/base-pipeline.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/base-pipeline.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/base-pipeline.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/base-pipeline.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/build/generate.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/build/generate.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/build/generate.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/build/generate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/build/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/build/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/build/page-data.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/build/page-data.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/build/pipeline.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/build/pipeline.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/build/pipeline.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/build/pipeline.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/build/plugins/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/build/plugins/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/build/plugins/plugin-css.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/build/plugins/plugin-css.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/build/plugins/plugin-manifest.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/build/plugins/plugin-manifest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/build/static-build.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/build/static-build.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/build/types.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/build/types.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/build/util.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/build/util.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/build/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/build/util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/cache/runtime/noop.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/cache/runtime/noop.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/config/schemas/base.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/config/schemas/base.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/config/schemas/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/config/schemas/base.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/config/schemas/refined.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/config/schemas/refined.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/config/schemas/relative.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/config/schemas/relative.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/cookies/cookies.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/cookies/cookies.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/cookies/cookies.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/cookies/cookies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/create-vite.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/create-vite.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/create-vite.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/create-vite.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/dev/adapter-validation.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/dev/adapter-validation.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/dev/container.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/dev/container.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/dev/container.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/dev/container.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/dev/dev.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/dev/dev.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/dev/restart.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/dev/restart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/errors/errors-data.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/errors/errors-data.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/errors/errors-data.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/errors/errors-data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/logger/console.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/logger/console.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/logger/console.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/logger/console.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/logger/core.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/logger/core.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/logger/core.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/logger/core.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/logger/node.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/logger/node.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/logger/node.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/logger/node.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/logger/vite.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/logger/vite.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/messages/runtime.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/messages/runtime.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/messages/runtime.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/messages/runtime.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/middleware/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/middleware/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/middleware/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/middleware/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/middleware/vite-plugin.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/middleware/vite-plugin.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/middleware/vite-plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/middleware/vite-plugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/preview/static-preview-server.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/preview/static-preview-server.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/preview/static-preview-server.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/preview/static-preview-server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/redirects/render.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/redirects/render.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/redirects/render.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/redirects/render.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/render-context.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/render-context.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/render-context.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/render-context.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/render/params-and-props.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/render/params-and-props.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/render/route-cache.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/render/route-cache.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/render/slots.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/render/slots.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/request.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/request.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/routing/create-manifest.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/routing/create-manifest.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/routing/create-manifest.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/routing/create-manifest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/routing/default.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/routing/default.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/routing/dev.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/routing/dev.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/routing/helpers.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/routing/helpers.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/routing/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/routing/helpers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/routing/prerender.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/routing/prerender.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/routing/prerender.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/routing/prerender.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/routing/rewrite.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/routing/rewrite.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/server-islands/vite-plugin-server-islands.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/server-islands/vite-plugin-server-islands.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/core/sync/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/core/sync/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/env/validators.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/env/validators.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/integrations/features-validation.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/integrations/features-validation.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/integrations/features-validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/integrations/features-validation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/integrations/hooks.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/integrations/hooks.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/integrations/hooks.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/integrations/hooks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/jsx/rehype.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/jsx/rehype.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/manifest/serialized.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/manifest/serialized.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/manifest/virtual-module.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/manifest/virtual-module.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/manifest/virtual-module.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/manifest/virtual-module.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/preferences/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/preferences/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/preferences/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/preferences/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/prerender/routing.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/prerender/routing.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/prerender/routing.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/prerender/routing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/runtime/client/dev-toolbar/apps/audit/rules/a11y.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/runtime/client/dev-toolbar/apps/audit/rules/a11y.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/runtime/server/endpoint.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/runtime/server/endpoint.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/runtime/server/escape.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/runtime/server/escape.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/runtime/server/escape.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/runtime/server/escape.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/runtime/server/render/astro/factory.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/runtime/server/render/astro/factory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/runtime/server/render/astro/instance.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/runtime/server/render/astro/instance.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/runtime/server/render/astro/render.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/runtime/server/render/astro/render.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/runtime/server/render/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/runtime/server/render/common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/runtime/server/render/component.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/runtime/server/render/component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/runtime/server/render/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/runtime/server/render/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/runtime/server/render/server-islands.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/runtime/server/render/server-islands.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/runtime/server/render/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/runtime/server/render/util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/runtime/server/transition.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/runtime/server/transition.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/runtime/server/transition.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/runtime/server/transition.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/transitions/events.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/transitions/events.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/transitions/events.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/transitions/events.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/transitions/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/transitions/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/transitions/swap-functions.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/transitions/swap-functions.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/transitions/swap-functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/transitions/swap-functions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/types/astro.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/types/astro.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/types/public/config.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/types/public/config.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/types/public/integrations.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/types/public/integrations.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-app/app.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-app/app.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-app/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-app/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-app/createAstroServerApp.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-app/createAstroServerApp.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-app/createAstroServerApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-app/createAstroServerApp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-app/pipeline.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-app/pipeline.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-app/pipeline.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-app/pipeline.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-astro-server/base.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-astro-server/base.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-astro-server/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-astro-server/base.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-astro-server/error.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-astro-server/error.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-astro-server/plugin.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-astro-server/plugin.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-astro-server/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-astro-server/plugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-astro-server/sec-fetch.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-astro-server/sec-fetch.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-astro-server/trailing-slash.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-astro-server/trailing-slash.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-astro-server/trailing-slash.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-astro-server/trailing-slash.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-astro-server/vite.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-astro-server/vite.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-astro/compile.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-astro/compile.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-astro/hmr.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-astro/hmr.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-astro/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-astro/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-head/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-head/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-hmr-reload/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-hmr-reload/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-integrations-container/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-integrations-container/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-markdown/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-markdown/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-renderers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-renderers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-routes/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-routes/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-scripts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/dist/vite-plugin-scripts/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/astro/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/astro/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/defu/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/defu/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/defu/dist/defu.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/defu/dist/defu.cjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/defu/dist/defu.d.cts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/defu/dist/defu.d.cts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/defu/dist/defu.d.mts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/defu/dist/defu.d.mts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/defu/dist/defu.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/defu/dist/defu.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/defu/dist/defu.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/defu/dist/defu.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/defu/lib/defu.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/defu/lib/defu.cjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/defu/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/defu/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/is-docker/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/is-docker/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/is-docker/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/is-docker/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/is-docker/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/is-docker/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/oniguruma-parser/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/oniguruma-parser/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/oniguruma-parser/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/oniguruma-parser/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/oniguruma-parser/dist/generator/generate.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/oniguruma-parser/dist/generator/generate.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/oniguruma-parser/dist/oniguruma-parser.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/oniguruma-parser/dist/oniguruma-parser.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/oniguruma-parser/dist/oniguruma-parser.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/oniguruma-parser/dist/oniguruma-parser.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/oniguruma-parser/dist/parser/parse.d.ts.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/oniguruma-parser/dist/parser/parse.d.ts.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/oniguruma-parser/dist/parser/parse.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/oniguruma-parser/dist/parser/parse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/oniguruma-parser/dist/parser/parse.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/oniguruma-parser/dist/parser/parse.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/oniguruma-parser/dist/traverser/traverse.d.ts.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/oniguruma-parser/dist/traverser/traverse.d.ts.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/oniguruma-parser/dist/traverser/traverse.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/oniguruma-parser/dist/traverser/traverse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/oniguruma-parser/dist/traverser/traverse.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/oniguruma-parser/dist/traverser/traverse.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/oniguruma-parser/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/oniguruma-parser/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/oniguruma-to-es/dist/cjs/generate.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/oniguruma-to-es/dist/cjs/generate.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/oniguruma-to-es/dist/cjs/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/oniguruma-to-es/dist/cjs/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/oniguruma-to-es/dist/cjs/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/oniguruma-to-es/dist/cjs/index.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/oniguruma-to-es/dist/cjs/subclass.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/oniguruma-to-es/dist/cjs/subclass.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/oniguruma-to-es/dist/cjs/transform.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/oniguruma-to-es/dist/cjs/transform.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/oniguruma-to-es/dist/cjs/unicode.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/oniguruma-to-es/dist/cjs/unicode.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/oniguruma-to-es/dist/esm/generate.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/oniguruma-to-es/dist/esm/generate.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/oniguruma-to-es/dist/esm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/oniguruma-to-es/dist/esm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/oniguruma-to-es/dist/esm/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/oniguruma-to-es/dist/esm/index.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/oniguruma-to-es/dist/esm/subclass.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/oniguruma-to-es/dist/esm/subclass.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/oniguruma-to-es/dist/esm/transform.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/oniguruma-to-es/dist/esm/transform.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/oniguruma-to-es/dist/esm/unicode.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/oniguruma-to-es/dist/esm/unicode.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/oniguruma-to-es/dist/index.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/oniguruma-to-es/dist/index.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/oniguruma-to-es/dist/index.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/oniguruma-to-es/dist/index.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/oniguruma-to-es/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/oniguruma-to-es/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vite/dist/node/chunks/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/vite/dist/node/chunks/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vite/dist/node/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/vite/dist/node/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vite/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/vite/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.astro" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,8 +339,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-PY-243.21565.199" />
-        <option value="bundled-python-sdk-cab1f2013843-4ae2d6a61b08-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.21565.199" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-WS-243.22562.112" />
       </set>
     </attachedChunks>
   </component>
@@ -129,7 +388,13 @@
       <workItem from="1776674470354" duration="1543000" />
       <workItem from="1776718802366" duration="990000" />
       <workItem from="1776759909701" duration="600000" />
-      <workItem from="1776760709515" duration="6027000" />
+      <workItem from="1776760709515" duration="9331000" />
+      <workItem from="1776805458499" duration="779000" />
+      <workItem from="1776806252726" duration="539000" />
+      <workItem from="1776850526017" duration="14033000" />
+      <workItem from="1776870652278" duration="908000" />
+      <workItem from="1776874487496" duration="2955000" />
+      <workItem from="1776885867875" duration="582000" />
     </task>
     <servers />
   </component>
@@ -137,7 +402,7 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SuperiorGamingAgency$agent.coverage" NAME="agent Coverage Results" MODIFIED="1776767337945" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SuperiorGamingAgency$agent.coverage" NAME="agent Coverage Results" MODIFIED="1776875659520" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SuperiorGamingAgency$auditor.coverage" NAME="auditor Coverage Results" MODIFIED="1774643970591" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SuperiorGamingAgency$main.coverage" NAME="main Coverage Results" MODIFIED="1774463369781" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

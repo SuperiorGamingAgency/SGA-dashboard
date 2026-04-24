@@ -1,5 +1,5 @@
 ---
-// index.astro - SGA Tech-Concierge Dashboard (MASTER EDITION v1.2.9)
+// index.astro - SGA Tech-Concierge Dashboard (MASTER EDITION v1.2.22)
 import '../styles/global.css';
 ---
 
@@ -24,7 +24,7 @@ import '../styles/global.css';
 	<div class="flex flex-row lg:flex-col gap-4 md:gap-5 w-full justify-around lg:justify-start items-center h-fit overflow-x-auto lg:overflow-visible no-scrollbar px-2 lg:px-0">
 
 		<a href="/" class="group relative flex flex-shrink-0 items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-xl bg-orange-500 text-black shadow-[0_0_15px_rgba(249,115,22,0.3)] transition-all hover:scale-105">
-			<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+			<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
 			<div class="hidden lg:block absolute left-16 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-200 pointer-events-none text-black z-[200]">
 				<div class="bg-orange-500 px-3 py-2 rounded-lg shadow-2xl border border-orange-400/50 whitespace-nowrap">
 					<p class="text-[10px] font-black uppercase tracking-widest">Tactical Stats</p>
@@ -35,7 +35,7 @@ import '../styles/global.css';
 		</a>
 
 		<a href="/rig-manifest" class="group relative flex flex-shrink-0 items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-xl bg-slate-800 border border-slate-700 hover:border-blue-400 text-slate-400 hover:text-blue-400 transition-all hover:scale-105">
-			<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" /></svg>
+			<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" /></svg>
 			<div class="hidden lg:block absolute left-16 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-200 pointer-events-none text-white z-[200]">
 				<div class="bg-blue-600 px-3 py-2 rounded-lg shadow-2xl border border-blue-400/50 whitespace-nowrap">
 					<p class="text-[10px] font-black uppercase tracking-widest">Rig Manifest</p>
@@ -46,11 +46,11 @@ import '../styles/global.css';
 		</a>
 
 		<a href="/nexus" class="group relative flex flex-shrink-0 items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-xl bg-slate-800 border border-slate-700 hover:border-indigo-400 text-slate-400 hover:text-indigo-400 transition-all hover:scale-105">
-			<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" /></svg>
+			<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
 			<div class="hidden lg:block absolute left-16 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-200 pointer-events-none text-white z-[200]">
 				<div class="bg-indigo-600 px-3 py-2 rounded-lg shadow-2xl border border-indigo-400/50 whitespace-nowrap">
 					<p class="text-[10px] font-black uppercase tracking-widest">Nexus Hub</p>
-					<p class="text-[8px] font-bold opacity-70 uppercase leading-none mt-1">Team Ideation</p>
+					<p class="text-[8px] font-bold opacity-70 uppercase leading-none mt-1">SGA Collaboration</p>
 				</div>
 				<div class="absolute top-1/2 -left-1 -translate-y-1/2 w-2 h-2 bg-indigo-600 rotate-45"></div>
 			</div>
@@ -59,7 +59,7 @@ import '../styles/global.css';
 		<div class="w-[1px] h-8 lg:w-8 lg:h-[1px] bg-slate-800/50 mx-1 lg:mx-0"></div>
 
 		<a href="/forge" class="group relative flex flex-shrink-0 items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-xl bg-slate-800 border border-slate-700 hover:border-emerald-400 text-slate-400 hover:text-emerald-400 transition-all hover:scale-105">
-			<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 00-1 1v1a2 2 0 11-4 0v-1a1 1 0 00-1-1H7a1 1 0 01-1-1v-3a1 1 0 011-1h1a2 2 0 100-4H7a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" /></svg>
+			<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 00-1 1v1a2 2 0 11-4 0v-1a1 1 0 00-1-1H7a1 1 0 01-1-1v-3a1 1 0 011-1h1a2 2 0 100-4H7a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" /></svg>
 			<div class="hidden lg:block absolute left-16 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-200 pointer-events-none text-white z-[200]">
 				<div class="bg-emerald-600 px-3 py-2 rounded-lg shadow-2xl border border-emerald-400/50 whitespace-nowrap">
 					<p class="text-[10px] font-black uppercase tracking-widest">The Forge</p>
@@ -70,7 +70,7 @@ import '../styles/global.css';
 		</a>
 
 		<a href="/store" class="group relative flex flex-shrink-0 items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-xl bg-slate-800 border border-slate-700 hover:border-slate-100 text-slate-400 hover:text-slate-100 transition-all hover:scale-105">
-			<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
+			<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
 			<div class="hidden lg:block absolute left-16 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-200 pointer-events-none text-white z-[200]">
 				<div class="bg-slate-700 px-3 py-2 rounded-lg shadow-2xl border border-slate-600 whitespace-nowrap">
 					<p class="text-[10px] font-black uppercase tracking-widest">SGA Store</p>
@@ -81,7 +81,7 @@ import '../styles/global.css';
 		</a>
 
 		<a href="/booking" class="group relative flex flex-shrink-0 items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-xl bg-slate-800 border border-slate-700 hover:border-purple-400 text-slate-400 hover:text-purple-400 transition-all hover:scale-105">
-			<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+			<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
 			<div class="hidden lg:block absolute left-16 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-200 pointer-events-none text-white z-[200]">
 				<div class="bg-purple-600 px-3 py-2 rounded-lg shadow-2xl border border-purple-400/50 whitespace-nowrap">
 					<p class="text-[10px] font-black uppercase tracking-widest">Consulting</p>
@@ -92,6 +92,12 @@ import '../styles/global.css';
 		</a>
 	</div>
 </aside>
+
+<style>
+	/* Prevent mobile scrollbar during side-scroll */
+	.no-scrollbar::-webkit-scrollbar { display: none; }
+	.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
 
 <div class="max-w-4xl mx-auto lg:pl-16">
 	<header class="flex flex-col md:flex-row justify-between items-center mb-12 border-b border-slate-800 pb-8">
@@ -104,25 +110,18 @@ import '../styles/global.css';
 
 		<nav class="flex items-center gap-4 mt-6 md:mt-0">
 			<div class="flex items-center gap-1 bg-slate-900/50 p-1 rounded-xl border border-slate-800">
-
 				<a href="https://wa.me/36707330072" target="_blank" title="WhatsApp" class="p-2 text-slate-500 hover:text-emerald-500 transition-all">
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.06 3.978l-1.127 4.117 4.212-1.105a7.86 7.86 0 0 0 3.79.975h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
 				</a>
-
 				<a href="https://instagram.com/superiorgamingagency" target="_blank" title="Instagram" class="p-2 text-slate-500 hover:text-pink-500 transition-all">
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/></svg>
 				</a>
-
 				<a href="https://t.me/Superiordanial" target="_blank" title="Telegram" class="p-2 text-slate-500 hover:text-sky-500 transition-all">
-					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-						<path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-1.93 9.1c-.14.64-.52.79-1.06.49l-2.95-2.17-1.42 1.37c-.16.16-.29.29-.6.29l.2-3 5.46-4.93c.24-.22-.05-.34-.37-.13l-6.74 4.25-2.9-.91c-.63-.2-1.1-.52-.13-.88l11.31-4.36c.53-.2 1-.12.86.87z"/>
-					</svg>
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-1.93 9.1c-.14.64-.52.79-1.06.49l-2.95-2.17-1.42 1.37c-.16.16-.29.29-.6.29l.2-3 5.46-4.93c.24-.22-.05-.34-.37-.13l-6.74 4.25-2.9-.91c-.63-.2-1.1-.52-.13-.88l11.31-4.36c.53-.2 1-.12.86.87z"/></svg>
 				</a>
-
 				<a href="https://github.com/SuperiorGamingAgency" target="_blank" title="GitHub" class="p-2 text-slate-500 hover:text-white transition-all">
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
 				</a>
-
 				<a href="mailto:superiorgamingagency@gmail.com" title="Email Support" class="p-2 text-slate-500 hover:text-orange-500 transition-all">
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
 				</a>
@@ -133,7 +132,6 @@ import '../styles/global.css';
 							<path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
 						</svg>
 					</a>
-
 					<a href="/signin" id="login-btn" class="p-2 text-slate-500 hover:text-orange-500 transition-all">
 						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
 							<path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -146,7 +144,6 @@ import '../styles/global.css';
 						</button>
 					</div>
 				</div>
-
 			</div>
 		</nav>
 	</header>
@@ -164,18 +161,13 @@ import '../styles/global.css';
 		</div>
 		<h2 class="text-3xl font-black text-white mb-2 italic uppercase tracking-tighter">Waiting for <span class="text-orange-500">Handshake</span></h2>
 		<p class="text-slate-500 font-mono text-[10px] uppercase tracking-[0.3em] mb-12">System ID: Searching_Protocol_v1.1</p>
-
 		<div class="bg-slate-900/60 border border-slate-800 p-8 rounded-3xl backdrop-blur-xl max-w-sm w-full shadow-2xl border-t-orange-500/30">
-			<p class="text-[11px] text-slate-400 mb-6 leading-relaxed uppercase font-bold tracking-tight text-center">
-				To initialize telemetry, deploy the <span class="text-white">SGA Agent</span> on your primary rig.
-			</p>
-			<a href="/downloads/SGA_Agent.exe" download class="group relative flex items-center justify-center w-full py-4 bg-orange-500 text-black font-black rounded-xl transition-all hover:scale-[1.02] active:scale-95 shadow-[0_15px_30px_rgba(249,115,22,0.2)]">
+			<p class="text-[11px] text-slate-400 mb-6 leading-relaxed uppercase font-bold tracking-tight text-center">To initialize telemetry, deploy the <span class="text-white">SGA Agent</span> on your primary rig.</p>
+			<a href="/downloads/SGA_Agent.exe" download class="group relative flex items-center justify-center w-full py-4 bg-orange-500 text-black font-black rounded-xl transition-all hover:scale-[1.02] shadow-[0_15px_30px_rgba(249,115,22,0.2)]">
                <span class="flex items-center gap-3 uppercase text-[10px] tracking-widest">
-                   <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" /></svg>
-                   Deploy_Agent_v1.1
+                   <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" /></svg> Deploy_Agent_v1.1
                </span>
 			</a>
-			<p class="mt-4 text-[9px] font-mono text-slate-600 uppercase tracking-widest">Windows 10/11 x64 | 4.2MB</p>
 		</div>
 	</div>
 
@@ -186,10 +178,6 @@ import '../styles/global.css';
 			<p id="os-details" class="text-[10px] font-mono mt-2 text-slate-500 uppercase tracking-tighter">Initializing Identity...</p>
 		</div>
 		<div id="stats-grid" class="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4"></div>
-		<div class="bg-orange-500/5 border border-orange-500/20 p-6 rounded-2xl md:col-span-2">
-			<span class="text-orange-400 text-[10px] font-black tracking-widest uppercase">SGA Intelligence</span>
-			<p id="pro-advice" class="text-lg text-orange-100 mt-2 font-medium italic leading-tight">Handshake confirmed. Analyzing hardware for bottlenecks...</p>
-		</div>
 		<div class="md:col-span-2 flex justify-between items-center px-2 mt-4 border-t border-slate-800 pt-4">
 			<p class="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Verified SGA Data Stream</p>
 			<p id="last-updated" class="text-[10px] font-mono text-slate-500 italic uppercase">SYNCING...</p>
@@ -199,6 +187,11 @@ import '../styles/global.css';
 
 <script>
 	import { supabase } from '../lib/supabase';
+
+	const sgaLog = (msg, data = null) => {
+		const time = new Date().toLocaleTimeString();
+		console.log(`%c[SGA DIALINK] ${time} - ${msg}`, "color: #f97316; font-weight: bold;", data || "");
+	};
 
 	document.addEventListener('DOMContentLoaded', async () => {
 		const lockScreen = document.getElementById('lock-screen');
@@ -212,15 +205,15 @@ import '../styles/global.css';
 		const userEmailDisplay = document.getElementById('user-email-display');
 		const logoutBtn = document.getElementById('logout-btn');
 
-		const componentCards = {};
+		const componentCards = {}; // Stores { id: { type, index } }
 		let lastPacketTime = Date.now();
 
-		// Check session
 		const { data: { session } } = await supabase.auth.getSession();
 		const urlParams = new URLSearchParams(window.location.search);
 		const isSyncRequest = urlParams.get('sync') === 'true';
 
 		if (session) {
+			sgaLog("Session Verified.", session.user.email);
 			loginBtn?.classList.add('hidden');
 			userProfile?.classList.remove('hidden');
 			userProfile?.classList.add('flex');
@@ -228,47 +221,52 @@ import '../styles/global.css';
 
 			const currentUser = session.user.id;
 
-			// --- HANDSHAKE ENGINE ---
+			// 1. DISCOVERY & INITIALIZATION
+			const { data: rig } = await supabase.from('rigs').select('*').eq('user_id', currentUser).single();
+
+			if (rig) {
+				osDesc.innerText = rig.os_name || "Windows Rig";
+				osDetails.innerText = "Kernel Verified | System Stable";
+
+				const { data: components } = await supabase.from('components').select('*').eq('rig_id', rig.id);
+
+				if (components) {
+					sgaLog(`Rig found. Building ${components.length} cards.`);
+					components.forEach(comp => {
+						if (comp.type !== 'OS') createHardwareCard(comp);
+					});
+
+					lockScreen.classList.add('hidden');
+					dashboard.classList.remove('hidden');
+				}
+			}
+
+			// Handshake logic
 			if (isSyncRequest) {
 				const performHandshake = async () => {
 					try {
-						const response = await fetch(`http://localhost:54321/auth?access=${session.access_token}&refresh=${session.refresh_token}`);
-						if (response.ok) {
-							window.history.replaceState({}, document.title, "/");
-						}
-					} catch (err) {
-						setTimeout(performHandshake, 2000);
-					}
+						const response = await fetch(`http://127.0.0.1:54321/auth?access=${session.access_token}&refresh=${session.refresh_token}`);
+						if (response.ok) sgaLog("Local handshake successful.");
+					} catch (err) { setTimeout(performHandshake, 2000); }
 				};
 				performHandshake();
 			}
 
-			// 1. FETCH STATIC RIG DATA
-			const { data: rigInfo } = await supabase
-				.from('rigs')
-				.select('os_name')
-				.eq('user_id', currentUser)
-				.single();
-
-			if (rigInfo && rigInfo.os_name) {
-				osDesc.innerText = rigInfo.os_name;
-				osDetails.innerText = "Kernel Verified | System Stable";
-			}
-
-			// WATCHDOG TIMER
+			// 2. WATCHDOG TIMER
 			setInterval(() => {
 				const silenceDuration = Date.now() - lastPacketTime;
 				if (silenceDuration > 15000 && !dashboard.classList.contains('hidden')) {
+					sgaLog("WATCHDOG: Stream loss detected.");
 					lockScreen.classList.remove('hidden');
 					lockScreen.classList.add('flex');
 					dashboard.classList.add('hidden');
 				}
 			}, 5000);
 
-			// LISTEN TO LIVE HARDWARE DATA
+			// 3. LIVE MONITORING
 			supabase.channel('sga-live')
 				.on('postgres_changes', {
-					event: '*',
+					event: 'INSERT',
 					schema: 'public',
 					table: 'telemetry',
 					filter: `user_id=eq.${currentUser}`
@@ -278,80 +276,93 @@ import '../styles/global.css';
 
 					if (dashboard.classList.contains('hidden')) {
 						lockScreen.classList.add('hidden');
-						lockScreen.classList.remove('flex');
 						dashboard.classList.remove('hidden');
 					}
 
-					updateLiveCard(telemetry);
-					if (lastUpdated) lastUpdated.innerText = `LAST SYNC: ${new Date().toLocaleTimeString('hu-HU')}`;
+					const targetId = telemetry.component_id;
+
+					if (targetId && componentCards[targetId]) {
+						const type = componentCards[targetId].type;
+						updateSpecificCard(targetId, telemetry.load_percent, telemetry.temp_celsius, type);
+					}
+					else {
+						updateLegacyConsolidated(telemetry);
+					}
+
+					if (lastUpdated) lastUpdated.innerText = `SYNC: ${new Date().toLocaleTimeString()}`;
 				})
 				.subscribe();
-		} else {
-			// AUTH WATERFALL
-			if (isSyncRequest) {
-				window.location.href = `/signin?returnTo=/?sync=true`;
+		}
+
+		function createHardwareCard(info) {
+			if (document.getElementById(`card-${info.id}`)) return;
+
+			const card = document.createElement('div');
+			card.id = `card-${info.id}`;
+			card.className = "bg-slate-900 border border-slate-800 p-6 rounded-2xl relative overflow-hidden group hover:border-orange-500/50 transition-all";
+
+			const loadLabelText = info.type === 'DISK' ? 'Occupied' : 'Load';
+
+			// Display VRAM next to GPU name if it exists
+			const subTitle = info.vram_info ? `<span class="text-slate-500 text-[10px] ml-2 font-mono">[${info.vram_info}]</span>` : '';
+
+			card.innerHTML = `
+             <div class="flex justify-between items-start mb-4">
+                 <span class="text-orange-500 text-[10px] font-black tracking-widest uppercase italic">${info.type}</span>
+                 <span class="text-slate-700 text-[8px] font-mono">IDX: ${info.slot_index || 0}</span>
+             </div>
+             <h2 class="text-lg font-bold text-white leading-tight italic uppercase">
+                ${info.model_name} ${subTitle}
+             </h2>
+             <div class="mt-6 bg-slate-800 h-1 rounded-full overflow-hidden">
+                 <div id="bar-${info.id}" class="bg-orange-500 h-full w-0 transition-all duration-1000 shadow-[0_0_10px_#f97316]"></div>
+             </div>
+             <div class="flex justify-between mt-3 font-mono text-[9px] text-slate-500 uppercase">
+                 <span>${loadLabelText}: <b class="text-white" id="load-${info.id}">N/A</b></span>
+                 <span>Temp: <b class="text-white" id="temp-${info.id}">N/A</b></span>
+             </div>
+          `;
+			statsGrid.appendChild(card);
+			componentCards[info.id] = { type: info.type, index: info.slot_index || 0 };
+		}
+
+		function updateSpecificCard(id, load, temp, type) {
+			const bar = document.getElementById(`bar-${id}`);
+			const loadLabel = document.getElementById(`load-${id}`);
+			const tempLabel = document.getElementById(`temp-${id}`);
+
+			if (bar && load !== null) bar.style.width = `${load}%`;
+			if (loadLabel && load !== null) loadLabel.innerText = `${Math.round(load)}%`;
+
+			if (tempLabel) {
+				if ((type === 'CPU' || type === 'GPU') && temp > 0) {
+					tempLabel.innerText = `${Math.round(temp)}°C`;
+				} else {
+					tempLabel.innerText = 'N/A';
+				}
 			}
+		}
+
+		function updateLegacyConsolidated(telemetry) {
+			Object.keys(componentCards).forEach(id => {
+				const card = componentCards[id];
+				if (card.type === 'CPU') updateSpecificCard(id, telemetry.cpu_load, telemetry.cpu_temp, 'CPU');
+				if (card.type === 'RAM') updateSpecificCard(id, telemetry.ram_load, 0, 'RAM');
+				if (card.type === 'GPU' && card.index === 0) updateSpecificCard(id, telemetry.gpu_load, telemetry.gpu_temp, 'GPU');
+			});
 		}
 
 		logoutBtn?.addEventListener('click', async () => {
 			await supabase.auth.signOut();
 			window.location.reload();
 		});
-
-		async function updateLiveCard(data) {
-			const id = data.component_id;
-
-			if (!componentCards[id]) {
-				const { data: info } = await supabase.from('components').select('*').eq('id', id).single();
-				if (!info) return;
-
-				if (info.type === 'OS') {
-					componentCards[id] = "IGNORE";
-					return;
-				}
-
-				const card = document.createElement('div');
-				card.className = "bg-slate-900 border border-slate-800 p-6 rounded-2xl relative overflow-hidden group hover:border-orange-500/50 transition-all";
-				card.innerHTML = `
-                <div class="flex justify-between items-start mb-4">
-                    <span id="type-${id}" class="text-orange-500 text-[10px] font-black tracking-widest uppercase italic">${info.type}</span>
-                </div>
-                <h2 id="name-${id}" class="text-lg font-bold text-white leading-tight italic uppercase">${info.model_name}</h2>
-                <div class="mt-6 bg-slate-800 h-1 rounded-full overflow-hidden">
-                    <div id="bar-${id}" class="bg-orange-500 h-full w-0 transition-all duration-1000 shadow-[0_0_10px_#f97316]"></div>
-                </div>
-                <div class="flex justify-between mt-3 font-mono text-[9px] text-slate-500 uppercase">
-                    <span>Load: <b class="text-white" id="load-${id}">0%</b></span>
-                    <span id="temp-cont-${id}">Temp: <b class="text-white" id="temp-${id}">--</b></span>
-                </div>
-             `;
-				statsGrid.appendChild(card);
-				componentCards[id] = card;
-			}
-
-			if (componentCards[id] && componentCards[id] !== "IGNORE") {
-				const bar = document.getElementById(`bar-${id}`);
-				const loadLabel = document.getElementById(`load-${id}`);
-				const tempLabel = document.getElementById(`temp-${id}`);
-
-				if (bar) bar.style.width = `${data.load_percent}%`;
-				if (loadLabel) loadLabel.innerText = `${Math.round(data.load_percent)}%`;
-				if (tempLabel) tempLabel.innerText = data.temp_celsius > 0 ? `${data.temp_celsius}°C` : 'N/A';
-			}
-		}
 	});
 </script>
 
 <style is:global>
-	@keyframes move-mesh {
-		0% { transform: translate(0, 0) scale(1); }
-		50% { transform: translate(15%, 10%) scale(1.1); }
-		100% { transform: translate(0, 0) scale(1); }
-	}
+	@keyframes move-mesh { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(15%, 10%) scale(1.1); } 100% { transform: translate(0, 0) scale(1); } }
 	.animate-mesh-fast { animation: move-mesh 10s infinite alternate ease-in-out; }
 	::-webkit-scrollbar { width: 0px; }
-	.no-scrollbar::-webkit-scrollbar { display: none; }
-	.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 </style>
 </body>
 </html>
