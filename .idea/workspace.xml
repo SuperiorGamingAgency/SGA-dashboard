@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d288e24-bfc5-4fea-9a63-f1d88f52aee0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/downloads/SGA_Agent.exe" beforeDir="false" />
-    </list>
+    <list default="true" id="9d288e24-bfc5-4fea-9a63-f1d88f52aee0" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -139,7 +136,7 @@
       <workItem from="1776870652278" duration="908000" />
       <workItem from="1776874487496" duration="2955000" />
       <workItem from="1776885867875" duration="582000" />
-      <workItem from="1777016487378" duration="613000" />
+      <workItem from="1777016487378" duration="774000" />
     </task>
     <servers />
   </component>
