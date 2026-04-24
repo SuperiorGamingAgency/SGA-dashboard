@@ -34,7 +34,7 @@ logger = logging.getLogger("SGA_Agent")
 # --- SETTINGS ---
 SUPABASE_URL = "https://hyakorvmqpirnorpbskk.supabase.co"
 SUPABASE_KEY = "sb_publishable_zfssEvxed9ul69PEX8NU6A_ACNnrbrU"
-DASHBOARD_URL = "http://localhost:4321"
+DASHBOARD_URL = "https://sga-dashboard-7v6t.onrender.com/"
 SESSION_PATH = os.path.join(os.environ.get('APPDATA', '.'), "sga_agent_session.json")
 
 
