@@ -204,7 +204,7 @@ class SGAAgent:
                     logger.warning(f"Failed component {comp['type']}: {e}")
                     continue
             if payload: self.uplink_queue.put(payload)
-            time.sleep(5)
+            time.sleep(10)
 
     def uplink_worker(self):
         while not self.stop_event.is_set():
@@ -221,6 +221,7 @@ class SGAAgent:
                 try:
                     self.supabase.table("telemetry").insert(batch).execute()
                     self.supabase.table("rigs").update({"last_ping": batch[0]["recorded_at"]}).eq("id", self.rig_id).execute()
+                    print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] MISSION DATA SYNCED: {len(batch)} points.")
                 except Exception as e:
                     logger.error(f"Upload failed: {e}")
                     self._save_to_disk(batch)
@@ -247,7 +248,7 @@ if __name__ == "__main__":
     global_agent = SGAAgent()
     if global_agent.secure_login():
         global_agent.sync_hardware()
-        hide_console()
+        #hide_console()
         notification.notify(title="SGA UPLINK", message="Hardened Schema Sync Active.")
         threading.Thread(target=global_agent.telemetry_stream, daemon=True).start()
         threading.Thread(target=global_agent.uplink_worker, daemon=True).start()
