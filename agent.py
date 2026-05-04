@@ -262,7 +262,7 @@ class SGAAgent:
                 logger.info(f"SGA COMMAND: Hardware volume forced to {level}%")
             except Exception as e:
                 logger.error(f"VBS Volume Error: {e}")
-            
+
     def command_listener(self):
         logger.info("Command Listener active.")
         while not self.stop_event.is_set():
