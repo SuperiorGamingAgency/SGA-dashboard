@@ -222,8 +222,16 @@ import '../styles/global.css';
 			const currentUser = session.user.id;
 
 			// 1. DISCOVERY & INITIALIZATION
-			const { data: rig } = await supabase.from('rigs').select('*').eq('user_id', currentUser).single();
+			const { data: rigs, error: rigError } = await supabase
+				.from('rigs')
+				.select('*')
+				.eq('user_id', currentUser);
 
+			const rig = rigs && rigs.length > 0 ? rigs[0] : null;
+
+			if (rigError) {
+				sgaLog("RIG FETCH ERROR:", rigError.message);
+			}
 			if (rig) {
 				osDesc.innerText = rig.os_name || "Windows Rig";
 				osDetails.innerText = "Kernel Verified | System Stable";
@@ -245,8 +253,7 @@ import '../styles/global.css';
 			if (isSyncRequest) {
 				const performHandshake = async () => {
 					try {
-						const response = await fetch(`http://127.0.0.1:54321/auth?access=${session.access_token}&refresh=${session.refresh_token}`);
-						if (response.ok) sgaLog("Local handshake successful.");
+						const response = await fetch(`http://127.0.0.1:58241/auth?access=${session.access_token}&refresh=${session.refresh_token}`);						if (response.ok) sgaLog("Local handshake successful.");
 					} catch (err) { setTimeout(performHandshake, 2000); }
 				};
 				performHandshake();

@@ -210,6 +210,102 @@ import '../styles/global.css';
     </section>
 </div>
 
+<!-- SUPERIOR TOOLKIT: FLOATING ISLAND MENU (ADAPTIVE MOBILE FAB) -->
+<div id="toolkit-island" class="fixed bottom-24 right-6 lg:bottom-8 lg:left-1/2 lg:-translate-x-1/2 z-[1000] w-auto lg:w-[92%] lg:max-w-md transition-all duration-500 ease-in-out">
+
+    <!-- The Adaptive Trigger: Small Circle on Mobile, Pill on PC -->
+    <button id="island-trigger" class="bg-slate-900/80 backdrop-blur-2xl border border-blue-500/30 p-4 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.8)] flex items-center justify-center hover:border-blue-500 transition-all group lg:justify-between lg:w-full">
+        <div class="hidden lg:flex items-center gap-3 ml-2">
+            <div class="relative flex h-3 w-3">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+            </div>
+            <span class="text-[10px] font-black uppercase tracking-[0.2em] text-white">Superior Toolkit</span>
+        </div>
+
+        <!-- Mobile Only Icon (Shown when closed) -->
+        <div class="lg:hidden relative flex h-6 w-6 items-center justify-center">
+            <div id="fab-ping" class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" /></svg>
+        </div>
+
+        <div class="hidden lg:flex mr-2 p-1.5 bg-blue-500/10 rounded-full text-blue-500 group-hover:bg-blue-500 group-hover:text-black transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform duration-300" id="trigger-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 15l7-7 7 7" />
+            </svg>
+        </div>
+    </button>
+
+    <!-- Expanded Tools Panel -->
+    <div id="island-content" class="hidden absolute bottom-full mb-4 right-0 lg:static lg:mt-4 lg:mb-0 w-[85vw] max-w-sm lg:w-full bg-slate-900/95 backdrop-blur-3xl border border-slate-800 rounded-[2.5rem] p-6 shadow-2xl max-h-[65vh] overflow-y-auto no-scrollbar border-t-blue-500/20">
+
+        <!-- Audio Hub -->
+        <section class="mb-8">
+            <header class="flex items-center gap-2 mb-4">
+                <span class="text-[9px] font-black text-blue-500 uppercase tracking-widest">Audio Hub</span>
+                <div class="h-[1px] flex-1 bg-slate-800"></div>
+            </header>
+            <div class="grid grid-cols-4 gap-2">
+                <button id="cmd-mute" class="p-4 bg-slate-800/50 rounded-2xl hover:bg-blue-500 hover:text-black transition-all flex items-center justify-center"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg></button>
+                <button id="cmd-prev" class="p-4 bg-slate-800/50 rounded-2xl flex items-center justify-center hover:bg-slate-700 transition-all"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg></button>
+                <button id="cmd-play" class="p-4 bg-blue-600 text-white rounded-2xl flex items-center justify-center"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+                <button id="cmd-next" class="p-4 bg-slate-800/50 rounded-2xl flex items-center justify-center hover:bg-slate-700 transition-all"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></button>
+            </div>
+            <div class="mt-5 px-1">
+                <input id="vol-slider" type="range" class="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-500">
+                <div class="flex justify-between mt-2"><span class="text-[8px] font-bold text-slate-500 uppercase">Master Volume</span><span id="vol-display" class="text-[8px] font-mono text-blue-500">72%</span></div>
+            </div>
+        </section>
+
+        <!-- Network Interface -->
+        <section class="mb-8">
+            <header class="flex items-center gap-2 mb-4">
+                <span class="text-[9px] font-black text-blue-500 uppercase tracking-widest italic">Network Interface</span>
+                <div class="h-[1px] flex-1 bg-slate-800"></div>
+            </header>
+            <div class="grid grid-cols-1 gap-2">
+                <button id="cmd-refresh-ip" class="flex items-center justify-between p-4 bg-blue-600/10 border border-blue-500/30 rounded-2xl hover:bg-blue-600 hover:text-black transition-all group">
+                    <div class="flex items-center gap-3">
+                        <div class="p-2 bg-blue-500/20 rounded-lg group-hover:bg-black/20"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+                        <span class="text-[10px] font-black uppercase italic">Refresh IP</span>
+                    </div>
+                    <span class="text-[8px] font-mono opacity-50 group-hover:opacity-100 tracking-tighter">SGA_NET</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Rig Maintenance -->
+        <section class="mb-8">
+            <header class="flex items-center gap-2 mb-4">
+                <span class="text-[9px] font-black text-blue-500 uppercase tracking-widest">Rig Maintenance</span>
+                <div class="h-[1px] flex-1 bg-slate-800"></div>
+            </header>
+            <div class="grid grid-cols-2 gap-3">
+                <button id="cmd-medic" class="flex items-center gap-3 p-4 bg-slate-800/30 border border-slate-800 rounded-2xl hover:border-blue-500 transition-all group">
+                    <div class="p-2 bg-blue-500/10 text-blue-500 rounded-lg group-hover:bg-blue-500 group-hover:text-black transition-all"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+                    <span class="text-[10px] font-black text-white uppercase italic">App Medic</span>
+                </button>
+                <button id="cmd-clean" class="flex items-center gap-3 p-4 bg-slate-800/30 border border-slate-800 rounded-2xl hover:border-emerald-500 transition-all group">
+                    <div class="p-2 bg-emerald-500/10 text-emerald-500 rounded-lg group-hover:bg-emerald-500 group-hover:text-black transition-all"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></div>
+                    <span class="text-[10px] font-black text-white uppercase italic">Quick Clean</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Power Hub -->
+        <section class="grid grid-cols-2 gap-2">
+            <button id="cmd-sleep" class="p-4 bg-slate-800/20 border border-slate-800 rounded-2xl hover:border-purple-500 transition-all group">
+                <svg class="w-5 h-5 mx-auto text-purple-500 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                <span class="text-[8px] font-black text-slate-500 uppercase block text-center">Sleep</span>
+            </button>
+            <button id="cmd-shutdown" class="p-4 bg-red-500/5 border border-red-500/20 rounded-2xl hover:bg-red-500 transition-all group">
+                <svg class="w-5 h-5 mx-auto text-red-500 group-hover:text-black mb-1 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636a9 9 0 11-12.728 0m6.364-2.364v9"/></svg>
+                <span class="text-[8px] font-black text-slate-500 group-hover:text-black uppercase block text-center">Power Off</span>
+            </button>
+        </section>
+    </div>
+</div>
+
 <script>
     import { supabase } from '../lib/supabase';
     import Chart from 'chart.js/auto';
@@ -223,6 +319,7 @@ import '../styles/global.css';
     let selectedComponentId = null;
     let selectedHours = 24;
     let tempChart, loadChart;
+    let activeRigId = null;
 
     document.addEventListener('DOMContentLoaded', async () => {
         const { data: { session } } = await supabase.auth.getSession();
@@ -236,7 +333,7 @@ import '../styles/global.css';
         if (session) {
             loginBtn.classList.add('hidden');
             userProfile.classList.remove('hidden');
-            userProfile.classList.add('flex'); // Ensure layout is correct
+            userProfile.classList.add('flex');
             emailDisplay.innerText = session.user.email.substring(0, 1).toUpperCase();
         }
 
@@ -245,6 +342,7 @@ import '../styles/global.css';
         // 1. FETCH RIG & IDENTITY
         const { data: rig } = await supabase.from('rigs').select('*').eq('user_id', userId).single();
         if (rig) {
+            activeRigId = rig.id;
             document.getElementById('display-nickname').innerText = rig.nickname || "CORE UNNAMED";
             document.getElementById('input-nickname').value = rig.nickname || "";
             document.getElementById('input-story').value = rig.story || "";
@@ -255,36 +353,25 @@ import '../styles/global.css';
                 document.getElementById('avatar-placeholder').classList.add('hidden');
             }
 
-            // FETCH COMPONENTS
             const { data: components } = await supabase.from('components').select('*').eq('rig_id', rig.id);
             if (components) {
                 const selector = document.getElementById('hw-selector');
-
-                // Track the first one to select it
                 let firstId = null;
-
                 components.forEach((comp) => {
                     if (comp.type === 'OS') return;
                     componentMap[comp.id] = { type: comp.type };
                     createHardwareCard(comp);
-
                     if (comp.type !== 'DISK') {
                         if (!firstId) firstId = comp.id;
-
-                        const btn = document.createElement('button');
                         const shortName = comp.model_name.replace('NVIDIA GeForce ', '').replace('Intel(R) Core(TM) ', '').split(' @')[0];
-
-                        // We check if this is the one we should mark as active
                         const shouldBeActive = (!selectedComponentId && comp.id === firstId) || (selectedComponentId === comp.id);
-
                         if (shouldBeActive) {
                             selectedComponentId = comp.id;
                             document.getElementById('hardware-label').innerText = comp.model_name;
                         }
-
+                        const btn = document.createElement('button');
                         btn.className = `hw-select-btn px-4 py-2 text-[9px] font-black uppercase rounded-lg transition-all flex items-center gap-2 ${shouldBeActive ? 'bg-blue-600 text-white' : 'text-slate-500 hover:bg-slate-800'}`;
                         btn.innerHTML = `<span class="opacity-40 text-[7px]">${comp.type}</span><span>${shortName}</span>`;
-
                         btn.onclick = () => {
                             selectedComponentId = comp.id;
                             document.querySelectorAll('.hw-select-btn').forEach(b => {
@@ -299,15 +386,77 @@ import '../styles/global.css';
                         selector.appendChild(btn);
                     }
                 });
-
-                // TRIGGER HISTORY FETCH NOW THAT ID IS SET
-                if (selectedComponentId) {
-                    loadHistoricalData(userId);
-                }
+                if (selectedComponentId) loadHistoricalData(userId);
             }
         }
 
-        // 2. LIVE UPDATES
+        // TOOLKIT COMMAND DISPATCHER
+        const sendCmd = async (command, payload = null) => {
+            if (!activeRigId) return;
+            const { error } = await supabase.from('remote_commands').insert([{
+                rig_id: activeRigId,
+                command: command,
+                payload: payload,
+                status: 'pending'
+            }]);
+            if (!error) {
+                const btn = document.getElementById(`cmd-${command.replace(/_/g, '-')}`);
+                if(btn) btn.classList.add('animate-pulse', 'border-emerald-500');
+                setTimeout(() => btn?.classList.remove('animate-pulse', 'border-emerald-500'), 1500);
+            }
+        };
+
+        document.getElementById('cmd-refresh-ip')?.addEventListener('click', () => sendCmd('refresh_ip'));
+        document.getElementById('cmd-play')?.addEventListener('click', () => sendCmd('media_play_pause'));
+        document.getElementById('cmd-next')?.addEventListener('click', () => sendCmd('media_next'));
+        document.getElementById('cmd-prev')?.addEventListener('click', () => sendCmd('media_prev'));
+        document.getElementById('cmd-mute')?.addEventListener('click', () => sendCmd('media_mute'));
+        document.getElementById('cmd-medic')?.addEventListener('click', () => sendCmd('app_medic'));
+        document.getElementById('cmd-clean')?.addEventListener('click', () => sendCmd('quick_clean'));
+        document.getElementById('cmd-sleep')?.addEventListener('click', () => sendCmd('sleep'));
+        document.getElementById('cmd-shutdown')?.addEventListener('click', () => {
+            if(confirm("Confirm Emergency Shutdown?")) sendCmd('shutdown');
+        });
+
+        const volSlider = document.getElementById('vol-slider');
+        const volDisplay = document.getElementById('vol-display');
+        volSlider?.addEventListener('input', (e) => volDisplay.innerText = `${e.target.value}%`);
+        volSlider?.addEventListener('change', (e) => sendCmd('set_volume', e.target.value));
+
+        // TOOLKIT ISLAND INTERACTIVE STATE
+        const toolkitTrigger = document.getElementById('island-trigger');
+        const toolkitContent = document.getElementById('island-content');
+        const triggerIcon = document.getElementById('trigger-icon');
+        const fabPing = document.getElementById('fab-ping');
+
+        toolkitTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isExpanded = !toolkitContent.classList.contains('hidden');
+            if (!isExpanded) {
+                toolkitContent.classList.remove('hidden');
+                toolkitContent.classList.add('animate-in', 'fade-in', 'slide-in-from-bottom-5');
+                triggerIcon.style.transform = 'rotate(180deg)';
+                toolkitTrigger.classList.add('border-blue-500');
+                if(fabPing) fabPing.style.display = 'none';
+            } else {
+                toolkitContent.classList.add('hidden');
+                triggerIcon.style.transform = 'rotate(0deg)';
+                toolkitTrigger.classList.remove('border-blue-500');
+                if(fabPing) fabPing.style.display = 'block';
+            }
+        });
+
+        // Close on outside click
+        document.addEventListener('click', (e) => {
+            if (!toolkitTrigger.contains(e.target) && !toolkitContent.contains(e.target)) {
+                toolkitContent.classList.add('hidden');
+                triggerIcon.style.transform = 'rotate(0deg)';
+                toolkitTrigger.classList.remove('border-blue-500');
+                if(fabPing) fabPing.style.display = 'block';
+            }
+        });
+
+        // (Telemetry, Analytics Selector, Avatar, and Profile Sync Logic unchanged)
         supabase.channel('rig-telemetry').on('postgres_changes', {
             event: 'INSERT', schema: 'public', table: 'telemetry', filter: `user_id=eq.${userId}`
         }, (payload) => {
@@ -318,22 +467,18 @@ import '../styles/global.css';
                 if (config.type === 'CPU') { metrics.cpu.load = data.load_percent; metrics.cpu.temp = data.temp_celsius; }
                 if (config.type === 'GPU') { metrics.gpu.load = data.load_percent; metrics.gpu.temp = data.temp_celsius; }
                 runSgaAnalysis();
-
                 if (data.component_id === selectedComponentId) {
                     const time = new Date(data.recorded_at);
                     tempChart.data.datasets[0].data.push({ x: time, y: data.temp_celsius });
                     loadChart.data.datasets[0].data.push({ x: time, y: data.load_percent });
                     if (selectedHours <= 24 && tempChart.data.datasets[0].data.length > 200) {
-                        tempChart.data.datasets[0].data.shift();
-                        loadChart.data.datasets[0].data.shift();
+                        tempChart.data.datasets[0].data.shift(); loadChart.data.datasets[0].data.shift();
                     }
-                    tempChart.update('none');
-                    loadChart.update('none');
+                    tempChart.update('none'); loadChart.update('none');
                 }
             }
         }).subscribe();
 
-        // TIME SELECTOR LOGIC
         document.querySelectorAll('.time-btn').forEach(btn => {
             btn.onclick = () => {
                 selectedHours = parseInt(btn.getAttribute('data-hours'));
@@ -347,26 +492,11 @@ import '../styles/global.css';
             };
         });
 
-        // AVATAR UPLOAD
         document.getElementById('avatar-upload').addEventListener('change', async (e) => {
             const file = e.target.files[0];
             if (!file) return;
             const fileName = `${userId}/avatar-${Date.now()}`;
-
-            // CLEANUP PREVIOUS AVATAR
-            const { data: rig } = await supabase.from('rigs').select('avatar_url').eq('user_id', userId).single();
-            if (rig?.avatar_url) {
-                try {
-                    const oldPath = rig.avatar_url.split('/rig-avatars/')[1];
-                    if (oldPath) {
-                        await supabase.storage.from('rig-avatars').remove([oldPath]);
-                    }
-                } catch (err) {
-                    console.error("Storage cleanup failed:", err);
-                }
-            }
-
-            const { data, error } = await supabase.storage.from('rig-avatars').upload(fileName, file, { upsert: true });
+            const { error } = await supabase.storage.from('rig-avatars').upload(fileName, file, { upsert: true });
             if (!error) {
                 const { data: { publicUrl } } = supabase.storage.from('rig-avatars').getPublicUrl(fileName);
                 await supabase.from('rigs').update({ avatar_url: publicUrl }).eq('user_id', userId);
@@ -374,7 +504,6 @@ import '../styles/global.css';
             }
         });
 
-        // SYNC PROFILE
         document.getElementById('save-profile').addEventListener('click', async () => {
             const nickname = document.getElementById('input-nickname').value;
             const story = document.getElementById('input-story').value;
@@ -383,12 +512,10 @@ import '../styles/global.css';
         });
 
         document.getElementById('reset-zoom').onclick = () => {
-            tempChart.resetZoom();
-            loadChart.resetZoom();
+            tempChart.resetZoom(); loadChart.resetZoom();
         };
 
-        const logoutBtn = document.getElementById('logout-btn');
-        logoutBtn?.addEventListener('click', async () => {
+        document.getElementById('logout-btn')?.addEventListener('click', async () => {
             await supabase.auth.signOut();
             window.location.href = '/signin';
         });
@@ -396,108 +523,39 @@ import '../styles/global.css';
 
     function initCharts() {
         const baseOptions = {
-            responsive: true,
-            maintainAspectRatio: false,
-            parsing: false,
-            normalized: true,
-            spanGaps: true,
-            animation: { duration: 0 },
-            interaction: { mode: 'index', intersect: false },
+            responsive: true, maintainAspectRatio: false, parsing: false, normalized: true, spanGaps: true,
+            animation: { duration: 0 }, interaction: { mode: 'index', intersect: false },
             scales: {
-                x: {
-                    type: 'time',
-                    time: { displayFormats: { hour: 'HH:mm', day: 'MMM d' } },
-                    grid: { display: false },
-                    ticks: { color: '#475569', font: { size: 8 }, maxRotation: 0 }
-                },
-                y: {
-                    beginAtZero: true,
-                    grid: { color: 'rgba(255,255,255,0.02)', drawBorder: false },
-                    ticks: { color: '#475569', font: { size: 8 }, padding: 10 }
-                }
+                x: { type: 'time', time: { displayFormats: { hour: 'HH:mm', day: 'MMM d' } }, grid: { display: false }, ticks: { color: '#475569', font: { size: 8 }, maxRotation: 0 } },
+                y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.02)', drawBorder: false }, ticks: { color: '#475569', font: { size: 8 }, padding: 10 } }
             },
             plugins: {
-                legend: { display: false },
-                tooltip: {
-                    backgroundColor: '#0f172a',
-                    padding: 10,
-                    displayColors: false,
-                    borderColor: 'rgba(255,255,255,0.1)',
-                    borderWidth: 1
-                },
-                zoom: {
-                    pan: { enabled: true, mode: 'x', threshold: 10 },
-                    zoom: { wheel: { enabled: true }, pinch: { enabled: true }, mode: 'x' }
-                }
+                legend: { display: false }, tooltip: { backgroundColor: '#0f172a', padding: 10, displayColors: false, borderColor: 'rgba(255,255,255,0.1)', borderWidth: 1 },
+                zoom: { pan: { enabled: true, mode: 'x', threshold: 10 }, zoom: { wheel: { enabled: true }, pinch: { enabled: true }, mode: 'x' } }
             },
-            elements: {
-                point: { radius: 0, hoverRadius: 4 },
-                line: { borderCapStyle: 'round', borderJoinStyle: 'round' }
-            }
+            elements: { point: { radius: 0, hoverRadius: 4 }, line: { borderCapStyle: 'round', borderJoinStyle: 'round' } }
         };
-
         const createGradient = (ctx, color) => {
             const gradient = ctx.createLinearGradient(0, 0, 0, 300);
-            gradient.addColorStop(0, `${color}22`);
-            gradient.addColorStop(1, `${color}00`);
+            gradient.addColorStop(0, `${color}22`); gradient.addColorStop(1, `${color}00`);
             return gradient;
         };
-
         const tempCtx = document.getElementById('tempChart').getContext('2d');
-        tempChart = new Chart(tempCtx, {
-            type: 'line',
-            data: {
-                datasets: [{
-                    borderColor: '#ef4444',
-                    backgroundColor: createGradient(tempCtx, '#ef4444'),
-                    fill: true,
-                    data: [],
-                    tension: 0.3,
-                    borderWidth: 2,
-                }]
-            },
-            options: baseOptions
-        });
-
+        tempChart = new Chart(tempCtx, { type: 'line', data: { datasets: [{ borderColor: '#ef4444', backgroundColor: createGradient(tempCtx, '#ef4444'), fill: true, data: [], tension: 0.3, borderWidth: 2 }] }, options: baseOptions });
         const loadCtx = document.getElementById('loadChart').getContext('2d');
-        loadChart = new Chart(loadCtx, {
-            type: 'line',
-            data: {
-                datasets: [{
-                    borderColor: '#3b82f6',
-                    backgroundColor: createGradient(loadCtx, '#3b82f6'),
-                    fill: true,
-                    data: [],
-                    tension: 0.3,
-                    borderWidth: 2,
-                }]
-            },
-            options: baseOptions
-        });
+        loadChart = new Chart(loadCtx, { type: 'line', data: { datasets: [{ borderColor: '#3b82f6', backgroundColor: createGradient(loadCtx, '#3b82f6'), fill: true, data: [], tension: 0.3, borderWidth: 2 }] }, options: baseOptions });
     }
 
     async function loadHistoricalData(userId) {
         if (!selectedComponentId) return;
         const cutoff = new Date(Date.now() - selectedHours * 60 * 60 * 1000).toISOString();
-
-        const { data, error } = await supabase
-            .from('telemetry')
-            .select('load_percent, temp_celsius, recorded_at')
-            .eq('component_id', selectedComponentId)
-            .eq('user_id', userId)
-            .gt('recorded_at', cutoff)
-            .order('recorded_at', { ascending: true });
-
+        const { data } = await supabase.from('telemetry').select('load_percent, temp_celsius, recorded_at').eq('component_id', selectedComponentId).eq('user_id', userId).gt('recorded_at', cutoff).order('recorded_at', { ascending: true });
         if (data) {
             const unit = selectedHours > 48 ? 'day' : 'hour';
-            tempChart.options.scales.x.time.unit = unit;
-            loadChart.options.scales.x.time.unit = unit;
-
+            tempChart.options.scales.x.time.unit = unit; loadChart.options.scales.x.time.unit = unit;
             tempChart.data.datasets[0].data = data.map(d => ({ x: new Date(d.recorded_at), y: d.temp_celsius }));
             loadChart.data.datasets[0].data = data.map(d => ({ x: new Date(d.recorded_at), y: d.load_percent }));
-
-            tempChart.update();
-            loadChart.update();
+            tempChart.update(); loadChart.update();
         }
     }
 
@@ -511,12 +569,9 @@ import '../styles/global.css';
     }
 
     function updateCardUI(id, load, temp) {
-        const bar = document.getElementById(`bar-${id}`);
-        if (bar) bar.style.width = `${load}%`;
-        const l = document.getElementById(`load-${id}`);
-        if (l) l.innerText = `${Math.round(load)}%`;
-        const t = document.getElementById(`temp-${id}`);
-        if (t) t.innerText = temp > 0 ? `${Math.round(temp)}°C` : 'N/A';
+        const bar = document.getElementById(`bar-${id}`); if (bar) bar.style.width = `${load}%`;
+        const l = document.getElementById(`load-${id}`); if (l) l.innerText = `${Math.round(load)}%`;
+        const t = document.getElementById(`temp-${id}`); if (t) t.innerText = temp > 0 ? `${Math.round(temp)}°C` : 'N/A';
     }
 
     function runSgaAnalysis() {
