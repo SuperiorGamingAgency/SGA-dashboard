@@ -7,16 +7,7 @@
     <list default="true" id="9d288e24-bfc5-4fea-9a63-f1d88f52aee0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/agent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/SGA_Agent/Analysis-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/SGA_Agent/Analysis-00.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/SGA_Agent/EXE-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/SGA_Agent/EXE-00.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/SGA_Agent/PKG-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/SGA_Agent/PKG-00.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/SGA_Agent/PYZ-00.pyz" beforeDir="false" afterPath="$PROJECT_DIR$/build/SGA_Agent/PYZ-00.pyz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/SGA_Agent/PYZ-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/SGA_Agent/PYZ-00.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/SGA_Agent/SGA_Agent.pkg" beforeDir="false" afterPath="$PROJECT_DIR$/build/SGA_Agent/SGA_Agent.pkg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/SGA_Agent/base_library.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/SGA_Agent/base_library.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/SGA_Agent/warn-SGA_Agent.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/SGA_Agent/warn-SGA_Agent.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/SGA_Agent/xref-SGA_Agent.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/SGA_Agent/xref-SGA_Agent.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/downloads/SGA_Agent.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/about.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/about.astro" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,8 +86,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-PY-243.21565.199" />
-        <option value="bundled-python-sdk-cab1f2013843-4ae2d6a61b08-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.21565.199" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-WS-243.22562.112" />
       </set>
     </attachedChunks>
   </component>
@@ -165,6 +155,8 @@
       <workItem from="1777403606966" duration="4400000" />
       <workItem from="1777683432690" duration="1000" />
       <workItem from="1777915116616" duration="4753000" />
+      <workItem from="1778153620410" duration="1417000" />
+      <workItem from="1778174597284" duration="1041000" />
     </task>
     <servers />
   </component>
@@ -172,7 +164,7 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SuperiorGamingAgency$agent.coverage" NAME="agent Coverage Results" MODIFIED="1777929746687" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SuperiorGamingAgency$agent.coverage" NAME="agent Coverage Results" MODIFIED="1778154427505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SuperiorGamingAgency$auditor.coverage" NAME="auditor Coverage Results" MODIFIED="1774643970591" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SuperiorGamingAgency$main.coverage" NAME="main Coverage Results" MODIFIED="1774463369781" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

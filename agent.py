@@ -27,15 +27,32 @@ from plyer import notification
 from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 from comtypes import CLSCTX_ALL
 
-# --- LOGGING SYSTEM ---
+# --- ENHANCED LOGGING SYSTEM ---
 LOG_FILE = os.path.join(os.environ.get('APPDATA', '.'), "agent_uplink.log")
 BUFFER_FILE = os.path.join(os.environ.get('APPDATA', '.'), "telemetry_buffer.json")
+
+# Configure logging to file
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s [%(levelname)s] %(message)s',
-    handlers=[logging.FileHandler(LOG_FILE), logging.StreamHandler(sys.stdout)]
+    handlers=[logging.FileHandler(LOG_FILE)]
 )
 logger = logging.getLogger("SGA_Agent")
+
+
+def console_log(tag, message, color="white"):
+    """Custom tactical console logger for CMD visibility"""
+    timestamp = datetime.datetime.now().strftime("%H:%M:%S")
+    tags = {
+        "INFO": "[*]",
+        "SUCCESS": "[+]",
+        "WARN": "[!]",
+        "ERROR": "[x]",
+        "CMD": "[>>]",
+        "SYNC": "[OK]"
+    }
+    print(f"[{timestamp}] {tags.get(tag, '[?]')} {message}")
+
 
 # --- SETTINGS ---
 SUPABASE_URL = "https://hyakorvmqpirnorpbskk.supabase.co"
@@ -62,6 +79,8 @@ class AuthHandler(BaseHTTPRequestHandler):
                 b"<p style='color:#64748b;text-transform:uppercase;font-size:12px;letter-spacing:2px;'>SGA Agent Authorized. Close this tab.</p></div></body></html>")
             threading.Thread(target=self.server.shutdown, daemon=True).start()
 
+    def log_message(self, format, *args): return  # Suppress standard HTTP logs
+
 
 def hide_console():
     hwnd = ctypes.windll.kernel32.GetConsoleWindow()
@@ -75,14 +94,17 @@ def show_console():
 
 def check_admin():
     if ctypes.windll.shell32.IsUserAnAdmin(): return True
+    console_log("WARN", "Requesting Administrative Privileges...")
     ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
     return False
 
 
 class SGAAgent:
     def __init__(self):
+        console_log("INFO", "Initializing SGA Agent Core...")
         self.supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
         self.rig_id = str(uuid.uuid5(uuid.NAMESPACE_DNS, str(uuid.getnode())))
+        console_log("INFO", f"Rig Identity established: {self.rig_id}")
         self.user_id = None
         self.active_components = []
         self.stop_event = threading.Event()
@@ -102,19 +124,23 @@ class SGAAgent:
                     if 20 < temp_c < 110: return round(temp_c, 1)
         except:
             pass
-        cpu_load = psutil.cpu_percent()
-        return round(self.thermal_baseline + (cpu_load * 0.45) + random.uniform(-0.5, 0.5), 1)
+        return round(self.thermal_baseline + (psutil.cpu_percent() * 0.45), 1)
 
     def secure_login(self):
         if os.path.exists(SESSION_PATH):
+            console_log("INFO", "Found existing session. Validating credentials...")
             try:
                 with open(SESSION_PATH, "r") as f:
                     sess = json.load(f)
                 res = self.supabase.auth.set_session(sess['access_token'], sess['refresh_token'])
                 self.user_id = res.user.id
+                console_log("SUCCESS", f"Authenticated as User ID: {self.user_id}")
                 return True
-            except:
-                pass
+            except Exception as e:
+                console_log("ERROR", "Session expired or corrupted. Redirecting to login.")
+                if os.path.exists(SESSION_PATH): os.remove(SESSION_PATH)
+
+        console_log("INFO", "Opening Secure Handshake Portal on Render...")
         server = HTTPServer(('localhost', 54321), AuthHandler)
         server.access_token = None
         webbrowser.open(f"{DASHBOARD_URL}/signin?returnTo=/?sync=true")
@@ -124,23 +150,27 @@ class SGAAgent:
             self.user_id = res.user.id
             with open(SESSION_PATH, "w") as f:
                 json.dump({"access_token": server.access_token, "refresh_token": server.refresh_token}, f)
+            console_log("SUCCESS", "Handshake complete. Session secured.")
             return True
         return False
 
     def sync_hardware(self):
-        logger.info("Synchronizing hardware manifest...")
+        console_log("INFO", "Syncing hardware manifest with SGA Cloud...")
         try:
             self.supabase.table("rigs").upsert({
                 "id": self.rig_id, "user_id": self.user_id,
                 "os_name": f"{platform.system()} {platform.release()}",
                 "is_active": True, "last_ping": datetime.datetime.now(datetime.UTC).isoformat()
             }).execute()
+
             manifest = []
             with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, r"HARDWARE\DESCRIPTION\System\CentralProcessor\0") as key:
                 cpu_model, _ = winreg.QueryValueEx(key, "ProcessorNameString")
             manifest.append({"type": "CPU", "model_name": cpu_model.strip(), "slot_index": 0})
+
             total_ram = round(psutil.virtual_memory().total / (1024 ** 3))
             manifest.append({"type": "RAM", "model_name": f"System RAM {total_ram}GB", "slot_index": 0})
+
             for i, p in enumerate(psutil.disk_partitions()):
                 if 'fixed' in p.opts:
                     try:
@@ -148,38 +178,40 @@ class SGAAgent:
                                          "mount_point": p.mountpoint})
                     except:
                         continue
-            try:
-                pythoncom.CoInitialize()
-                wmi = win32com.client.Dispatch("WbemScripting.SWbemLocator").ConnectServer(".", "root\\cimv2")
-                gpu_list = wmi.ExecQuery("Select * from Win32_VideoController")
-                for i, controller in enumerate(gpu_list):
-                    name = str(controller.Name).strip()
-                    if "Microsoft Basic" in name: continue
-                    vram_gb = "Shared"
-                    if "NVIDIA" in name.upper():
-                        try:
-                            cmd = f"nvidia-smi --query-gpu=memory.total --format=csv,noheader,nounits --id={i}"
-                            out = subprocess.check_output(cmd, shell=True, timeout=2,
-                                                          stderr=subprocess.DEVNULL).decode().strip()
-                            if out: vram_gb = f"{round(int(out) / 1024, 1)}GB"
-                        except:
-                            pass
-                    manifest.append(
-                        {"type": "GPU", "model_name": name, "slot_index": i, "raw_name": name, "vram_info": vram_gb})
-            except Exception as e:
-                logger.error(f"GPU Sync Error: {e}")
+
+            pythoncom.CoInitialize()
+            wmi = win32com.client.Dispatch("WbemScripting.SWbemLocator").ConnectServer(".", "root\\cimv2")
+            gpu_list = wmi.ExecQuery("Select * from Win32_VideoController")
+            for i, controller in enumerate(gpu_list):
+                name = str(controller.Name).strip()
+                if "Microsoft Basic" in name: continue
+                vram_gb = "Shared"
+                if "NVIDIA" in name.upper():
+                    try:
+                        cmd = f"nvidia-smi --query-gpu=memory.total --format=csv,noheader,nounits --id={i}"
+                        out = subprocess.check_output(cmd, shell=True, timeout=2,
+                                                      stderr=subprocess.DEVNULL).decode().strip()
+                        if out: vram_gb = f"{round(int(out) / 1024, 1)}GB"
+                    except:
+                        pass
+                manifest.append(
+                    {"type": "GPU", "model_name": name, "slot_index": i, "raw_name": name, "vram_info": vram_gb})
+
             self.active_components = []
             for item in manifest:
                 m_point = item.pop("mount_point", None)
                 raw_n = item.pop("raw_name", item["model_name"])
                 res = self.supabase.table("components").upsert({**item, "rig_id": self.rig_id},
                                                                on_conflict="rig_id,model_name,slot_index").execute()
-                if res.data: self.active_components.append({**res.data[0], "mount_point": m_point, "raw_name": raw_n})
+                if res.data:
+                    comp_data = {**res.data[0], "mount_point": m_point, "raw_name": raw_n}
+                    self.active_components.append(comp_data)
+                    console_log("SUCCESS", f"Component Linked: {comp_data['type']} -> {comp_data['model_name']}")
         except Exception as e:
-            logger.error(f"Critical Sync Error: {e}")
+            console_log("ERROR", f"Critical Sync Failure: {e}")
 
     def telemetry_stream(self):
-        logger.info("Telemetry collection engine started.")
+        console_log("INFO", "Telemetry stream initiated (10s interval).")
         while not self.stop_event.is_set():
             now = datetime.datetime.now(datetime.UTC).isoformat()
             payload = []
@@ -188,26 +220,18 @@ class SGAAgent:
             ram_usage = psutil.virtual_memory().percent
 
             for comp in self.active_components:
-                data_row = {
-                    "component_id": comp['id'],
-                    "user_id": self.user_id,
-                    "recorded_at": now,
-                    "load_percent": 0.0,
-                    "temp_celsius": 0.0
-                }
+                data_row = {"component_id": comp['id'], "user_id": self.user_id, "recorded_at": now,
+                            "load_percent": 0.0, "temp_celsius": 0.0}
                 try:
                     if comp['type'] == 'CPU':
-                        data_row["load_percent"] = cpu_usage
-                        data_row["temp_celsius"] = cpu_temp
-                        data_row["cpu_load"] = cpu_usage
-                        data_row["cpu_temp"] = cpu_temp
+                        data_row.update({"load_percent": cpu_usage, "temp_celsius": cpu_temp, "cpu_load": cpu_usage,
+                                         "cpu_temp": cpu_temp})
                     elif comp['type'] == 'RAM':
-                        data_row["load_percent"] = ram_usage
-                        data_row["ram_load"] = ram_usage
+                        data_row.update({"load_percent": ram_usage, "ram_load": ram_usage})
                     elif comp['type'] == 'DISK':
                         usage = psutil.disk_usage(comp.get('mount_point', 'C:\\'))
-                        data_row["load_percent"] = usage.percent
-                        data_row["free_space_gb"] = round(usage.free / (1024 ** 3), 2)
+                        data_row.update(
+                            {"load_percent": usage.percent, "free_space_gb": round(usage.free / (1024 ** 3), 2)})
                     elif comp['type'] == 'GPU':
                         g_load, g_temp = cpu_usage * 0.8, cpu_temp - 5.0
                         if "NVIDIA" in comp.get('raw_name', '').upper():
@@ -218,71 +242,54 @@ class SGAAgent:
                                 g_load, g_temp = float(out[0]), float(out[1])
                             except:
                                 pass
-                        data_row["load_percent"] = g_load
-                        data_row["temp_celsius"] = g_temp
-                        data_row["gpu_load"] = g_load
-                        data_row["gpu_temp"] = g_temp
-
+                        data_row.update(
+                            {"load_percent": g_load, "temp_celsius": g_temp, "gpu_load": g_load, "gpu_temp": g_temp})
                     payload.append(data_row)
                 except Exception as e:
-                    logger.warning(f"Failed component {comp['type']}: {e}")
                     continue
+
             if payload: self.uplink_queue.put(payload)
             time.sleep(10)
 
-        # --- .NET NATIVE VOLUME METHOD ---
-        # --- DIRECT ENDPOINT VOLUME METHOD ---
-        # --- UNIVERSAL BROADCAST METHOD ---
-        # --- SGA NATIVE MASTER VOLUME SYNC ---
-        # --- SGA VBSCRIPT NATIVE METHOD ---
     def set_system_volume(self, level):
-            try:
-                # We create a temporary VBScript that simulates the Volume keys.
-                # This is extremely resilient against PyCharm's terminal isolation.
-                target = int(level)
-                vbs_path = os.path.join(os.environ.get('TEMP'), "sga_vol.vbs")
+        """Native VBScript method for environment-independent audio control"""
+        console_log("CMD", f"Executing volume shift to {level}%...")
+        try:
+            target = int(level)
+            vbs_path = os.path.join(os.environ.get('TEMP'), "sga_vol.vbs")
+            with open(vbs_path, "w") as f:
+                f.write('set WshShell = CreateObject("WScript.Shell")\n')
+                f.write('for i = 1 to 50\n  WshShell.SendKeys chr(174)\nnext\n')  # Reset to 0
+                steps = int(target / 2)
+                f.write(f'for i = 1 to {steps}\n  WshShell.SendKeys chr(175)\nnext\n')  # Raise to target
 
-                # 174 is Volume Down, 175 is Volume Up
-                with open(vbs_path, "w") as f:
-                    f.write('set WshShell = CreateObject("WScript.Shell")\n')
-                    # Reset to 0
-                    f.write('for i = 1 to 50\n')
-                    f.write('  WshShell.SendKeys chr(174)\n')
-                    f.write('next\n')
-                    # Set to target (each press is 2%)
-                    steps = int(target / 2)
-                    f.write(f'for i = 1 to {steps}\n')
-                    f.write('  WshShell.SendKeys chr(175)\n')
-                    f.write('next\n')
-
-                # Run the script and then delete it
-                subprocess.run(['wscript.exe', vbs_path], capture_output=True)
-                os.remove(vbs_path)
-
-                logger.info(f"SGA COMMAND: Hardware volume forced to {level}%")
-            except Exception as e:
-                logger.error(f"VBS Volume Error: {e}")
+            subprocess.run(['wscript.exe', vbs_path], capture_output=True)
+            os.remove(vbs_path)
+            console_log("SUCCESS", f"Audio hardware synchronized to {level}%.")
+        except Exception as e:
+            console_log("ERROR", f"Audio Hardware Control Failed: {e}")
 
     def command_listener(self):
-        logger.info("Command Listener active.")
+        console_log("INFO", "Remote command listener online (2s polling).")
         while not self.stop_event.is_set():
             try:
                 res = self.supabase.table("remote_commands").select("*").eq("rig_id", self.rig_id).eq("status",
                                                                                                       "pending").execute()
                 if res.data:
                     for cmd in res.data:
+                        console_log("CMD", f"Received remote command: {cmd['command']} (Payload: {cmd['payload']})")
                         if cmd['command'] == 'set_volume':
-                            # Calling the method correctly scoped within the class
                             self.set_system_volume(cmd['payload'])
 
-                        # Update status so we don't repeat the command
                         self.supabase.table("remote_commands").update({"status": "completed"}).eq("id",
                                                                                                   cmd['id']).execute()
+                        console_log("INFO", f"Command ID {cmd['id'][:8]} marked as COMPLETED.")
             except Exception as e:
-                logger.error(f"Listener Loop Error: {e}")
+                console_log("ERROR", f"Listener Loop Exception: {e}")
             time.sleep(2)
 
     def uplink_worker(self):
+        console_log("INFO", "Uplink worker engaged.")
         while not self.stop_event.is_set():
             if os.path.exists(BUFFER_FILE):
                 try:
@@ -291,7 +298,7 @@ class SGAAgent:
                     if cache:
                         self.supabase.table("telemetry").insert(cache).execute()
                         os.remove(BUFFER_FILE)
-                        logger.info("Local cache uploaded.")
+                        console_log("SYNC", "Uploaded cached telemetry from disk.")
                 except:
                     pass
             try:
@@ -300,9 +307,9 @@ class SGAAgent:
                     self.supabase.table("telemetry").insert(batch).execute()
                     self.supabase.table("rigs").update({"last_ping": batch[0]["recorded_at"]}).eq("id",
                                                                                                   self.rig_id).execute()
-                    print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] MISSION DATA SYNCED: {len(batch)} points.")
+                    console_log("SYNC", f"Mission data synchronized: {len(batch)} components.")
                 except Exception as e:
-                    logger.error(f"Upload failed: {e}")
+                    console_log("WARN", f"Uplink blocked. Caching {len(batch)} points to disk.")
                     self._save_to_disk(batch)
                 self.uplink_queue.task_done()
             except queue.Empty:
@@ -323,21 +330,32 @@ class SGAAgent:
 
 def on_quit(icon, item):
     global global_agent
+    console_log("WARN", "Shutting down SGA Agent...")
     if global_agent: global_agent.stop_event.set()
     icon.stop()
     os._exit(0)
 
 
 if __name__ == "__main__":
+    print("-" * 50)
+    print("      SUPERIOR GAMING AGENCY | UPLINK AGENT v1.2")
+    print("-" * 50)
+
     if not check_admin(): sys.exit(0)
     global_agent = SGAAgent()
+
     if global_agent.secure_login():
         global_agent.sync_hardware()
-        notification.notify(title="SGA UPLINK", message="Hardened Schema Sync Active.")
+
+        notification.notify(title="SGA UPLINK", message="Handshake Established. Telemetry Active.")
+
+        # Deploy Tactical Threads
         threading.Thread(target=global_agent.telemetry_stream, daemon=True).start()
         threading.Thread(target=global_agent.uplink_worker, daemon=True).start()
         threading.Thread(target=global_agent.command_listener, daemon=True).start()
+
         img = Image.new('RGB', (64, 64), (249, 115, 22))
         menu = pystray.Menu(pystray.MenuItem("Show Console", show_console), pystray.MenuItem("Exit Agent", on_quit))
         icon = pystray.Icon("SGA_Agent", img, "SGA Uplink Agent", menu)
+        console_log("SUCCESS", "System tray icon deployed. Agent fully operational.")
         icon.run()
