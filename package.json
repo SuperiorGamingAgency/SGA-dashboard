@@ -13,13 +13,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.42.0",
-    "@tailwindcss/vite": "^4.0.0",
-    "astro": "^5.0.0",
-    "chart.js": "^4.4.2",
-    "chartjs-adapter-date-fns": "^3.0.0",
-    "chartjs-plugin-zoom": "^2.0.1",
-    "date-fns": "^3.6.0",
-    "tailwindcss": "^4.0.0"
+    "@supabase/supabase-js": "^2.105.3",
+    "astro": "^6.3.1",
+    "chart.js": "4.4.2",
+    "chartjs-adapter-date-fns": "3.0.0",
+    "chartjs-plugin-zoom": "2.0.1",
+    "date-fns": "3.6.0",
+    "tailwindcss": "3.4.1"
   }
 }
