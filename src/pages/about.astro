@@ -1,5 +1,5 @@
 ---
-// src/pages/about.astro - SGA Bilateral Dossier v2.2 (Presentation Master Edition)
+// src/pages/about.astro - SGA Presentation Master Dossier v4.2 (Subject 7 Edition)
 import '../styles/global.css';
 ---
 
@@ -12,7 +12,7 @@ import '../styles/global.css';
     <meta name="viewport" content="width=device-width" />
     <title>About | SGA Nexus Intelligence</title>
 </head>
-<body class="text-slate-100 font-sans min-h-screen p-4 md:p-12 overflow-x-hidden bg-[#020617]">
+<body class="text-slate-100 font-sans min-h-screen p-4 md:p-12 overflow-x-hidden bg-[#020617] scroll-smooth">
 
 <div class="fixed inset-0 -z-10 overflow-hidden">
     <div class="absolute -top-[20%] -left-[20%] w-[120%] h-[120%] bg-orange-500/10 blur-[120px] rounded-full animate-mesh-fast"></div>
@@ -29,220 +29,185 @@ import '../styles/global.css';
     </header>
 
     <div class="space-y-16">
-
-        <section>
+        <section id="section-01">
             <span class="text-orange-500 text-[10px] font-black tracking-widest uppercase italic">01. Organization</span>
             <h2 class="text-2xl font-bold text-white uppercase italic mt-1">Superior Gaming Agency</h2>
             <div class="mt-4 text-slate-400 leading-relaxed space-y-4">
-                <p>
-                    <b class="text-white">SGA</b> is an international technology-concierge organization dedicated to high-end digital solutions. We operate as a bridge between specialized hardware needs and advanced software management, ensuring that users maintain peak operational efficiency through tactical precision.
-                </p>
+                <p><b class="text-white">SGA</b> is an international technology-concierge organization. We bridge specialized hardware needs and advanced software management.</p>
             </div>
         </section>
 
-        <section>
+        <section id="section-02">
             <span class="text-indigo-400 text-[10px] font-black tracking-widest uppercase italic">02. Collective Intelligence</span>
             <h2 class="text-2xl font-bold text-white uppercase italic mt-1">The Nexus Protocol</h2>
             <div class="mt-4 text-slate-400 leading-relaxed">
-                <p>
-                    <b class="text-white">Nexus</b> is our specialized environment for **synchronous communication and brainstorming**. Moving beyond unstructured discussion, Nexus utilizes a high-throughput **6-3-5 Brainwriting** methodology to eliminate social interference and production blocking. It is the core platform where team ideas are converted into industrial-grade output.
-                </p>
+                <p><b class="text-white">Nexus</b> utilizes synchronous brainstorming methodology to convert team ideas into industrial-grade output.</p>
             </div>
         </section>
 
-        <section class="bg-slate-900/40 border border-slate-800 p-8 rounded-3xl relative overflow-hidden">
+        <section id="section-03" class="bg-slate-900/40 border border-slate-800 p-8 rounded-3xl relative overflow-hidden">
             <div class="absolute top-0 right-0 p-4 opacity-10">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-24 h-24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-24 h-24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
             </div>
             <span class="text-emerald-400 text-[10px] font-black tracking-widest uppercase italic">03. The Consulting Phase</span>
             <h2 class="text-2xl font-bold text-white uppercase italic mt-1">Next-Gen Advisory</h2>
             <div class="mt-4 text-slate-400 leading-relaxed">
-                <p>
-                    Our hardware management is anchored by the <b class="text-white">SGA Agent</b>. The Agent analyzes unique hardware signatures to provide bespoke advice—recommending specific optimizations and detecting bottlenecks before they impact performance.
-                </p>
+                <p>Hardware management anchored by the <b class="text-white">SGA Agent</b>, detecting bottlenecks before they impact performance.</p>
             </div>
         </section>
 
-        <section class="border-t border-slate-800 pt-12">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-                <div>
-                    <span class="text-slate-500 text-[10px] font-black tracking-widest uppercase italic">The Innovation Corridor</span>
-                    <h2 class="text-2xl font-bold text-white uppercase italic mt-1">Bilateral Foundations</h2>
-                    <p class="mt-4 text-slate-400 leading-relaxed text-sm">
-                        SGA is a testament to international cooperation. Driven by <b class="text-white">two prominent Iranian investors</b> and guided by my own <b class="text-orange-500">Persian roots</b>, the project is built on a foundation of cross-border capital and cultural vision.
-                    </p>
-                    <p class="mt-4 text-slate-400 leading-relaxed text-sm italic border-l-2 border-orange-500 pl-4">
-                        Operating from Hungary, I act as the technical and cultural conduit between Tehran's strategic core and our European operations.
-                    </p>
-                </div>
+        <section class="border-t border-slate-800 pt-24 space-y-48 pb-32 relative">
 
-                <div class="space-y-4">
-                    <div class="bg-slate-900/80 border border-slate-800 p-8 rounded-2xl flex justify-around items-center h-56 shadow-2xl relative overflow-hidden">
-                        <div class="text-center group">
-                            <div class="w-24 h-auto mb-3 overflow-hidden rounded shadow-lg border border-white/10">
-                                <svg viewBox="0 0 1050 600" xmlns="http://www.w3.org/2000/svg"><rect width="1050" height="200" fill="#319b42"/><rect y="200" width="1050" height="200" fill="#ffffff"/><rect y="400" width="1050" height="200" fill="#da291c"/></svg>
-                            </div>
-                            <div class="text-[10px] text-white font-black uppercase tracking-tighter leading-none mt-1">Iran</div>
-                        </div>
-                        <div class="relative h-12 w-12 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
-                        </div>
-                        <div class="text-center group">
-                            <div class="w-24 h-auto mb-3 overflow-hidden rounded shadow-lg border border-white/10">
-                                <svg viewBox="0 0 1050 600" xmlns="http://www.w3.org/2000/svg"><rect width="1050" height="200" fill="#CE2939"/><rect y="200" width="1050" height="200" fill="#FFFFFF"/><rect y="400" width="1050" height="200" fill="#477050"/></svg>
-                            </div>
-                            <div class="text-[10px] text-white font-black uppercase tracking-tighter leading-none mt-1">Hungary</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="border-t border-slate-800 pt-16">
-            <header class="mb-12">
-                <span class="text-orange-500 text-[10px] font-black tracking-widest uppercase italic">04. Academic Case Study</span>
-                <h2 class="text-5xl font-black text-white uppercase italic mt-1 leading-none tracking-tighter">
-                    THE <span class="text-orange-500">CONTROLLING</span> DECK
-                </h2>
-                <p class="text-slate-500 font-mono text-xs uppercase tracking-widest mt-4">Subject: Systems Management & High-Stakes Performance Assets</p>
+            <header id="slide-intro" class="text-center mb-12 scroll-mt-24">
+                <span class="text-orange-500 text-[10px] font-black tracking-widest uppercase italic font-mono">Academic Subject 07</span>
+                <h2 class="text-6xl font-black text-white uppercase italic mt-1 leading-none tracking-tighter">THE <span class="text-orange-500">CONTROLLING</span> MODEL</h2>
+                <p class="text-slate-500 font-mono text-xs uppercase tracking-widest mt-6">Comparative Analysis: Strategic vs. Operative Frameworks</p>
             </header>
 
-            <div class="space-y-32">
-
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center border-b border-slate-800/50 pb-24">
-                    <div class="md:col-span-5 relative group">
-                        <div class="absolute inset-0 bg-orange-500/20 blur-[60px] rounded-full group-hover:bg-orange-500/30 transition-all"></div>
-                        <div class="relative bg-slate-900 border border-slate-700 p-8 rounded-[2.5rem] shadow-2xl overflow-hidden">
-                            <span class="text-orange-500 font-mono text-[9px] uppercase tracking-[0.3em]">Module 01 // Overview</span>
-                            <div class="mt-8 flex flex-col items-center text-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
-                                <h3 class="text-4xl font-black text-white uppercase italic leading-none">THE MIS<br/><span class="text-orange-500">ENGINE</span></h3>
-                                <p class="text-[10px] text-slate-500 mt-4 font-mono uppercase italic tracking-tighter border-t border-slate-800 pt-4 w-full">Management Information System</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="md:col-span-7 space-y-6">
-                        <h4 class="text-2xl font-bold text-white uppercase italic leading-tight">Defining the Brain of the Enterprise</h4>
-                        <div class="text-slate-400 text-sm leading-relaxed space-y-4">
-                            <p>In business school, we learn that <b class="text-white">Controlling</b> is not just watching; it is navigating. It functions as the corporate brain—using data to ensure that capital investments are protected and performing at their theoretical limit.</p>
-                            <p>The SGA Ecosystem represents a physical manifestation of this management theory. It bridges the gap between raw hardware signals (Operative) and long-term asset longevity (Strategic).</p>
-                        </div>
-                        <ul class="grid grid-cols-2 gap-4 pt-4">
-                            <li class="text-[10px] font-bold text-slate-500 uppercase flex items-center gap-2"><div class="w-1 h-1 bg-orange-500"></div> Asset Protection</li>
-                            <li class="text-[10px] font-bold text-slate-500 uppercase flex items-center gap-2"><div class="w-1 h-1 bg-orange-500"></div> Risk Mitigation</li>
-                            <li class="text-[10px] font-bold text-slate-500 uppercase flex items-center gap-2"><div class="w-1 h-1 bg-orange-500"></div> Uptime Reliability</li>
-                            <li class="text-[10px] font-bold text-slate-500 uppercase flex items-center gap-2"><div class="w-1 h-1 bg-orange-500"></div> Value Creation</li>
+            <div id="slide-1" class="relative grid grid-cols-1 md:grid-cols-12 gap-10 items-center scroll-mt-32">
+                <div class="md:col-span-5 bg-slate-900 border border-orange-500/20 p-10 rounded-[3rem] shadow-2xl relative aspect-square flex flex-col justify-center text-center overflow-hidden">
+                    <div class="absolute inset-0 bg-orange-500/5 animate-pulse"></div>
+                    <h3 class="text-4xl font-black text-white italic uppercase leading-none tracking-tighter">DUAL<br/><span class="text-orange-500">CONTROL</span><br/>PILLARS</h3>
+                </div>
+                <div class="md:col-span-6 space-y-6">
+                    <h4 class="text-2xl font-bold text-white uppercase italic">The Controlling Engine</h4>
+                    <div class="space-y-4 text-slate-400 text-sm">
+                        <p>Controlling is the <b>Cybernetic Engine</b> of management. It converts raw system data into institutional intelligence through two distinct lenses:</p>
+                        <ul class="space-y-3 font-mono text-[11px] uppercase">
+                            <li class="flex gap-2"><span class="text-orange-500">●</span> <b>Operative:</b> Efficiency ("Doing things right")</li>
+                            <li class="flex gap-2"><span class="text-indigo-400">●</span> <b>Strategic:</b> Effectiveness ("Doing the right things")</li>
                         </ul>
                     </div>
                 </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center border-b border-slate-800/50 pb-24">
-                    <div class="md:col-span-7 order-2 md:order-1 space-y-6">
-                        <span class="bg-orange-500/10 text-orange-500 text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest border border-orange-500/30">Phase A // Operative Controlling</span>
-                        <h4 class="text-3xl font-black text-white uppercase italic leading-tight">Managing the Efficiency of "NOW"</h4>
-                        <div class="text-slate-400 text-sm leading-relaxed space-y-4">
-                            <p>Operative controlling is short-term. Its goal is <b class="text-white">Efficiency and Stability</b>. It constantly asks one question: <i>"Is the system healthy this second?"</i></p>
-                            <p>Our **SGA Agent** performs a continuous <b class="text-white">Target-vs-Actual Analysis</b>. We define a safe target (e.g., 70°C). If the actual data hits 95°C, the system identifies a <b>"Deviation."</b></p>
-                            <div class="bg-slate-900 border-l-4 border-orange-500 p-4 rounded-xl">
-                                <p class="text-[11px] italic text-slate-500">"Just as a manager cuts costs during a cash-flow crisis, the Agent throttles resources to prevent permanent asset destruction."</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="md:col-span-5 order-1 md:order-2">
-                        <div class="bg-slate-900/60 border border-slate-800 p-8 rounded-[2.5rem] shadow-inner relative overflow-hidden">
-                            <div class="space-y-4">
-                                <div class="flex justify-between items-end">
-                                    <span class="text-[9px] font-black text-orange-500 uppercase tracking-widest">Live Deviation Detected</span>
-                                    <span class="text-2xl font-mono font-bold text-white">95.4°C</span>
-                                </div>
-                                <div class="h-3 bg-slate-800 rounded-full overflow-hidden border border-slate-700">
-                                    <div class="h-full bg-gradient-to-r from-orange-600 to-red-500 w-[95%] animate-pulse shadow-[0_0_15px_rgba(239,68,68,0.5)]"></div>
-                                </div>
-                                <div class="pt-6 grid grid-cols-2 gap-4">
-                                    <div class="bg-black/40 p-4 rounded-2xl border border-slate-800">
-                                        <span class="text-[8px] text-slate-600 block uppercase font-bold">Protocol</span>
-                                        <span class="text-[10px] text-white font-black uppercase">Throttling</span>
-                                    </div>
-                                    <div class="bg-black/40 p-4 rounded-2xl border border-slate-800">
-                                        <span class="text-[8px] text-slate-600 block uppercase font-bold">Status</span>
-                                        <span class="text-[10px] text-emerald-500 font-black uppercase">Mitigating</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="hidden md:flex absolute -right-16 flex-col gap-2">
+                    <a href="#slide-intro" class="p-3 bg-slate-900 border border-slate-700 rounded-xl hover:text-orange-500 transition-colors">↑</a>
+                    <a href="#slide-2" class="p-3 bg-slate-900 border border-slate-700 rounded-xl hover:text-orange-500 transition-colors">↓</a>
                 </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center border-b border-slate-800/50 pb-24">
-                    <div class="md:col-span-5">
-                        <div class="bg-indigo-500/5 border border-indigo-500/20 p-8 rounded-[2.5rem] relative group">
-                            <div class="absolute top-0 right-0 p-4 opacity-20">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-24 h-24 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="0.5"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-                            </div>
-                            <div class="space-y-6">
-                                <span class="text-[9px] font-black text-indigo-400 uppercase tracking-widest">Vision // Forecasting</span>
-                                <h3 class="text-5xl font-black text-white uppercase italic leading-none">STRATEGIC<br/>MINDSET</h3>
-                                <div class="space-y-2 pt-6">
-                                    <div class="h-1 bg-slate-800 w-full rounded-full"><div class="h-full bg-indigo-500 w-[40%]"></div></div>
-                                    <div class="h-1 bg-slate-800 w-full rounded-full"><div class="h-full bg-indigo-500 w-[65%]"></div></div>
-                                    <div class="h-1 bg-slate-800 w-full rounded-full"><div class="h-full bg-indigo-500 w-[90%]"></div></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="md:col-span-7 space-y-6">
-                        <span class="bg-indigo-500/10 text-indigo-400 text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest border border-indigo-500/30">Phase B // Strategic Controlling</span>
-                        <h4 class="text-3xl font-black text-white uppercase italic leading-tight">Securing the Sustainability of "TOMORROW"</h4>
-                        <div class="text-slate-400 text-sm leading-relaxed space-y-4">
-                            <p>Strategic Controlling doesn't care about the heat this second—it cares about the next **36 months**. It asks: <i>"Will we still be the best in the market later?"</i></p>
-                            <p>By analyzing history, we perform <b class="text-white">Pattern Recognition</b>. If a GPU temperature rises 2% every month, we have identified a **Strategic Threat** (hardware fatigue) long before it becomes an Operative Failure.</p>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div class="border border-indigo-500/20 bg-indigo-500/5 p-4 rounded-2xl">
-                                    <h5 class="text-indigo-400 text-[10px] font-bold uppercase mb-1">CapEx Validation</h5>
-                                    <p class="text-[11px] text-slate-500">Proving the need for Capital Expenditure (upgrades) using historical data trends.</p>
-                                </div>
-                                <div class="border border-indigo-500/20 bg-indigo-500/5 p-4 rounded-2xl">
-                                    <h5 class="text-indigo-400 text-[10px] font-bold uppercase mb-1">Longevity Vision</h5>
-                                    <p class="text-[11px] text-slate-500">Ensuring the system remains competitive against evolving industrial benchmarks.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-gradient-to-br from-slate-900 to-black border border-slate-800 p-12 rounded-[3rem] shadow-2xl text-center relative overflow-hidden">
-                    <div class="absolute -top-24 -left-24 w-64 h-64 bg-emerald-500/10 blur-[80px] rounded-full"></div>
-                    <div class="relative">
-                        <h3 class="text-white text-xs font-black uppercase tracking-[0.5em] mb-4 opacity-50">The Integrated Workflow</h3>
-                        <p class="text-4xl md:text-5xl font-black text-white uppercase italic tracking-tighter leading-none mb-10">
-                            THE <span class="text-orange-500">CONTROLLING</span> FEEDBACK LOOP
-                        </p>
-
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-                            <div class="text-center space-y-2">
-                                <div class="w-12 h-12 mx-auto bg-slate-800 rounded-full flex items-center justify-center text-orange-500 font-black">1</div>
-                                <h4 class="text-white font-bold uppercase text-xs">Set Strategy</h4>
-                                <p class="text-[10px] text-slate-500">"I want to run at 4K resolution."</p>
-                            </div>
-                            <div class="hidden md:block">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-slate-800 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                            </div>
-                            <div class="text-center space-y-2">
-                                <div class="w-12 h-12 mx-auto bg-slate-800 rounded-full flex items-center justify-center text-emerald-500 font-black">2</div>
-                                <h4 class="text-white font-bold uppercase text-xs">Operative Check</h4>
-                                <p class="text-[10px] text-slate-500">"Is the Agent showing 100% load?"</p>
-                            </div>
-                        </div>
-
-                        <div class="mt-12 pt-12 border-t border-slate-800/50 max-w-2xl mx-auto">
-                            <p class="text-2xl font-black text-white italic tracking-tight">
-                                "If you only look at <span class="text-orange-500">Today</span>, you are surprised by <span class="text-indigo-400">Tomorrow</span>."
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
             </div>
+
+            <div id="slide-2" class="relative grid grid-cols-1 md:grid-cols-12 gap-10 items-center scroll-mt-32">
+                <div class="md:col-span-6 order-2 md:order-1 space-y-6">
+                    <h4 class="text-2xl font-bold text-white uppercase italic">Operative: Managing the "Now"</h4>
+                    <div class="space-y-4">
+                        <p class="text-slate-400 text-sm italic">Focus: Short-term stability and internal efficiency.</p>
+                        <div class="grid grid-cols-1 gap-3">
+                            <div class="p-4 bg-slate-900/60 rounded-2xl border border-slate-800">
+                                <span class="text-orange-500 text-[10px] font-black block mb-1">TIME HORIZON</span>
+                                <p class="text-[11px] text-slate-300">Under 1 year (Monthly/Daily metrics).</p>
+                            </div>
+                            <div class="p-4 bg-slate-900/60 rounded-2xl border border-slate-800">
+                                <span class="text-orange-500 text-[10px] font-black block mb-1">PRIMARY GOAL</span>
+                                <p class="text-[11px] text-slate-300">Variance Analysis: $Actual - Target = 0$</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:col-span-5 order-1 md:order-2 bg-slate-900 border border-orange-500/40 p-10 rounded-[3rem] shadow-2xl aspect-square flex flex-col justify-center text-center">
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-orange-500 font-bold text-xs">TARGET: 70°C</span>
+                        <span class="text-red-600 font-bold text-xs animate-pulse">ACTUAL: 95°C</span>
+                    </div>
+                    <div class="h-1 bg-slate-800 w-full mb-8"><div class="h-full bg-orange-500 w-[95%] shadow-[0_0_15px_rgba(249,115,22,0.5)]"></div></div>
+                    <h3 class="text-3xl font-black text-white italic uppercase tracking-tighter">OPERATIVE<br/><span class="text-orange-500">EFFICIENCY</span></h3>
+                </div>
+                <div class="hidden md:flex absolute -right-16 flex-col gap-2">
+                    <a href="#slide-1" class="p-3 bg-slate-900 border border-slate-700 rounded-xl hover:text-orange-500 transition-colors">↑</a>
+                    <a href="#slide-3" class="p-3 bg-slate-900 border border-slate-700 rounded-xl hover:text-orange-500 transition-colors">↓</a>
+                </div>
+            </div>
+
+            <div id="slide-3" class="relative grid grid-cols-1 md:grid-cols-12 gap-10 items-center scroll-mt-32">
+                <div class="md:col-span-5 bg-indigo-500/5 border border-indigo-500/20 p-10 rounded-[3rem] shadow-2xl aspect-square flex flex-col justify-center text-center">
+                    <div class="flex items-end justify-center gap-1 mb-8">
+                        <div class="w-4 h-8 bg-indigo-500/20"></div>
+                        <div class="w-4 h-12 bg-indigo-500/40"></div>
+                        <div class="w-4 h-20 bg-indigo-500/60"></div>
+                        <div class="w-4 h-28 bg-indigo-500 shadow-[0_0_15px_rgba(99,102,241,0.5)]"></div>
+                    </div>
+                    <h3 class="text-3xl font-black text-white italic uppercase tracking-tighter text-indigo-400">STRATEGIC<br/><span class="text-white">LONGEVITY</span></h3>
+                </div>
+                <div class="md:col-span-6 space-y-6">
+                    <h4 class="text-2xl font-bold text-white uppercase italic leading-tight">Strategic: Securing the Future</h4>
+                    <div class="space-y-4">
+                        <p class="text-slate-400 text-sm italic">Focus: Long-term sustainability and external effectiveness.</p>
+                        <div class="grid grid-cols-1 gap-3">
+                            <div class="p-4 bg-indigo-500/5 border border-indigo-500/20 rounded-2xl">
+                                <span class="text-indigo-400 text-[10px] font-black block mb-1">TIME HORIZON</span>
+                                <p class="text-[11px] text-slate-300">3-5 Years (Market trends and lifespan analysis).</p>
+                            </div>
+                            <div class="p-4 bg-indigo-500/5 border border-indigo-500/20 rounded-2xl">
+                                <span class="text-indigo-400 text-[10px] font-black block mb-1">FEED-FORWARD CONTROL</span>
+                                <p class="text-[11px] text-slate-300">Proactive Trend Recognition (Preventing bottlenecks).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:flex absolute -right-16 flex-col gap-2">
+                    <a href="#slide-2" class="p-3 bg-slate-900 border border-slate-700 rounded-xl hover:text-indigo-400 transition-colors">↑</a>
+                    <a href="#slide-4" class="p-3 bg-slate-900 border border-slate-700 rounded-xl hover:text-indigo-400 transition-colors">↓</a>
+                </div>
+            </div>
+
+            <div id="slide-4" class="relative grid grid-cols-1 md:grid-cols-12 gap-10 items-center scroll-mt-32">
+                <div class="md:col-span-12">
+                    <h4 class="text-2xl font-bold text-white uppercase italic mb-8 text-center">The Comparative Matrix</h4>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left font-mono text-[11px] uppercase border-collapse">
+                            <thead>
+                            <tr class="border-b border-slate-800 text-slate-500">
+                                <th class="py-4 px-2">Dimension</th>
+                                <th class="py-4 px-2 text-orange-500">Operative</th>
+                                <th class="py-4 px-2 text-indigo-400">Strategic</th>
+                            </tr>
+                            </thead>
+                            <tbody class="text-slate-300">
+                            <tr class="border-b border-slate-900">
+                                <td class="py-4 px-2 font-bold text-white">Orientation</td>
+                                <td class="py-4 px-2">Internal (Efficiency)</td>
+                                <td class="py-4 px-2">External (Effectiveness)</td>
+                            </tr>
+                            <tr class="border-b border-slate-900">
+                                <td class="py-4 px-2 font-bold text-white">Information</td>
+                                <td class="py-4 px-2">Quantitative / Precision</td>
+                                <td class="py-4 px-2">Qualitative / Patterns</td>
+                            </tr>
+                            <tr class="border-b border-slate-900">
+                                <td class="py-4 px-2 font-bold text-white">Control Loop</td>
+                                <td class="py-4 px-2">Feedback (Reactive)</td>
+                                <td class="py-4 px-2">Feed-Forward (Proactive)</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="hidden md:flex absolute -right-16 flex-col gap-2">
+                    <a href="#slide-3" class="p-3 bg-slate-900 border border-slate-700 rounded-xl hover:text-white transition-colors">↑</a>
+                    <a href="#slide-5" class="p-3 bg-slate-900 border border-slate-700 rounded-xl hover:text-white transition-colors">↓</a>
+                </div>
+            </div>
+
+            <div id="slide-5" class="relative bg-gradient-to-br from-slate-900 to-black border border-slate-800 p-16 rounded-[4rem] text-center overflow-hidden scroll-mt-32">
+                <div class="absolute inset-0 bg-orange-500/5 animate-mesh-fast"></div>
+                <div class="relative space-y-8">
+                    <h3 class="text-5xl md:text-6xl font-black text-white uppercase italic tracking-tighter leading-none">THE <span class="text-orange-500">INTEGRATED</span> LOOP</h3>
+                    <p class="text-slate-400 max-w-2xl mx-auto italic leading-relaxed">
+                        Managers connect <b>Operative Data</b> (Today's performance) with <b>Strategic Vision</b> (Tomorrow's existence) to secure asset value.
+                    </p>
+                </div>
+                <div class="hidden md:flex absolute -right-16 flex-col gap-2">
+                    <a href="#slide-4" class="p-3 bg-slate-900 border border-slate-700 rounded-xl hover:text-orange-500 transition-colors">↑</a>
+                    <a href="#slide-intro" class="p-3 bg-slate-900 border border-slate-700 rounded-xl hover:text-orange-500 transition-colors">↺</a>
+                </div>
+            </div>
+
+            <div class="text-center space-y-10 pb-20">
+                <h3 class="text-white text-6xl md:text-8xl font-black uppercase italic tracking-tighter leading-none">
+                    WATCH THE <span class="text-orange-500">PRESENT</span><br/>
+                    PROTECT THE <span class="text-indigo-400">FUTURE</span>
+                </h3>
+                <p class="text-slate-600 font-mono text-sm uppercase tracking-[0.8em]">SGA // Subject 07 Management Review</p>
+            </div>
+
         </section>
 
         <footer class="pt-12 border-t border-slate-900 flex justify-center text-[9px] font-mono text-slate-600 uppercase tracking-[0.5em] mb-12">
@@ -252,6 +217,7 @@ import '../styles/global.css';
 </div>
 
 <style is:global>
+    html { scroll-behavior: smooth; }
     @keyframes move-mesh {
         0% { transform: translate(0, 0) scale(1); }
         50% { transform: translate(10%, 5%) scale(1.05); }
