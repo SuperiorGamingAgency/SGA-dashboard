@@ -1,6 +1,7 @@
 /* main.css or globals.css */
-@import "tailwindcss";
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /* SGA NEXUS HUB COMPONENTS
    Manual CSS properties used to ensure 100% build stability
    and avoid "Unknown utility class" errors.
